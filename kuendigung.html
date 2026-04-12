@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Abo kündigen – EasyToGrow</title>
+  <meta name="robots" content="noindex, nofollow">
+  <link rel="icon" type="image/png" href="logo.png">
+  <link rel="apple-touch-icon" href="logo.png">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --bg: #0a0f0d; --bg2: #111812; --bg3: #161e14;
+      --text: #f0f4f1; --text-muted: #8a9e8d; --text-dim: #4a5e4d;
+      --green: #22c55e; --red: #ef4444; --border: #1e2e20; --border-green: rgba(34,197,94,0.3);
+      --radius: 12px;
+    }
+    body { background: var(--bg); color: var(--text); font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; line-height: 1.75; }
+    nav {
+      position: sticky; top: 0; z-index: 100;
+      background: rgba(10,15,13,0.95); backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border); padding: 0 24px; height: 64px;
+      display: flex; align-items: center; justify-content: space-between;
+    }
+    .nav-brand { display: flex; align-items: center; gap: 10px; text-decoration: none; }
+    .nav-brand img { width: 32px; height: 32px; }
+    .nav-brand span { font-weight: 700; color: var(--text); font-size: 1rem; }
+    .nav-back { color: var(--text-muted); text-decoration: none; font-size: 0.9rem; transition: color 0.2s; }
+    .nav-back:hover { color: var(--green); }
+    .container { max-width: 620px; margin: 0 auto; padding: 64px 24px 96px; }
+    .page-label { font-size: 0.72rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--red); margin-bottom: 12px; }
+    h1 { font-size: 2rem; font-weight: 800; margin-bottom: 12px; }
+    .subtitle { color: var(--text-muted); font-size: 0.9rem; margin-bottom: 40px; }
+    .info-box {
+      background: rgba(239,68,68,0.07); border: 1px solid rgba(239,68,68,0.25);
+      border-radius: var(--radius); padding: 16px 20px; margin-bottom: 36px;
+      font-size: 0.88rem; color: var(--text-muted);
+    }
+    .info-box strong { color: var(--text); }
+
+    /* Formular */
+    .form-card {
+      background: var(--bg2); border: 1px solid var(--border);
+      border-radius: var(--radius); padding: 32px;
+    }
+    .form-group { margin-bottom: 20px; }
+    label { display: block; font-size: 0.85rem; font-weight: 600; color: var(--text); margin-bottom: 6px; }
+    input, select, textarea {
+      width: 100%; background: var(--bg3); border: 1px solid var(--border);
+      border-radius: 8px; padding: 12px 14px; color: var(--text);
+      font-size: 0.93rem; font-family: inherit; transition: border-color 0.2s;
+      outline: none;
+    }
+    input:focus, select:focus, textarea:focus { border-color: var(--border-green); }
+    select option { background: var(--bg3); }
+    textarea { resize: vertical; min-height: 90px; }
+
+    /* Bestätigungsschritt */
+    .confirm-box {
+      display: none;
+      background: rgba(239,68,68,0.07); border: 1px solid rgba(239,68,68,0.25);
+      border-radius: var(--radius); padding: 20px 24px; margin-bottom: 20px;
+    }
+    .confirm-box.show { display: block; }
+    .confirm-box p { font-size: 0.88rem; color: var(--text-muted); margin-bottom: 10px; }
+    .confirm-box strong { color: var(--text); }
+    .confirm-check { display: flex; align-items: flex-start; gap: 10px; margin-top: 12px; }
+    .confirm-check input[type="checkbox"] { width: auto; margin-top: 3px; accent-color: var(--red); }
+    .confirm-check label { font-size: 0.85rem; color: var(--text-muted); font-weight: 400; }
+
+    /* Buttons */
+    .btn-next {
+      width: 100%; padding: 14px; border: none; border-radius: 8px;
+      background: var(--bg3); border: 1px solid var(--border);
+      color: var(--text); font-size: 0.95rem; font-weight: 600;
+      cursor: pointer; transition: border-color 0.2s;
+    }
+    .btn-next:hover { border-color: var(--border-green); }
+    .btn-submit {
+      display: none; width: 100%; padding: 14px; border: none; border-radius: 8px;
+      background: var(--red); color: #fff;
+      font-size: 0.95rem; font-weight: 700; cursor: pointer; transition: opacity 0.2s;
+    }
+    .btn-submit.show { display: block; }
+    .btn-submit:hover { opacity: 0.88; }
+
+    /* Erfolg */
+    .success-box {
+      display: none; text-align: center; padding: 48px 24px;
+    }
+    .success-box.show { display: block; }
+    .success-icon { font-size: 3rem; margin-bottom: 16px; }
+    .success-box h2 { font-size: 1.4rem; margin-bottom: 10px; }
+    .success-box p { color: var(--text-muted); font-size: 0.9rem; }
+
+    .footer-note { display: block; margin-top: 48px; font-size: 0.8rem; color: var(--text-dim); text-align: center; }
+    a { color: var(--green); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+  </style>
+</head>
+<body>
+<nav>
+  <a class="nav-brand" href="index.html">
+    <img src="logo.png" alt="EasyToGrow">
+    <span>EasyToGrow</span>
+  </a>
+  <a class="nav-back" href="index.html">← Zurück zur Startseite</a>
+</nav>
+
+<div class="container">
+  <div class="page-label">Kündigung</div>
+  <h1>Abo kündigen</h1>
+  <p class="subtitle">Gemäß § 312k BGB stellen wir dir diesen Kündigungsweg direkt zur Verfügung.</p>
+
+  <div class="info-box">
+    <strong>Bitte beachte:</strong> Monatsabos enden zum Ende des laufenden Abrechnungsmonats. Jahresabos enden zum Ende der Laufzeit. Du erhältst eine Bestätigung per E-Mail.
+  </div>
+
+  <div class="form-card">
+
+    <!-- Erfolg -->
+    <div class="success-box" id="successBox">
+      <div class="success-icon">✅</div>
+      <h2>Kündigung eingegangen</h2>
+      <p>Wir haben deine Kündigung erhalten und bearbeiten sie innerhalb von 1–2 Werktagen.<br>Du erhältst eine Bestätigung an deine E-Mail-Adresse.</p>
+    </div>
+
+    <!-- Formular -->
+    <form name="kuendigung" netlify data-netlify="true" id="kuendigungForm">
+      <input type="hidden" name="form-name" value="kuendigung">
+
+      <div class="form-group">
+        <label for="name">Vollständiger Name *</label>
+        <input type="text" id="name" name="name" placeholder="Dein Name" required>
+      </div>
+
+      <div class="form-group">
+        <label for="email">E-Mail-Adresse (mit der du dich registriert hast) *</label>
+        <input type="email" id="email" name="email" placeholder="deine@email.de" required>
+      </div>
+
+      <div class="form-group">
+        <label for="plan">Dein aktueller Plan *</label>
+        <select id="plan" name="plan" required>
+          <option value="" disabled selected>Plan auswählen …</option>
+          <optgroup label="Content Creator">
+            <option>Content Creator Starter (39€/Monat)</option>
+            <option>Content Creator Pro (79€/Monat)</option>
+            <option>Content Creator Business (149€/Monat)</option>
+          </optgroup>
+          <optgroup label="Adult Creator">
+            <option>Adult Creator Starter (49€/Monat)</option>
+            <option>Adult Creator Pro (89€/Monat)</option>
+            <option>Adult Creator Business (159€/Monat)</option>
+          </optgroup>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label for="grund">Kündigungsgrund (optional — hilft uns zu verbessern)</label>
+        <select id="grund" name="grund">
+          <option value="" selected>Lieber nicht angeben</option>
+          <option>Zu teuer für mich</option>
+          <option>Ich nutze es zu selten</option>
+          <option>Mir fehlt ein bestimmtes Feature</option>
+          <option>Ich wechsle zu einem anderen Tool</option>
+          <option>Technische Probleme</option>
+          <option>Ich pausiere nur vorübergehend</option>
+          <option>Sonstiges</option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label for="feedback">Was hätten wir besser machen können? (optional)</label>
+        <textarea id="feedback" name="feedback" placeholder="Dein ehrliches Feedback hilft uns, EasyToGrow zu verbessern …"></textarea>
+      </div>
+
+      <!-- Bestätigung -->
+      <div class="confirm-box" id="confirmBox">
+        <p>Du möchtest folgendes Abo kündigen:</p>
+        <p><strong id="confirmName">–</strong> · <strong id="confirmEmail">–</strong><br>
+        Plan: <strong id="confirmPlan">–</strong><br>
+        Grund: <strong id="confirmGrund">–</strong></p>
+        <div class="confirm-check">
+          <input type="checkbox" id="confirmCheck" name="bestaetigt" value="ja">
+          <label for="confirmCheck">Ja, ich möchte mein Abo verbindlich kündigen. Mir ist bewusst, dass der Zugang bis zum Ende des Abrechnungszeitraums bestehen bleibt.</label>
+        </div>
+      </div>
+
+      <button type="button" class="btn-next" id="btnNext" onclick="showConfirm()">Weiter zur Bestätigung →</button>
+      <button type="submit" class="btn-submit" id="btnSubmit">Jetzt verbindlich kündigen</button>
+    </form>
+  </div>
+
+  <span class="footer-note">Fragen? <a href="mailto:easytogrow@gmx.de">easytogrow@gmx.de</a> · <a href="index.html">Zurück zur Startseite</a></span>
+</div>
+
+<script>
+  function showConfirm() {
+    const name = document.getElementById('name').value.trim();
+    const email = document.getElementById('email').value.trim();
+    const plan = document.getElementById('plan').value;
+
+    const grund = document.getElementById('grund').value;
+
+    if (!name || !email || !plan) {
+      alert('Bitte fülle alle Pflichtfelder aus.');
+      return;
+    }
+
+    document.getElementById('confirmName').textContent = name;
+    document.getElementById('confirmEmail').textContent = email;
+    document.getElementById('confirmPlan').textContent = plan;
+    document.getElementById('confirmGrund').textContent = grund;
+
+    document.getElementById('confirmBox').classList.add('show');
+    document.getElementById('btnNext').style.display = 'none';
+    document.getElementById('btnSubmit').classList.add('show');
+  }
+
+  document.getElementById('kuendigungForm').addEventListener('submit', function(e) {
+    const checked = document.getElementById('confirmCheck').checked;
+    if (!checked) {
+      e.preventDefault();
+      alert('Bitte bestätige die Kündigung mit dem Haken.');
+      return;
+    }
+    e.preventDefault();
+    // Netlify Forms Submit
+    const form = document.getElementById('kuendigungForm');
+    const data = new FormData(form);
+    fetch('/', { method: 'POST', body: data })
+      .then(() => {
+        form.style.display = 'none';
+        document.querySelector('.info-box').style.display = 'none';
+        document.getElementById('successBox').classList.add('show');
+      })
+      .catch(() => alert('Fehler beim Senden. Bitte schreibe uns direkt: easytogrow@gmx.de'));
+  });
+</script>
+</body>
+</html>

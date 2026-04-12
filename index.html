@@ -1,0 +1,2855 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>EasyToGrow – KI-Antworten für Creator | OnlyFans, Instagram, TikTok</title>
+  <meta name="description" content="EasyToGrow: Die erste KI-App für DACH-Creator. Beantworte Fan-Nachrichten 10× schneller auf OnlyFans, Fansly, Instagram & TikTok. Flat Rate ab 39€ – kein Revenue Share. EU AI Act konform, Mobile PWA.">
+  <meta name="keywords" content="KI für Creator, OnlyFans KI Tool, Creator Reply App, EasyToGrow, KI Antworten Creator, Fansly KI, Instagram KI Nachrichten, TikTok KI, OnlyFans Tool Deutschland, Creator Tool DACH">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://easytogrowki.de/">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="logo.png">
+  <link rel="apple-touch-icon" href="logo.png">
+
+  <!-- Plausible Analytics (cookieless, DSGVO-konform) -->
+  <script defer data-domain="easytogrowki.de" src="https://plausible.io/js/script.js"></script>
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="EasyToGrow – Einfach wachsen mit KI">
+  <meta property="og:description" content="Beantworte Fan-Nachrichten 10× schneller. Flat Rate ab 39€ – kein Revenue Share. Das erste KI-Tool für DACH-Creator.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://easytogrowki.de/">
+  <meta property="og:image" content="https://easytogrowki.de/logo.png">
+  <meta property="og:locale" content="de_DE">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="EasyToGrow – KI für Creator im DACH-Raum">
+  <meta name="twitter:description" content="Führende Creator-Tools nehmen bis zu 5% deines Umsatzes. Bei 3.000€/mo sind das 150€ extra. EasyToGrow kostet 39€. Flat. Kein Revenue Share.">
+  <meta name="twitter:image" content="https://easytogrowki.de/logo.png">
+
+  <!-- JSON-LD -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "EasyToGrow",
+    "alternateName": "EasyToGrowKI",
+    "description": "KI-gestützte Creator Management Suite. Beantwortet Fan-Nachrichten, generiert Content und entwickelt Strategie für 10 Plattformen: OnlyFans, Fansly, Fanvue, Instagram, TikTok, Telegram, Reddit, Threads, Twitter/X, Facebook. DACH-First, EU AI Act konform.",
+    "url": "https://easytogrowki.de",
+    "applicationCategory": "BusinessApplication",
+    "operatingSystem": "Web, iOS, Android (PWA)",
+    "offers": [
+      { "@type": "Offer", "name": "Starter", "price": "39.00", "priceCurrency": "EUR" },
+      { "@type": "Offer", "name": "Pro", "price": "79.00", "priceCurrency": "EUR" },
+      { "@type": "Offer", "name": "Business", "price": "149.00", "priceCurrency": "EUR" }
+    ],
+    "featureList": ["KI-generierte Fan-Antworten","Human-in-the-Loop","Fan-Memory","Multi-Workspace","Mobile PWA","Kein Revenue Share","DACH-First"],
+    "inLanguage": ["de","en"],
+    "audience": { "@type": "Audience", "audienceType": "Content Creator, Agenturen, Social Media Creator" }
+  }
+  </script>
+
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg:    #080c16;
+      --bg2:   #0d1424;
+      --bg3:   #141e35;
+      --bg4:   #1a2745;
+      --green:       #22c55e;
+      --green-dark:  #16a34a;
+      --green-light: #4ade80;
+      --green-glow:  rgba(34,197,94,0.12);
+      --teal:  #14b8a6;
+      --red:   #ef4444;
+      --amber: #f59e0b;
+      --text:       #f0f6fc;
+      --text-muted: #8b9ab0;
+      --text-dim:   #5a6a80;
+      --border:       rgba(255,255,255,0.07);
+      --border-green: rgba(34,197,94,0.28);
+      --border-red:   rgba(239,68,68,0.28);
+      --radius:    14px;
+      --radius-lg: 20px;
+      --shadow:       0 4px 32px rgba(0,0,0,0.5);
+      --shadow-green: 0 0 48px rgba(34,197,94,0.18);
+    }
+
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.65;
+      overflow-x: hidden;
+    }
+
+    /* TYPOGRAPHY */
+    h1 { font-size: clamp(2rem, 5vw, 3.6rem); font-weight: 800; line-height: 1.12; letter-spacing: -0.025em; }
+    h2 { font-size: clamp(1.5rem, 3.5vw, 2.3rem); font-weight: 750; line-height: 1.25; letter-spacing: -0.015em; }
+    h3 { font-size: 1.1rem; font-weight: 650; }
+    p  { color: var(--text-muted); }
+
+    .gradient-text {
+      background: linear-gradient(130deg, var(--green) 0%, var(--teal) 100%);
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    /* LAYOUT */
+    .container { max-width: 1160px; margin: 0 auto; padding: 0 24px; }
+    section { padding: 100px 0; }
+
+    .section-label {
+      display: inline-block;
+      font-size: 0.72rem; font-weight: 700;
+      letter-spacing: 0.14em; text-transform: uppercase;
+      color: var(--green);
+      background: var(--green-glow);
+      border: 1px solid var(--border-green);
+      padding: 5px 14px; border-radius: 100px;
+      margin-bottom: 18px;
+    }
+    .section-header { text-align: center; margin-bottom: 64px; }
+    .section-header p { max-width: 600px; margin: 12px auto 0; font-size: 1.05rem; }
+
+    /* BUTTONS */
+    .btn {
+      display: inline-flex; align-items: center; gap: 8px;
+      font-size: 0.95rem; font-weight: 600;
+      padding: 13px 26px; border-radius: 10px;
+      border: none; cursor: pointer; text-decoration: none;
+      transition: all 0.2s ease; white-space: nowrap;
+    }
+    .btn-primary {
+      background: linear-gradient(135deg, var(--green-dark), var(--green));
+      color: #fff;
+      box-shadow: 0 0 24px rgba(34,197,94,0.32);
+    }
+    .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 0 36px rgba(34,197,94,0.5); }
+    .btn-outline {
+      background: transparent; color: var(--text);
+      border: 1px solid var(--border);
+    }
+    .btn-outline:hover { border-color: var(--green); color: var(--green); }
+    .btn-lg { font-size: 1.05rem; padding: 16px 32px; border-radius: 12px; }
+
+    /* ──────────────────────────────────────────
+       NAV
+    ────────────────────────────────────────── */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      padding: 16px 0;
+      transition: background 0.3s, border-bottom 0.3s;
+    }
+    nav.scrolled {
+      background: rgba(8,12,22,0.94);
+      border-bottom: 1px solid var(--border);
+      backdrop-filter: blur(20px);
+    }
+    .nav-inner { display: flex; align-items: center; justify-content: space-between; }
+    .nav-logo {
+      display: flex; align-items: center; gap: 10px;
+      text-decoration: none; color: var(--text);
+    }
+    .nav-logo img { width: 34px; height: 34px; }
+    .nav-logo span { font-size: 1.05rem; font-weight: 700; }
+    .nav-links { display: flex; align-items: center; gap: 4px; list-style: none; }
+    .nav-links a {
+      color: var(--text-muted); text-decoration: none;
+      font-size: 0.88rem; padding: 7px 13px; border-radius: 8px;
+      transition: color 0.2s;
+    }
+    .nav-links a:hover { color: var(--text); }
+    .nav-right { display: flex; align-items: center; gap: 12px; }
+    .hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; padding: 4px; }
+    .hamburger span { display: block; width: 22px; height: 2px; background: var(--text); border-radius: 2px; transition: 0.3s; }
+    .mobile-menu {
+      display: none; flex-direction: column;
+      background: rgba(8,12,22,0.98);
+      border-top: 1px solid var(--border);
+      padding: 20px 24px; gap: 6px;
+    }
+    .mobile-menu.open { display: flex; }
+    .mobile-menu a {
+      color: var(--text-muted); text-decoration: none;
+      font-size: 0.95rem; padding: 10px 0;
+      border-bottom: 1px solid var(--border);
+      transition: color 0.2s;
+    }
+    .mobile-menu a:hover { color: var(--text); }
+    .mobile-menu .btn { margin-top: 10px; justify-content: center; }
+
+    /* ──────────────────────────────────────────
+       HERO
+    ────────────────────────────────────────── */
+    #hero {
+      padding: 160px 0 60px;
+      background:
+        radial-gradient(ellipse 70% 50% at 50% 0%, rgba(34,197,94,0.08) 0%, transparent 65%),
+        radial-gradient(ellipse 40% 30% at 80% 30%, rgba(20,184,166,0.05) 0%, transparent 60%);
+    }
+    .hero-inner {
+      display: grid; grid-template-columns: 1.1fr 0.9fr;
+      gap: 64px; align-items: center;
+    }
+    .hero-badge {
+      display: inline-flex; align-items: center; gap: 8px;
+      font-size: 0.8rem; font-weight: 600;
+      background: rgba(34,197,94,0.1); border: 1px solid var(--border-green);
+      padding: 7px 14px; border-radius: 100px; color: var(--green-light);
+      margin-bottom: 26px;
+    }
+    .hero-badge .dot {
+      width: 7px; height: 7px; border-radius: 50%;
+      background: var(--green); animation: pulse 2s infinite;
+    }
+    @keyframes pulse { 0%,100%{opacity:1;transform:scale(1)} 50%{opacity:0.6;transform:scale(1.35)} }
+    .hero-title { margin-bottom: 22px; }
+    .hero-sub {
+      font-size: 1.15rem; margin-bottom: 38px; max-width: 500px;
+      line-height: 1.7;
+    }
+    .hero-ctas { display: flex; gap: 14px; flex-wrap: wrap; margin-bottom: 44px; }
+    .hero-trust { display: flex; gap: 22px; flex-wrap: wrap; }
+    .trust-item {
+      display: flex; align-items: center; gap: 7px;
+      font-size: 0.82rem; color: var(--text-muted);
+    }
+    .trust-check { color: var(--green); font-size: 0.9rem; }
+
+    /* Mockup */
+    .hero-visual { position: relative; }
+    .mockup-window {
+      background: var(--bg2); border: 1px solid var(--border);
+      border-radius: 18px; overflow: hidden;
+      box-shadow: var(--shadow), var(--shadow-green);
+    }
+    .mockup-bar {
+      background: var(--bg3); padding: 12px 16px;
+      display: flex; align-items: center; gap: 7px;
+      border-bottom: 1px solid var(--border);
+    }
+    .dot-r { width: 10px; height: 10px; border-radius: 50%; background: #ef4444; }
+    .dot-y { width: 10px; height: 10px; border-radius: 50%; background: #f59e0b; }
+    .dot-g { width: 10px; height: 10px; border-radius: 50%; background: #22c55e; }
+    .mockup-label { font-size: 0.78rem; color: var(--text-muted); margin-left: 8px; }
+    .mockup-body { padding: 22px 20px; }
+    .chat-msg { display: flex; gap: 10px; margin-bottom: 16px; align-items: flex-start; }
+    .chat-avatar {
+      width: 30px; height: 30px; border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 0.75rem; font-weight: 700; flex-shrink: 0;
+    }
+    .chat-bubble {
+      background: var(--bg3); border: 1px solid var(--border);
+      border-radius: 12px 12px 12px 3px;
+      padding: 10px 14px; font-size: 0.82rem;
+      color: var(--text-muted); max-width: 260px; line-height: 1.5;
+    }
+    .chat-msg.ai { flex-direction: row-reverse; }
+    .chat-msg.ai .chat-bubble {
+      background: rgba(34,197,94,0.1); border-color: var(--border-green);
+      color: var(--text); border-radius: 12px 12px 3px 12px;
+    }
+    .ai-label {
+      display: flex; align-items: center; gap: 5px;
+      font-size: 0.68rem; color: var(--green);
+      margin-top: 5px; justify-content: flex-end;
+    }
+    .copy-btn-demo {
+      display: flex; align-items: center; gap: 6px;
+      background: var(--green); color: #fff;
+      border: none; border-radius: 8px;
+      padding: 8px 16px; font-size: 0.78rem; font-weight: 700;
+      cursor: default; margin-top: 10px;
+      width: fit-content; margin-left: auto;
+    }
+    .float-badge {
+      position: absolute;
+      background: var(--bg2); border: 1px solid var(--border-green);
+      border-radius: 12px; padding: 9px 15px;
+      font-size: 0.78rem; font-weight: 700;
+      color: var(--green-light); box-shadow: var(--shadow);
+      white-space: nowrap; backdrop-filter: blur(8px);
+    }
+    .float-badge.tl { top: -18px; left: -22px; }
+    .float-badge.br { bottom: -18px; right: -22px; }
+
+    /* ──────────────────────────────────────────
+       PAIN POINT BANNER
+    ────────────────────────────────────────── */
+    #pain {
+      padding: 0;
+      background: rgba(239,68,68,0.04);
+      border-top: 1px solid rgba(239,68,68,0.12);
+      border-bottom: 1px solid rgba(239,68,68,0.12);
+    }
+    .pain-inner {
+      padding: 48px 0;
+      display: grid; grid-template-columns: 1fr 1fr 1fr;
+      gap: 0;
+    }
+    .pain-stat {
+      text-align: center; padding: 20px 32px;
+      border-right: 1px solid var(--border);
+    }
+    .pain-stat:last-child { border-right: none; }
+    .pain-number {
+      font-size: clamp(2rem, 4vw, 3rem); font-weight: 900;
+      color: var(--red); line-height: 1; margin-bottom: 8px;
+    }
+    .pain-desc { font-size: 0.9rem; color: var(--text-muted); }
+
+    /* ──────────────────────────────────────────
+       REVENUE SHARE CALLOUT (biggest USP)
+    ────────────────────────────────────────── */
+    #revenue-save {
+      background: var(--bg2);
+      padding: 100px 0;
+    }
+    .revenue-inner {
+      display: grid; grid-template-columns: 1fr 1fr;
+      gap: 64px; align-items: center;
+    }
+    .revenue-text .section-label { margin-bottom: 16px; }
+    .revenue-text h2 { margin-bottom: 20px; }
+    .revenue-text p { font-size: 1.05rem; margin-bottom: 32px; }
+    .revenue-quote {
+      background: var(--bg3);
+      border-left: 3px solid var(--green);
+      padding: 20px 24px;
+      border-radius: 0 12px 12px 0;
+      font-size: 1rem; font-style: italic;
+      color: var(--text-muted);
+      margin-bottom: 0;
+    }
+    .revenue-quote strong { color: var(--green-light); font-style: normal; }
+
+    .revenue-calc {
+      background: var(--bg3);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      box-shadow: var(--shadow);
+    }
+    .calc-header {
+      background: var(--bg4);
+      padding: 18px 24px;
+      font-size: 0.82rem; font-weight: 700;
+      letter-spacing: 0.08em; text-transform: uppercase;
+      color: var(--text-muted);
+      border-bottom: 1px solid var(--border);
+    }
+    .calc-slider-wrap { padding: 28px 24px 20px; }
+    .calc-label {
+      display: flex; justify-content: space-between;
+      font-size: 0.85rem; color: var(--text-muted);
+      margin-bottom: 12px;
+    }
+    .calc-label span { color: var(--text); font-weight: 700; font-size: 1rem; }
+    input[type=range] {
+      width: 100%; height: 6px; border-radius: 3px;
+      background: var(--bg4); outline: none; cursor: pointer;
+      -webkit-appearance: none;
+    }
+    input[type=range]::-webkit-slider-thumb {
+      -webkit-appearance: none; width: 22px; height: 22px;
+      border-radius: 50%; background: var(--green);
+      border: 3px solid var(--bg3);
+      box-shadow: 0 0 8px rgba(34,197,94,0.5);
+      cursor: pointer;
+    }
+    .calc-results { padding: 0 24px 28px; display: flex; flex-direction: column; gap: 12px; }
+    .calc-row {
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 14px 18px; border-radius: 10px;
+    }
+    .calc-row.bad {
+      background: rgba(239,68,68,0.08);
+      border: 1px solid rgba(239,68,68,0.18);
+    }
+    .calc-row.good {
+      background: var(--green-glow);
+      border: 1px solid var(--border-green);
+    }
+    .calc-row-label { font-size: 0.88rem; }
+    .calc-row-label .sub { font-size: 0.75rem; color: var(--text-muted); display: block; margin-top: 2px; }
+    .calc-row-price { font-size: 1.3rem; font-weight: 800; }
+    .calc-row.bad .calc-row-price { color: var(--red); }
+    .calc-row.good .calc-row-price { color: var(--green-light); }
+    .calc-saving {
+      padding: 16px 18px;
+      background: linear-gradient(135deg, rgba(34,197,94,0.15), rgba(20,184,166,0.1));
+      border: 1px solid var(--border-green);
+      border-radius: 10px;
+      display: flex; align-items: center; justify-content: space-between;
+    }
+    .calc-saving-label { font-size: 0.85rem; font-weight: 700; color: var(--text); }
+    .calc-saving-amount { font-size: 1.6rem; font-weight: 900; color: var(--green); }
+
+    /* ──────────────────────────────────────────
+       HOW IT WORKS
+    ────────────────────────────────────────── */
+    #how { background: var(--bg); }
+    .steps {
+      display: grid; grid-template-columns: repeat(3,1fr);
+      gap: 28px; position: relative;
+    }
+    .steps-connector {
+      position: absolute;
+      top: 44px; left: calc(33.33% - 20px); right: calc(33.33% - 20px);
+      height: 2px;
+      background: linear-gradient(90deg, transparent 0%, var(--border-green) 30%, var(--border-green) 70%, transparent 100%);
+      pointer-events: none;
+    }
+    .step-card {
+      background: var(--bg2); border: 1px solid var(--border);
+      border-radius: var(--radius-lg); padding: 36px 28px;
+      text-align: center; position: relative;
+      transition: border-color 0.3s, transform 0.3s;
+    }
+    .step-card:hover { border-color: var(--border-green); transform: translateY(-4px); }
+    .step-number {
+      width: 52px; height: 52px; border-radius: 50%;
+      background: var(--green-glow); border: 2px solid var(--border-green);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.15rem; font-weight: 900; color: var(--green);
+      margin: 0 auto 20px;
+    }
+    .step-emoji { font-size: 2.2rem; margin-bottom: 16px; }
+    .step-card h3 { margin-bottom: 10px; color: var(--text); }
+
+    /* ──────────────────────────────────────────
+       FÜR WEN?
+    ────────────────────────────────────────── */
+    #for-whom { background: var(--bg2); }
+    .forwhom-grid {
+      display: grid; grid-template-columns: repeat(3,1fr); gap: 24px;
+    }
+    .forwhom-card {
+      background: var(--bg3); border: 1px solid var(--border);
+      border-radius: var(--radius-lg); padding: 36px 28px;
+      transition: border-color 0.3s, transform 0.3s;
+      position: relative; overflow: hidden;
+    }
+    .forwhom-card::before {
+      content: '';
+      position: absolute; top: 0; left: 0; right: 0; height: 3px;
+      background: linear-gradient(90deg, var(--green-dark), var(--teal));
+      opacity: 0; transition: opacity 0.3s;
+    }
+    .forwhom-card:hover { border-color: var(--border-green); transform: translateY(-4px); }
+    .forwhom-card:hover::before { opacity: 1; }
+    .forwhom-icon { font-size: 2.6rem; margin-bottom: 20px; }
+    .forwhom-card h3 { font-size: 1.15rem; color: var(--text); margin-bottom: 12px; }
+    .forwhom-card > p { margin-bottom: 20px; font-size: 0.9rem; }
+    .forwhom-pains {
+      list-style: none; display: flex; flex-direction: column; gap: 8px;
+    }
+    .forwhom-pains li {
+      display: flex; align-items: flex-start; gap: 8px;
+      font-size: 0.85rem; color: var(--text-muted);
+    }
+    .forwhom-pains .x { color: var(--red); flex-shrink: 0; font-weight: 700; }
+
+    /* ──────────────────────────────────────────
+       USPs
+    ────────────────────────────────────────── */
+    #features { background: var(--bg); }
+    .usp-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(270px,1fr));
+      gap: 20px;
+    }
+    .usp-card {
+      background: var(--bg2); border: 1px solid var(--border);
+      border-radius: var(--radius-lg); padding: 28px 26px;
+      transition: border-color 0.3s, transform 0.3s, box-shadow 0.3s;
+    }
+    .usp-card:hover {
+      border-color: var(--border-green); transform: translateY(-3px);
+      box-shadow: 0 10px 36px rgba(34,197,94,0.1);
+    }
+    .usp-icon-wrap {
+      width: 50px; height: 50px; border-radius: 13px;
+      background: var(--green-glow); border: 1px solid var(--border-green);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.4rem; margin-bottom: 18px;
+    }
+    .usp-card h3 { color: var(--text); margin-bottom: 8px; font-size: 1.05rem; }
+    .usp-tagline {
+      font-size: 0.8rem; font-weight: 700;
+      color: var(--green); margin-bottom: 8px;
+      letter-spacing: 0.03em;
+    }
+    .usp-card > p { font-size: 0.88rem; line-height: 1.65; }
+
+    /* ──────────────────────────────────────────
+       PLATFORMS
+    ────────────────────────────────────────── */
+    #platforms { background: var(--bg2); }
+    .platform-grid {
+      display: flex; flex-wrap: wrap; justify-content: center; gap: 14px;
+    }
+    .platform-badge {
+      display: flex; align-items: center; gap: 10px;
+      background: var(--bg3); border: 1px solid var(--border);
+      border-radius: 12px; padding: 14px 22px;
+      font-size: 0.92rem; font-weight: 600;
+      transition: border-color 0.3s, transform 0.2s;
+      color: var(--text);
+    }
+    .platform-badge:hover { border-color: var(--border-green); transform: translateY(-2px); }
+    .platform-badge .pi { font-size: 1.4rem; }
+
+    /* ──────────────────────────────────────────
+       PRICING
+    ────────────────────────────────────────── */
+    #pricing { background: var(--bg); }
+    .pricing-grid {
+      display: grid; grid-template-columns: repeat(3,1fr);
+      gap: 24px; margin-bottom: 44px;
+    }
+    .pricing-card {
+      background: var(--bg2); border: 1px solid var(--border);
+      border-radius: var(--radius-lg); padding: 36px 28px;
+      position: relative; transition: transform 0.3s;
+    }
+    .pricing-card:hover { transform: translateY(-4px); }
+    .pricing-card.featured {
+      border-color: var(--green);
+      background: var(--bg3);
+      box-shadow: 0 0 48px rgba(34,197,94,0.14);
+    }
+    .pricing-badge {
+      position: absolute; top: -14px; left: 50%;
+      transform: translateX(-50%);
+      background: linear-gradient(135deg, var(--green-dark), var(--green));
+      color: #fff; font-size: 0.72rem; font-weight: 800;
+      padding: 5px 18px; border-radius: 100px; white-space: nowrap;
+    }
+    .pricing-tier { font-size: 0.78rem; font-weight: 700; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.12em; margin-bottom: 16px; }
+    .pricing-amount { font-size: 2.8rem; font-weight: 900; color: var(--text); line-height: 1; }
+    .pricing-period { font-size: 0.95rem; color: var(--text-muted); }
+    .pricing-first { font-size: 0.85rem; color: var(--green-light); font-weight: 700; margin: 8px 0 4px; }
+    .pricing-note { font-size: 0.8rem; color: var(--text-dim); margin-bottom: 24px; }
+    .pricing-divider { border: none; border-top: 1px solid var(--border); margin: 20px 0; }
+    .pricing-features { list-style: none; display: flex; flex-direction: column; gap: 11px; margin-bottom: 32px; }
+    .pricing-features li {
+      display: flex; align-items: flex-start; gap: 9px;
+      font-size: 0.88rem; color: var(--text-muted);
+    }
+    .pricing-features .ck { color: var(--green); flex-shrink: 0; margin-top: 1px; }
+    .pricing-features strong { color: var(--text); }
+
+    .topup-wrap { margin-top: 48px; }
+    .topup-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 14px; margin-top: 24px; }
+    .topup-card {
+      background: var(--bg2); border: 1px solid var(--border);
+      border-radius: var(--radius); padding: 20px 22px;
+      display: flex; align-items: center; justify-content: space-between;
+      transition: border-color 0.3s;
+    }
+    .topup-card:hover { border-color: var(--border-green); }
+    .topup-name { font-weight: 700; color: var(--text); font-size: 0.95rem; }
+    .topup-actions { font-size: 0.82rem; color: var(--text-muted); margin-top: 3px; }
+    .topup-price { font-size: 1.35rem; font-weight: 900; color: var(--green); }
+
+    /* Billing Toggle */
+    .billing-toggle {
+      display: flex; align-items: center; justify-content: center;
+      gap: 8px; margin-bottom: 36px;
+    }
+    .billing-btn {
+      padding: 10px 24px; border-radius: 99px; border: 1px solid var(--border);
+      background: transparent; color: var(--text-muted); font-size: 0.92rem;
+      font-weight: 600; cursor: pointer; transition: all 0.2s;
+    }
+    .billing-btn.active {
+      background: var(--green-glow); border-color: var(--border-green);
+      color: var(--text);
+    }
+    .toggle-badge {
+      background: var(--green); color: #000; font-size: 0.72rem;
+      font-weight: 800; padding: 2px 7px; border-radius: 99px;
+      margin-left: 6px; vertical-align: middle;
+    }
+    /* Yearly savings in card */
+    .pricing-section-label { text-align: center; margin-bottom: 32px; }
+    .pricing-section-title { font-size: 1.5rem; font-weight: 800; color: var(--text); margin-bottom: 6px; }
+    .pricing-section-sub { font-size: 0.9rem; color: var(--text-muted); }
+    .pricing-section-adult .pricing-section-title { color: var(--green-light); }
+    .pricing-yearly-info {
+      display: none; flex-direction: column; gap: 4px; margin-bottom: 4px;
+    }
+    .pricing-yearly-info.show { display: flex; }
+    .pricing-yearly-total {
+      font-size: 0.82rem; color: var(--text-muted);
+    }
+    .pricing-yearly-total s { color: var(--text-muted); opacity: 0.6; }
+    .pricing-yearly-savings {
+      font-size: 0.82rem; font-weight: 700; color: var(--green);
+    }
+    .pricing-first-wrap .pricing-first { transition: opacity 0.2s; }
+    .pricing-first-wrap .pricing-first.hidden { display: none; }
+
+    /* ──────────────────────────────────────────
+       COMPARISON
+    ────────────────────────────────────────── */
+    #comparison { background: var(--bg2); }
+    .comparison-scroll { overflow-x: auto; border-radius: var(--radius-lg); }
+    .comp-table {
+      width: 100%; border-collapse: separate; border-spacing: 0;
+      border-radius: var(--radius-lg); overflow: hidden;
+      border: 1px solid var(--border); min-width: 700px;
+    }
+    .comp-table th {
+      background: var(--bg3); padding: 16px 20px;
+      font-size: 0.85rem; font-weight: 700;
+      text-align: center;
+      border-bottom: 1px solid var(--border);
+    }
+    .comp-table th:first-child { text-align: left; min-width: 180px; }
+    .comp-table th.etg {
+      background: rgba(34,197,94,0.1);
+      border-bottom: 2px solid var(--green);
+      color: var(--green-light);
+    }
+    .comp-table td {
+      padding: 13px 20px; font-size: 0.86rem;
+      border-bottom: 1px solid var(--border);
+      text-align: center; color: var(--text-muted);
+    }
+    .comp-table td:first-child { text-align: left; color: var(--text); font-weight: 500; }
+    .comp-table td.etg { background: rgba(34,197,94,0.04); }
+    .comp-table tr:last-child td { border-bottom: none; }
+    .comp-table tr:hover td { background: rgba(255,255,255,0.02); }
+    .comp-table tr:hover td.etg { background: rgba(34,197,94,0.07); }
+    .yes { color: var(--green); font-weight: 700; }
+    .no  { color: var(--red); }
+    .partial { color: var(--amber); }
+
+    /* ──────────────────────────────────────────
+       FAQ
+    ────────────────────────────────────────── */
+    #faq { background: var(--bg); }
+    .faq-list { max-width: 800px; margin: 0 auto; }
+    .faq-item {
+      border: 1px solid var(--border); border-radius: var(--radius);
+      margin-bottom: 10px; overflow: hidden;
+      transition: border-color 0.3s;
+    }
+    .faq-item.open { border-color: var(--border-green); }
+    .faq-q {
+      width: 100%; background: var(--bg2);
+      border: none; cursor: pointer; padding: 20px 24px;
+      display: flex; align-items: center; justify-content: space-between; gap: 16px;
+      text-align: left; font-size: 0.93rem; font-weight: 600; color: var(--text);
+      transition: background 0.2s;
+    }
+    .faq-q:hover { background: var(--bg3); }
+    .faq-arrow {
+      width: 20px; height: 20px; flex-shrink: 0; color: var(--green);
+      transition: transform 0.3s;
+    }
+    .faq-item.open .faq-arrow { transform: rotate(180deg); }
+    .faq-a {
+      max-height: 0; overflow: hidden;
+      transition: max-height 0.4s ease;
+      background: var(--bg2);
+    }
+    .faq-item.open .faq-a { max-height: 320px; }
+    .faq-a-inner { padding: 4px 24px 22px; font-size: 0.9rem; color: var(--text-muted); line-height: 1.75; }
+
+    /* ──────────────────────────────────────────
+       FINAL CTA
+    ────────────────────────────────────────── */
+    #cta-final {
+      background:
+        radial-gradient(ellipse 60% 80% at 50% 50%, rgba(34,197,94,0.08) 0%, transparent 65%);
+      text-align: center;
+    }
+    .cta-box {
+      background: var(--bg2); border: 1px solid var(--border-green);
+      border-radius: 24px; padding: 72px 48px;
+      max-width: 720px; margin: 0 auto;
+      box-shadow: var(--shadow-green);
+    }
+    .cta-box h2 { margin-bottom: 16px; }
+    .cta-box > p { font-size: 1.1rem; margin-bottom: 38px; }
+    .cta-sub { font-size: 0.83rem; color: var(--text-dim); margin-top: 18px; }
+
+    /* ──────────────────────────────────────────
+       PWA INSTALL
+    ────────────────────────────────────────── */
+    #install { background: var(--bg2); }
+    .install-intro {
+      display: flex; align-items: center; gap: 16px;
+      background: var(--green-glow); border: 1px solid var(--border-green);
+      border-radius: var(--radius); padding: 18px 24px;
+      margin-bottom: 48px; flex-wrap: wrap;
+    }
+    .install-intro-icon { font-size: 1.8rem; }
+    .install-intro-text { font-size: 0.92rem; color: var(--text); font-weight: 600; }
+    .install-intro-text span { color: var(--green-light); }
+    .install-grid {
+      display: grid; grid-template-columns: repeat(3,1fr); gap: 24px;
+      margin-bottom: 40px;
+    }
+    .install-card {
+      background: var(--bg3); border: 1px solid var(--border);
+      border-radius: var(--radius-lg); padding: 32px 28px;
+      text-align: center;
+      transition: border-color 0.3s, transform 0.3s;
+    }
+    .install-card:hover { border-color: var(--border-green); transform: translateY(-4px); }
+    .install-os-icon { font-size: 3rem; margin-bottom: 16px; }
+    .install-card h3 { color: var(--text); margin-bottom: 12px; }
+    .install-steps {
+      list-style: none; text-align: left;
+      display: flex; flex-direction: column; gap: 10px; margin-top: 16px;
+    }
+    .install-steps li {
+      display: flex; align-items: flex-start; gap: 10px;
+      font-size: 0.86rem; color: var(--text-muted);
+    }
+    .install-step-num {
+      width: 22px; height: 22px; border-radius: 50%;
+      background: var(--green-glow); border: 1px solid var(--border-green);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 0.7rem; font-weight: 800; color: var(--green);
+      flex-shrink: 0;
+    }
+    .install-vs {
+      background: rgba(239,68,68,0.05); border: 1px solid rgba(239,68,68,0.15);
+      border-radius: var(--radius); padding: 18px 24px;
+      display: flex; align-items: center; gap: 14px; flex-wrap: wrap;
+    }
+    .install-vs-icon { font-size: 1.5rem; }
+    .install-vs-text { font-size: 0.88rem; color: var(--text-muted); }
+    .install-vs-text strong { color: var(--text); }
+
+    /* ──────────────────────────────────────────
+       FOOTER
+    ────────────────────────────────────────── */
+    footer {
+      background: var(--bg2); border-top: 1px solid var(--border);
+      padding: 56px 0 32px;
+    }
+    .footer-grid {
+      display: grid; grid-template-columns: 2fr 1fr 1fr 1fr;
+      gap: 48px; margin-bottom: 48px;
+    }
+    .footer-brand img { width: 38px; height: 38px; margin-bottom: 10px; }
+    .footer-brand-name { font-size: 1rem; font-weight: 700; margin-bottom: 10px; }
+    .footer-brand p { font-size: 0.86rem; max-width: 260px; }
+    .footer-col h4 {
+      font-size: 0.78rem; font-weight: 800; letter-spacing: 0.1em;
+      text-transform: uppercase; color: var(--text);
+      margin-bottom: 18px;
+    }
+    .footer-col ul { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+    .footer-col a { font-size: 0.86rem; color: var(--text-muted); text-decoration: none; transition: color 0.2s; }
+    .footer-col a:hover { color: var(--green); }
+    .footer-bottom {
+      border-top: 1px solid var(--border); padding-top: 28px;
+      display: flex; align-items: center; justify-content: space-between;
+      flex-wrap: wrap; gap: 16px;
+      font-size: 0.8rem; color: var(--text-dim);
+    }
+    .footer-legal { display: flex; gap: 20px; }
+    .footer-legal a { color: var(--text-dim); text-decoration: none; }
+    .footer-legal a:hover { color: var(--text-muted); }
+
+    /* ──────────────────────────────────────────
+       MODULES
+    ────────────────────────────────────────── */
+    #modules { background: var(--bg2); }
+    .modules-grid {
+      display: grid; grid-template-columns: repeat(3,1fr); gap: 20px;
+    }
+    .module-card {
+      background: var(--bg3); border: 1px solid var(--border);
+      border-radius: var(--radius-lg); padding: 28px 24px;
+      transition: border-color 0.3s, transform 0.3s;
+      position: relative; overflow: hidden;
+    }
+    .module-card:hover { border-color: var(--border-green); transform: translateY(-3px); }
+    .module-card.highlight {
+      border-color: var(--border-green);
+      background: rgba(34,197,94,0.05);
+    }
+    .module-badge {
+      position: absolute; top: 16px; right: 16px;
+      background: var(--green-glow); border: 1px solid var(--border-green);
+      color: var(--green); font-size: 0.68rem; font-weight: 800;
+      padding: 3px 10px; border-radius: 100px;
+      letter-spacing: 0.06em; text-transform: uppercase;
+    }
+    .module-icon { font-size: 2rem; margin-bottom: 14px; }
+    .module-card h3 { color: var(--text); margin-bottom: 8px; font-size: 1.05rem; }
+    .module-card p { font-size: 0.86rem; line-height: 1.65; }
+
+    /* Coming Soon Block */
+    .coming-soon-block {
+      margin-top: 56px;
+      background: var(--bg3);
+      border: 1px dashed var(--border-green);
+      border-radius: var(--radius-lg);
+      padding: 40px 36px;
+    }
+    .coming-soon-label {
+      font-size: 0.72rem; font-weight: 700; letter-spacing: 0.1em;
+      text-transform: uppercase; color: var(--green); margin-bottom: 8px;
+    }
+    .coming-soon-block h3 {
+      color: var(--text); font-size: 1.2rem; margin-bottom: 28px;
+    }
+    .coming-soon-grid {
+      display: grid; grid-template-columns: repeat(4,1fr); gap: 16px;
+    }
+    .coming-soon-item {
+      display: flex; flex-direction: column; gap: 6px;
+      background: var(--bg2); border: 1px solid var(--border);
+      border-radius: var(--radius); padding: 20px 16px;
+    }
+    .cs-icon { font-size: 1.4rem; }
+    .coming-soon-item strong { color: var(--text); font-size: 0.9rem; }
+    .coming-soon-item span { font-size: 0.8rem; line-height: 1.5; color: var(--text-muted); }
+    @media(max-width:768px) { .coming-soon-grid { grid-template-columns: 1fr 1fr; } }
+    @media(max-width:480px) { .coming-soon-grid { grid-template-columns: 1fr; } }
+    @media(max-width:600px) { #kennst-du-das .container > div > div[style*="grid"] { grid-template-columns: 1fr !important; } }
+    @media(max-width:768px) { #testimonials div[style*="repeat(3"] { grid-template-columns: 1fr !important; } }
+
+    /* ──────────────────────────────────────────
+       ANIMATIONS
+    ────────────────────────────────────────── */
+    .fade-in {
+      opacity: 0; transform: translateY(24px);
+      transition: opacity 0.5s ease, transform 0.5s ease;
+    }
+    .fade-in.visible { opacity: 1; transform: translateY(0); }
+
+    /* Fly from left — startet weit links, unsichtbar */
+    .fly-left {
+      opacity: 0;
+      transform: translateX(-140px);
+      transition: opacity 0.75s cubic-bezier(0.16,1,0.3,1), transform 0.75s cubic-bezier(0.16,1,0.3,1);
+    }
+    .fly-left.visible { opacity: 1; transform: translateX(0); }
+
+    /* Fly from right */
+    .fly-right {
+      opacity: 0;
+      transform: translateX(140px);
+      transition: opacity 0.75s cubic-bezier(0.16,1,0.3,1), transform 0.75s cubic-bezier(0.16,1,0.3,1);
+    }
+    .fly-right.visible { opacity: 1; transform: translateX(0); }
+
+    /* Testimonial hover */
+    .testimonial-card {
+      transition: none !important;
+    }
+    .testimonial-card:hover {
+      transform: none !important;
+      box-shadow: none !important;
+    }
+
+    /* USP kachel hover */
+    .usp-kachel {
+      transition: transform 0.25s cubic-bezier(0.22,1,0.36,1), box-shadow 0.25s ease !important;
+    }
+    .usp-kachel:hover {
+      transform: translateY(-6px) scale(1.02) !important;
+      box-shadow: 0 10px 36px rgba(34,197,94,0.22) !important;
+    }
+
+    /* Hero trust pills */
+    .hero-pill {
+      display: inline-flex; align-items: center; gap: 7px;
+      background: rgba(34,197,94,0.1);
+      border: 1px solid rgba(34,197,94,0.3);
+      border-radius: 100px;
+      padding: 6px 14px;
+      font-size: 0.82rem; font-weight: 600;
+      color: var(--green-light);
+    }
+    .hero-pill span { font-size: 0.9rem; }
+
+    /* Fallback */
+    @media (prefers-reduced-motion: reduce) {
+      .fade-in, .fly-left, .fly-right { opacity: 1 !important; transform: none !important; }
+    }
+
+    /* Fallback */
+    @media (prefers-reduced-motion: reduce) {
+      .fade-in, .slide-left, .slide-right { opacity: 1; transform: none; }
+    }
+
+    /* ──────────────────────────────────────────
+       RESPONSIVE
+    ────────────────────────────────────────── */
+    @media (max-width: 1024px) {
+      .hero-inner { grid-template-columns: 1fr; }
+      .hero-visual { display: none; }
+      .revenue-inner { grid-template-columns: 1fr; }
+      .footer-grid { grid-template-columns: 1fr 1fr; }
+    }
+    @media (max-width: 768px) {
+      section { padding: 64px 0; }
+      .pain-inner { grid-template-columns: 1fr; }
+      .pain-stat { border-right: none; border-bottom: 1px solid var(--border); }
+      .pain-stat:last-child { border-bottom: none; }
+      .steps { grid-template-columns: 1fr; }
+      .steps-connector { display: none; }
+      .forwhom-grid { grid-template-columns: 1fr; }
+      .install-grid { grid-template-columns: 1fr; }
+      .modules-grid { grid-template-columns: 1fr; }
+      .pricing-grid { grid-template-columns: 1fr; }
+      .topup-grid { grid-template-columns: 1fr; }
+      nav .nav-links, nav .nav-right .btn { display: none; }
+      .hamburger { display: flex; }
+      .footer-grid { grid-template-columns: 1fr; gap: 32px; }
+      .footer-bottom { flex-direction: column; text-align: center; }
+    }
+    @media (max-width: 480px) {
+      .hero-ctas { flex-direction: column; }
+      .btn-lg { width: 100%; justify-content: center; }
+      .cta-box { padding: 40px 24px; }
+      .yearly-bar { flex-direction: column; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ═══════════════════════════════════════════
+     NAV
+═══════════════════════════════════════════ -->
+<nav id="navbar">
+  <div class="container nav-inner">
+    <a href="#" class="nav-logo">
+      <img src="logo.png" alt="EasyToGrow Logo">
+      <span>EasyToGrow</span>
+    </a>
+    <ul class="nav-links">
+      <li><a href="#how">Wie es funktioniert</a></li>
+      <li><a href="#pricing">Preise</a></li>
+      <li><a href="#comparison">Vergleich</a></li>
+      <li><a href="#faq">FAQ</a></li>
+    </ul>
+    <div class="nav-right">
+      <a href="#pricing" class="btn btn-primary">Jetzt starten →</a>
+      <div class="hamburger" id="hamburger" onclick="toggleMenu()">
+        <span></span><span></span><span></span>
+      </div>
+    </div>
+  </div>
+  <div class="mobile-menu" id="mobile-menu">
+    <a href="#how" onclick="toggleMenu()">Wie es funktioniert</a>
+    <a href="#pricing" onclick="toggleMenu()">Preise</a>
+    <a href="#comparison" onclick="toggleMenu()">Vergleich</a>
+    <a href="#faq" onclick="toggleMenu()">FAQ</a>
+    <a href="#pricing" class="btn btn-primary btn-lg" onclick="toggleMenu()">Jetzt starten – 50% günstiger →</a>
+  </div>
+</nav>
+
+<!-- ═══════════════════════════════════════════
+     HERO
+═══════════════════════════════════════════ -->
+<section id="hero">
+  <div class="container">
+    <div class="hero-inner">
+      <div>
+        <div class="hero-badge">
+          <span class="dot"></span>
+          Das erste KI-System für mehr Umsatz im Fan-Chat — auf Deutsch
+        </div>
+        <h1 class="hero-title">
+          <span style="display:block;white-space:nowrap;">Mehr Umsatz im Chat.</span>
+          <span class="gradient-text">Ab heute.</span>
+        </h1>
+        <p style="font-size:1.25rem;font-weight:700;color:var(--green-light);margin-bottom:10px;letter-spacing:-0.01em;">
+          EasyToGrow schlägt dir die perfekte Antwort vor — auf Deutsch oder Englisch. Du kopierst, du sendest, du verdienst.
+        </p>
+        <p class="hero-sub">
+          EasyToGrow antwortet im Fan-Chat in deinem Stil, erkennt Kaufmomente automatisch und schlägt dir die Antwort vor. Du prüfst, kopierst, sendest. Fertig. Auf 10 Plattformen. Flat Rate ab 39€.
+        </p>
+        <div class="hero-ctas">
+          <a href="#pricing" class="btn btn-primary btn-lg">
+            Mehr Umsatz im Chat — jetzt starten →
+          </a>
+          <a href="#how" class="btn btn-lg" style="background:transparent;color:var(--text);border:1.5px solid rgba(255,255,255,0.35);gap:8px;" onmouseover="this.style.borderColor='var(--green)';this.style.color='var(--green)'" onmouseout="this.style.borderColor='rgba(255,255,255,0.35)';this.style.color='var(--text)'">
+            Wie es funktioniert ↓
+          </a>
+        </div>
+        <div class="hero-trust">
+          <div class="trust-item"><span class="trust-check">✓</span> Kein Revenue Share</div>
+          <div class="trust-item"><span class="trust-check">✓</span> Kein Account-Risiko</div>
+          <div class="trust-item"><span class="trust-check">✓</span> Du behältst Kontrolle</div>
+          <div class="trust-item"><span class="trust-check">✓</span> Monatlich kündbar</div>
+          <div class="trust-item"><span class="trust-check">✓</span> Deutsch &amp; Englisch</div>
+        </div>
+      </div>
+
+      <!-- Mockup -->
+      <div class="hero-visual">
+        <div class="float-badge tl">🧠 Fan-Memory aktiv</div>
+        <div class="mockup-window">
+          <div class="mockup-bar">
+            <div class="dot-r"></div>
+            <div class="dot-y"></div>
+            <div class="dot-g"></div>
+            <span class="mockup-label">EasyToGrow · OnlyFans</span>
+          </div>
+          <div class="mockup-body">
+            <div class="chat-msg">
+              <div class="chat-avatar" style="background:#1f2937;color:#9ca3af">👤</div>
+              <div class="chat-bubble">
+                Hey, ich liebe deine neuen Fotos! Machst du auch Custom Content? 😍
+              </div>
+            </div>
+            <div class="chat-msg ai">
+              <div class="chat-avatar" style="background:rgba(34,197,94,0.18);color:#22c55e">🤖</div>
+              <div>
+                <div class="chat-bubble">
+                  Danke, das freut mich so sehr! 🥰 Ja, Custom ist mein Lieblingsding — schreib mir was du dir vorstellst, wir finden was Passendes!
+                </div>
+                <div class="ai-label">
+                  ✦ KI-generiert · bereit zum Kopieren
+                </div>
+                <div class="copy-btn-demo">
+                  📋 Antwort kopieren
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="float-badge br">⚡ 4 Sek. statt 4 Min.</div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- ═══════════════════════════════════════════
+     MINI-DEMO / AHA-MOMENT
+═══════════════════════════════════════════ -->
+<section id="mini-demo" style="padding:60px 0;">
+  <div class="container">
+    <div style="max-width:640px;margin:0 auto;text-align:center;">
+      <div class="section-label">So sieht das in der Praxis aus</div>
+      <h2 style="margin-bottom:36px;">Von der Fan-Nachricht zum Verkauf — in Sekunden</h2>
+      <div style="display:flex;flex-direction:column;gap:0;position:relative;">
+        <!-- Step 1 -->
+        <div style="display:flex;align-items:flex-start;gap:20px;padding:20px 24px;background:var(--bg2);border:1px solid var(--border);border-radius:var(--radius) var(--radius) 0 0;text-align:left;">
+          <div style="background:rgba(239,68,68,0.12);border:1px solid rgba(239,68,68,0.3);border-radius:50%;width:36px;height:36px;display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:1rem;">💬</div>
+          <div>
+            <div style="font-size:0.75rem;font-weight:700;color:var(--text-muted);letter-spacing:0.1em;text-transform:uppercase;margin-bottom:4px;">💬 Fan schreibt: »Was kostet das?«</div>
+            <div style="color:var(--text);font-weight:500;">„Ich will mehr von dir sehen 🔥 Was bietet ihr an?"</div>
+          </div>
+        </div>
+        <!-- Arrow -->
+        <div style="display:flex;justify-content:center;background:var(--bg3);border-left:1px solid var(--border);border-right:1px solid var(--border);padding:8px 0;">
+          <span style="color:var(--green);font-size:1.2rem;">↓</span>
+        </div>
+        <!-- Step 2 -->
+        <div style="display:flex;align-items:flex-start;gap:20px;padding:20px 24px;background:var(--bg3);border:1px solid var(--border);border-left:1px solid var(--border);border-right:1px solid var(--border);text-align:left;">
+          <div style="background:rgba(34,197,94,0.12);border:1px solid var(--border-green);border-radius:50%;width:36px;height:36px;display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:1rem;">🧠</div>
+          <div>
+            <div style="font-size:0.75rem;font-weight:700;color:var(--green);letter-spacing:0.1em;text-transform:uppercase;margin-bottom:4px;">🧠 EasyToGrow erkennt den Kaufmoment</div>
+            <div style="color:var(--text-muted);font-size:0.9rem;">Kaufmoment erkannt — Fan ist bereit. PPV-Indikator aktiv.</div>
+          </div>
+        </div>
+        <!-- Arrow -->
+        <div style="display:flex;justify-content:center;background:var(--bg3);border-left:1px solid var(--border);border-right:1px solid var(--border);padding:8px 0;">
+          <span style="color:var(--green);font-size:1.2rem;">↓</span>
+        </div>
+        <!-- Step 3 -->
+        <div style="display:flex;align-items:flex-start;gap:20px;padding:20px 24px;background:var(--bg3);border:1px solid var(--border);text-align:left;">
+          <div style="background:rgba(34,197,94,0.12);border:1px solid var(--border-green);border-radius:50%;width:36px;height:36px;display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:1rem;">✨</div>
+          <div>
+            <div style="font-size:0.75rem;font-weight:700;color:var(--green);letter-spacing:0.1em;text-transform:uppercase;margin-bottom:4px;">✨ Du bekommst die perfekte Antwort</div>
+            <div style="color:var(--text);font-weight:500;">„Danke, das freut mich so sehr 🥰 Ich habe genau das Richtige für dich — schau mal in mein Profil, da wartet etwas Besonderes auf dich 💚"</div>
+            <div style="margin-top:8px;font-size:0.8rem;color:var(--text-muted);">✦ KI-generiert · in deinem Stil · bereit zum Kopieren</div>
+          </div>
+        </div>
+        <!-- Arrow -->
+        <div style="display:flex;justify-content:center;background:var(--bg3);border-left:1px solid var(--border);border-right:1px solid var(--border);padding:8px 0;">
+          <span style="color:var(--green);font-size:1.2rem;">↓</span>
+        </div>
+        <!-- Step 4 -->
+        <div style="display:flex;align-items:flex-start;gap:20px;padding:20px 24px;background:linear-gradient(135deg,rgba(34,197,94,0.08),rgba(20,184,166,0.06));border:1px solid var(--border-green);border-radius:0 0 var(--radius) var(--radius);text-align:left;">
+          <div style="background:rgba(34,197,94,0.2);border:1px solid var(--border-green);border-radius:50%;width:36px;height:36px;display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:1rem;">💰</div>
+          <div>
+            <div style="font-size:0.75rem;font-weight:700;color:var(--green);letter-spacing:0.1em;text-transform:uppercase;margin-bottom:4px;">💰 Du klickst Senden — Verkauf gemacht</div>
+            <div style="color:var(--text);font-weight:600;">Kein Tippen. Kein Überlegen. Du entscheidest nur noch.</div>
+            <div style="color:var(--text-muted);font-size:0.85rem;margin-top:4px;">Immer du. Niemals automatisch. Dein Account bleibt sicher.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- ═══════════════════════════════════════════
+     APP IN ACTION — 3 Fächer
+═══════════════════════════════════════════ -->
+<section id="app-in-action" style="padding:60px 0;">
+  <div class="container">
+    <div style="text-align:center;margin-bottom:48px;">
+      <div class="section-label">So funktioniert es in der Praxis</div>
+      <h2>3 Sekunden — <span class="gradient-text">Verkauf gemacht.</span></h2>
+    </div>
+    <!-- 3 real app screenshots in fanned/overlapping layout -->
+    <div style="position:relative;display:flex;justify-content:center;align-items:flex-end;min-height:480px;padding-bottom:20px;">
+
+      <!-- Left screenshot -->
+      <div style="position:relative;z-index:1;transform:rotate(-6deg) translateX(60px) translateY(30px);flex-shrink:0;">
+        <img src="Mood.png" alt="EasyToGrow – Mood Analyse" style="width:260px;border-radius:20px;box-shadow:0 20px 60px rgba(0,0,0,0.5),0 0 0 1px rgba(255,255,255,0.06);">
+      </div>
+
+      <!-- Center screenshot (front) -->
+      <div style="position:relative;z-index:3;flex-shrink:0;">
+        <img src="Bildschirmfoto 2026-04-09 um 16.34.30.png" alt="EasyToGrow – KI-Antwort" style="width:290px;border-radius:20px;box-shadow:0 24px 70px rgba(0,0,0,0.6),0 0 0 1px rgba(34,197,94,0.25),0 0 40px rgba(34,197,94,0.12);">
+      </div>
+
+      <!-- Right screenshot -->
+      <div style="position:relative;z-index:2;transform:rotate(6deg) translateX(-60px) translateY(30px);flex-shrink:0;">
+        <img src="Bildschirmfoto 2026-04-09 um 15.50.45.png" alt="EasyToGrow – KI-Antwort Englisch" style="width:260px;border-radius:20px;box-shadow:0 20px 60px rgba(0,0,0,0.5),0 0 0 1px rgba(255,255,255,0.06);">
+      </div>
+
+    </div>
+  </div>
+</section>
+<!-- ═══════════════════════════════════════════
+     KENNST DU DAS?
+═══════════════════════════════════════════ -->
+<section id="kennst-du-das" style="padding:20px 0 40px;">
+  <div class="container">
+    <div style="max-width:780px;margin:0 auto;text-align:center;">
+      <h2 style="margin-bottom:4px;">Kommt dir das bekannt vor?</h2>
+      <h2 style="margin-bottom:28px;" class="gradient-text">Kennst du das?</h2>
+      <!-- Rote Pills: Treppe runter (links nach rechts) -->
+      <div style="width:100%;overflow:hidden;display:flex;flex-direction:column;align-items:center;margin-top:8px;">
+        <div class="fly-right" data-delay="0" style="align-self:flex-start;margin-left:0px;display:inline-flex;align-items:center;gap:7px;white-space:nowrap;background:rgba(239,68,68,0.1);border:1px solid rgba(239,68,68,0.3);border-radius:100px;padding:9px 14px;font-size:0.78rem;font-weight:600;color:#fca5a5;margin-bottom:6px;"><span style="font-size:0.9rem;">✗</span> Dieselben Antworten immer wieder</div>
+        <div class="fly-right" data-delay="150" style="align-self:flex-start;margin-left:120px;display:inline-flex;align-items:center;gap:7px;white-space:nowrap;background:rgba(239,68,68,0.1);border:1px solid rgba(239,68,68,0.3);border-radius:100px;padding:9px 14px;font-size:0.78rem;font-weight:600;color:#fca5a5;margin-bottom:6px;"><span style="font-size:0.9rem;">✗</span> Kaufmomente täglich verpasst</div>
+        <div class="fly-right" data-delay="300" style="align-self:flex-start;margin-left:240px;display:inline-flex;align-items:center;gap:7px;white-space:nowrap;background:rgba(239,68,68,0.1);border:1px solid rgba(239,68,68,0.3);border-radius:100px;padding:9px 14px;font-size:0.78rem;font-weight:600;color:#fca5a5;margin-bottom:6px;"><span style="font-size:0.9rem;">✗</span> Abends noch am Handy</div>
+        <div class="fly-right" data-delay="450" style="align-self:flex-start;margin-left:360px;display:inline-flex;align-items:center;gap:7px;white-space:nowrap;background:rgba(239,68,68,0.1);border:1px solid rgba(239,68,68,0.3);border-radius:100px;padding:9px 14px;font-size:0.78rem;font-weight:600;color:#fca5a5;margin-bottom:6px;"><span style="font-size:0.9rem;">✗</span> Revenue Share frisst Einkommen</div>
+        <div class="fly-right" data-delay="600" style="align-self:flex-start;margin-left:480px;display:inline-flex;align-items:center;gap:7px;white-space:nowrap;background:rgba(239,68,68,0.1);border:1px solid rgba(239,68,68,0.3);border-radius:100px;padding:9px 14px;font-size:0.78rem;font-weight:600;color:#fca5a5;margin-bottom:6px;"><span style="font-size:0.9rem;">✗</span> Kein Tool auf Deutsch</div>
+        <div class="fly-right" data-delay="750" style="align-self:flex-start;margin-left:600px;display:inline-flex;align-items:center;gap:7px;white-space:nowrap;background:rgba(239,68,68,0.1);border:1px solid rgba(239,68,68,0.3);border-radius:100px;padding:9px 14px;font-size:0.78rem;font-weight:600;color:#fca5a5;margin-bottom:6px;"><span style="font-size:0.9rem;">✗</span> Nie wissen was posten</div>
+      </div>
+      <!-- Wendepunkt-Text -->
+      <div style="margin-top:48px;margin-bottom:8px;text-align:center;">
+        <h2>Das war gestern –<br>heute kommt <span class="gradient-text">EasyToGrow.</span></h2>
+      </div>
+
+      <!-- Grüne Pills: Treppe rauf (rechts nach links) -->
+      <div style="width:100%;overflow:hidden;display:flex;flex-direction:column;align-items:center;margin-top:28px;">
+        <div class="fly-left" data-delay="0" style="align-self:flex-end;margin-right:0px;display:inline-flex;align-items:center;gap:7px;white-space:nowrap;background:rgba(34,197,94,0.1);border:1px solid rgba(34,197,94,0.3);border-radius:100px;padding:9px 14px;font-size:0.78rem;font-weight:600;color:#4ade80;margin-bottom:6px;"><span>✓</span> Kaufmomente sofort erkannt</div>
+        <div class="fly-left" data-delay="150" style="align-self:flex-end;margin-right:120px;display:inline-flex;align-items:center;gap:7px;white-space:nowrap;background:rgba(34,197,94,0.1);border:1px solid rgba(34,197,94,0.3);border-radius:100px;padding:9px 14px;font-size:0.78rem;font-weight:600;color:#4ade80;margin-bottom:6px;"><span>✓</span> Immer in deinem Stil</div>
+        <div class="fly-left" data-delay="300" style="align-self:flex-end;margin-right:240px;display:inline-flex;align-items:center;gap:7px;white-space:nowrap;background:rgba(34,197,94,0.1);border:1px solid rgba(34,197,94,0.3);border-radius:100px;padding:9px 14px;font-size:0.78rem;font-weight:600;color:#4ade80;margin-bottom:6px;"><span>✓</span> Abends endlich frei</div>
+        <div class="fly-left" data-delay="450" style="align-self:flex-end;margin-right:360px;display:inline-flex;align-items:center;gap:7px;white-space:nowrap;background:rgba(34,197,94,0.1);border:1px solid rgba(34,197,94,0.3);border-radius:100px;padding:9px 14px;font-size:0.78rem;font-weight:600;color:#4ade80;margin-bottom:6px;"><span>✓</span> Flat Rate — dein Gewinn</div>
+        <div class="fly-left" data-delay="600" style="align-self:flex-end;margin-right:480px;display:inline-flex;align-items:center;gap:7px;white-space:nowrap;background:rgba(34,197,94,0.1);border:1px solid rgba(34,197,94,0.3);border-radius:100px;padding:9px 14px;font-size:0.78rem;font-weight:600;color:#4ade80;margin-bottom:6px;"><span>✓</span> Auf Deutsch gebaut</div>
+        <div class="fly-left" data-delay="750" style="align-self:flex-end;margin-right:600px;display:inline-flex;align-items:center;gap:7px;white-space:nowrap;background:rgba(34,197,94,0.1);border:1px solid rgba(34,197,94,0.3);border-radius:100px;padding:9px 14px;font-size:0.78rem;font-weight:600;color:#4ade80;margin-bottom:6px;"><span>✓</span> Täglich Posting-Plan</div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- ═══════════════════════════════════════════
+     TESTIMONIALS
+═══════════════════════════════════════════ -->
+<section id="testimonials" style="padding:100px 0;background:var(--bg2);">
+  <style>
+    .ts-slider-wrap{position:relative;overflow:hidden;}
+    .ts-track{display:flex;transition:transform 0.4s ease;}
+    .ts-track .ts-card{flex-shrink:0;margin-right:24px;background:var(--bg3);border:1px solid rgba(34,197,94,0.28);border-radius:var(--radius-lg);padding:32px;display:flex;flex-direction:column;gap:20px;position:relative;transition:border-color 0.3s,box-shadow 0.3s;opacity:1;}
+    .ts-track .ts-card:hover{opacity:1 !important;transform:none !important;}
+    .ts-track .ts-card.active{border:2px solid rgba(34,197,94,0.6);box-shadow:0 0 24px rgba(34,197,94,0.18);}
+    .ts-nav-row{display:flex;align-items:center;gap:16px;margin-top:24px;justify-content:center;}
+    .ts-arrow{width:48px;height:48px;border-radius:50%;background:var(--bg3);border:2px solid var(--green);color:#fff;font-size:1.3rem;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:all 0.2s;flex-shrink:0;}
+    .ts-arrow:hover{background:var(--green);color:#000;}
+    .ts-dots{display:flex;gap:8px;}
+    .ts-dot{width:10px;height:10px;border-radius:50%;background:var(--bg4);border:1px solid var(--border);cursor:pointer;transition:all 0.2s;}
+    .ts-dot.active{background:var(--green);border-color:var(--green);}
+  </style>
+  <div class="container">
+    <div class="section-header fade-in">
+      <div class="section-label">Echte Creator. Echte Ergebnisse.</div>
+      <h2>Das sagen Creator<br><span class="gradient-text">über EasyToGrow</span></h2>
+      <p style="margin-top:12px;">Für Adult und Non-Adult Creator — Chat, Content, Strategie &amp; Redaktionsplan in einem System.</p>
+    </div>
+    <div class="ts-slider-wrap fade-in">
+      <div class="ts-track" id="ts-track">
+
+        <!-- 1. Sarah L. -->
+        <div class="ts-card">
+          <div style="font-size:3rem;color:var(--green);opacity:0.25;position:absolute;top:16px;right:20px;line-height:1;font-family:Georgia,serif;">"</div>
+          <p style="color:var(--text);font-size:0.97rem;line-height:1.75;font-style:italic;margin:0;">„Ich war skeptisch. Aber nach dem ersten Monat hatte ich <strong>1.200€ mehr Umsatz</strong> als im Vormonat. Einfach weil jede Antwort jetzt sitzt."</p>
+          <div style="border-top:1px solid var(--border);padding-top:16px;display:flex;align-items:center;gap:12px;">
+            <div style="width:40px;height:40px;border-radius:50%;background:linear-gradient(135deg,#22c55e,#16a34a);display:flex;align-items:center;justify-content:center;font-size:1.1rem;flex-shrink:0;">💰</div>
+            <div><div style="color:var(--text);font-weight:700;font-size:0.9rem;">Sarah L.</div><div style="color:var(--text-muted);font-size:0.78rem;">OnlyFans Creator · Berlin</div></div>
+            <div style="margin-left:auto;font-size:0.72rem;font-weight:700;color:var(--green);background:var(--green-glow);border:1px solid var(--border-green);padding:3px 10px;border-radius:100px;white-space:nowrap;">+1.200€/Monat</div>
+          </div>
+        </div>
+
+        <!-- 2. Lisa M. -->
+        <div class="ts-card">
+          <div style="font-size:3rem;color:var(--green);opacity:0.25;position:absolute;top:16px;right:20px;line-height:1;font-family:Georgia,serif;">"</div>
+          <p style="color:var(--text);font-size:0.97rem;line-height:1.75;font-style:italic;margin:0;">„Die Fan-Nachricht erscheint automatisch in der App — ich klicke einmal und die Antwort ist fertig. Mein Rekord: <strong>47 DMs in 23 Minuten</strong> beantwortet. Auf Telegram hat mein Umsatz sich im ersten Monat verdoppelt."</p>
+          <div style="border-top:1px solid var(--border);padding-top:16px;display:flex;align-items:center;gap:12px;">
+            <div style="width:40px;height:40px;border-radius:50%;background:linear-gradient(135deg,#f97316,#ec4899);display:flex;align-items:center;justify-content:center;font-size:1.1rem;flex-shrink:0;">🔥</div>
+            <div><div style="color:var(--text);font-weight:700;font-size:0.9rem;">Lisa M.</div><div style="color:var(--text-muted);font-size:0.78rem;">OnlyFans & Telegram Creator · München</div></div>
+            <div style="margin-left:auto;font-size:0.72rem;font-weight:700;color:var(--green);background:var(--green-glow);border:1px solid var(--border-green);padding:3px 10px;border-radius:100px;white-space:nowrap;">+400€/Monat</div>
+          </div>
+        </div>
+
+        <!-- 3. Tom R. -->
+        <div class="ts-card">
+          <div style="font-size:3rem;color:var(--green);opacity:0.25;position:absolute;top:16px;right:20px;line-height:1;font-family:Georgia,serif;">"</div>
+          <p style="color:var(--text);font-size:0.97rem;line-height:1.75;font-style:italic;margin:0;">„Wir managen 8 Creator gleichzeitig. Früher brauchten wir dafür <strong>3 Leute</strong>. Heute macht das EasyToGrow — jeder Creator klingt anders, jede Antwort sitzt. Das ist der Unterschied zwischen Chaos und System."</p>
+          <div style="border-top:1px solid var(--border);padding-top:16px;display:flex;align-items:center;gap:12px;">
+            <div style="width:40px;height:40px;border-radius:50%;background:linear-gradient(135deg,#6366f1,#8b5cf6);display:flex;align-items:center;justify-content:center;font-size:1.1rem;flex-shrink:0;">🏢</div>
+            <div><div style="color:var(--text);font-weight:700;font-size:0.9rem;">Tom R.</div><div style="color:var(--text-muted);font-size:0.78rem;">Creator-Agentur · 8 Creator · Frankfurt</div></div>
+            <div style="margin-left:auto;font-size:0.72rem;font-weight:700;color:var(--green);background:var(--green-glow);border:1px solid var(--border-green);padding:3px 10px;border-radius:100px;white-space:nowrap;">8 Creator</div>
+          </div>
+        </div>
+
+        <!-- 4. Nina S. (NEU — Post-Generator) -->
+        <div class="ts-card">
+          <div style="font-size:3rem;color:var(--green);opacity:0.25;position:absolute;top:16px;right:20px;line-height:1;font-family:Georgia,serif;">"</div>
+          <p style="color:var(--text);font-size:0.97rem;line-height:1.75;font-style:italic;margin:0;">„Ich poste jetzt auf 6 Plattformen gleichzeitig — mit einem Klick. Der <strong>Post-Generator spart mir täglich 90 Minuten</strong>. Ich hätte nie gedacht dass eine KI wirklich meinen Humor trifft."</p>
+          <div style="border-top:1px solid var(--border);padding-top:16px;display:flex;align-items:center;gap:12px;">
+            <div style="width:40px;height:40px;border-radius:50%;background:linear-gradient(135deg,#f59e0b,#ef4444);display:flex;align-items:center;justify-content:center;font-size:1.1rem;flex-shrink:0;">🎬</div>
+            <div><div style="color:var(--text);font-weight:700;font-size:0.9rem;">Nina S.</div><div style="color:var(--text-muted);font-size:0.78rem;">Lifestyle Creator · YouTube & Instagram · Hamburg</div></div>
+            <div style="margin-left:auto;font-size:0.72rem;font-weight:700;color:var(--green);background:var(--green-glow);border:1px solid var(--border-green);padding:3px 10px;border-radius:100px;white-space:nowrap;">90 Min/Tag gespart</div>
+          </div>
+        </div>
+
+        <!-- 5. Kai M. (NEU — Strategie-Agent) -->
+        <div class="ts-card">
+          <div style="font-size:3rem;color:var(--green);opacity:0.25;position:absolute;top:16px;right:20px;line-height:1;font-family:Georgia,serif;">"</div>
+          <p style="color:var(--text);font-size:0.97rem;line-height:1.75;font-style:italic;margin:0;">„Der Strategie-Agent zeigt mir jede Woche wo ich wachsen kann. Ich folge einfach den Empfehlungen — mein Account ist in <strong>6 Wochen um 40% gewachsen</strong>. Das ist kein Zufall mehr, das ist System."</p>
+          <div style="border-top:1px solid var(--border);padding-top:16px;display:flex;align-items:center;gap:12px;">
+            <div style="width:40px;height:40px;border-radius:50%;background:linear-gradient(135deg,#3b82f6,#6366f1);display:flex;align-items:center;justify-content:center;font-size:1.1rem;flex-shrink:0;">💼</div>
+            <div><div style="color:var(--text);font-weight:700;font-size:0.9rem;">Kai M.</div><div style="color:var(--text-muted);font-size:0.78rem;">Business Creator · Threads & TikTok · München</div></div>
+            <div style="margin-left:auto;font-size:0.72rem;font-weight:700;color:var(--green);background:var(--green-glow);border:1px solid var(--border-green);padding:3px 10px;border-radius:100px;white-space:nowrap;">+40% Wachstum</div>
+          </div>
+        </div>
+
+        <!-- 6. Lena B. (NEU — Redaktionsplan) -->
+        <div class="ts-card">
+          <div style="font-size:3rem;color:var(--green);opacity:0.25;position:absolute;top:16px;right:20px;line-height:1;font-family:Georgia,serif;">"</div>
+          <p style="color:var(--text);font-size:0.97rem;line-height:1.75;font-style:italic;margin:0;">„Als Fitness-Creatorin dachte ich, das Tool ist nur für Adult. Falsch. Der Redaktionsplan füllt meinen Kalender automatisch — mein Engagement ist <strong>um 340% gestiegen</strong> seit dem ersten Monat."</p>
+          <div style="border-top:1px solid var(--border);padding-top:16px;display:flex;align-items:center;gap:12px;">
+            <div style="width:40px;height:40px;border-radius:50%;background:linear-gradient(135deg,#22c55e,#14b8a6);display:flex;align-items:center;justify-content:center;font-size:1.1rem;flex-shrink:0;">💪</div>
+            <div><div style="color:var(--text);font-weight:700;font-size:0.9rem;">Lena B.</div><div style="color:var(--text-muted);font-size:0.78rem;">Fitness & Health Creator · Instagram · Zürich</div></div>
+            <div style="margin-left:auto;font-size:0.72rem;font-weight:700;color:var(--green);background:var(--green-glow);border:1px solid var(--border-green);padding:3px 10px;border-radius:100px;white-space:nowrap;">+340% Engagement</div>
+          </div>
+        </div>
+
+        <!-- 7. Mia R. (NEU — Wochenplan) -->
+        <div class="ts-card">
+          <div style="font-size:3rem;color:var(--green);opacity:0.25;position:absolute;top:16px;right:20px;line-height:1;font-family:Georgia,serif;">"</div>
+          <p style="color:var(--text);font-size:0.97rem;line-height:1.75;font-style:italic;margin:0;">„Ich nutze EasyToGrow auf Fanvue und TikTok gleichzeitig. Der Wochenplan füllt beide Kanäle automatisch. <strong>In 8 Wochen hat sich mein Fanvue-Umsatz verdreifacht</strong> — ohne dass ich täglich darüber nachdenken muss."</p>
+          <div style="border-top:1px solid var(--border);padding-top:16px;display:flex;align-items:center;gap:12px;">
+            <div style="width:40px;height:40px;border-radius:50%;background:linear-gradient(135deg,#a855f7,#ec4899);display:flex;align-items:center;justify-content:center;font-size:1.1rem;flex-shrink:0;">✨</div>
+            <div><div style="color:var(--text);font-weight:700;font-size:0.9rem;">Mia R.</div><div style="color:var(--text-muted);font-size:0.78rem;">Fanvue & TikTok Creator · Wien</div></div>
+            <div style="margin-left:auto;font-size:0.72rem;font-weight:700;color:var(--green);background:var(--green-glow);border:1px solid var(--border-green);padding:3px 10px;border-radius:100px;white-space:nowrap;">3x Umsatz in 8 Wochen</div>
+          </div>
+        </div>
+
+        <!-- 8. Jana W. (umformuliert) -->
+        <div class="ts-card">
+          <div style="font-size:3rem;color:var(--green);opacity:0.25;position:absolute;top:16px;right:20px;line-height:1;font-family:Georgia,serif;">"</div>
+          <p style="color:var(--text);font-size:0.97rem;line-height:1.75;font-style:italic;margin:0;">„Revenue Share war für mich ein absolutes No-Go. Allein durch den Wechsel zu EasyToGrow spare ich <strong>320€ pro Monat</strong>. Das Abo hat sich am ersten Tag bezahlt — den Rest buche ich als Gewinn."</p>
+          <div style="border-top:1px solid var(--border);padding-top:16px;display:flex;align-items:center;gap:12px;">
+            <div style="width:40px;height:40px;border-radius:50%;background:linear-gradient(135deg,#a855f7,#ec4899);display:flex;align-items:center;justify-content:center;font-size:1.1rem;flex-shrink:0;">💜</div>
+            <div><div style="color:var(--text);font-weight:700;font-size:0.9rem;">Jana W.</div><div style="color:var(--text-muted);font-size:0.78rem;">Fansly Creator · Köln</div></div>
+            <div style="margin-left:auto;font-size:0.72rem;font-weight:700;color:var(--green);background:var(--green-glow);border:1px solid var(--border-green);padding:3px 10px;border-radius:100px;white-space:nowrap;">3.840€/Jahr gespart</div>
+          </div>
+        </div>
+
+        <!-- 9. Marco T. -->
+        <div class="ts-card">
+          <div style="font-size:3rem;color:var(--green);opacity:0.25;position:absolute;top:16px;right:20px;line-height:1;font-family:Georgia,serif;">"</div>
+          <p style="color:var(--text);font-size:0.97rem;line-height:1.75;font-style:italic;margin:0;">„Der Wochenplan hat mein Content-Leben komplett verändert. Ich öffne die App, sehe was heute dran ist, und poste. Kein Grübeln mehr. Ich verbringe jetzt <strong>2 Stunden weniger</strong> täglich am Handy."</p>
+          <div style="border-top:1px solid var(--border);padding-top:16px;display:flex;align-items:center;gap:12px;">
+            <div style="width:40px;height:40px;border-radius:50%;background:linear-gradient(135deg,#22c55e,#14b8a6);display:flex;align-items:center;justify-content:center;font-size:1.1rem;flex-shrink:0;">💪</div>
+            <div><div style="color:var(--text);font-weight:700;font-size:0.9rem;">Marco T.</div><div style="color:var(--text-muted);font-size:0.78rem;">Fitness Creator · Instagram, TikTok & Telegram · Hamburg</div></div>
+            <div style="margin-left:auto;font-size:0.72rem;font-weight:700;color:var(--green);background:var(--green-glow);border:1px solid var(--border-green);padding:3px 10px;border-radius:100px;white-space:nowrap;">2h/Tag gespart</div>
+          </div>
+        </div>
+
+        <!-- 10. Sophia K. -->
+        <div class="ts-card">
+          <div style="font-size:3rem;color:var(--green);opacity:0.25;position:absolute;top:16px;right:20px;line-height:1;font-family:Georgia,serif;">"</div>
+          <p style="color:var(--text);font-size:0.97rem;line-height:1.75;font-style:italic;margin:0;">„Meine Agentur dachte ich hätte einen Texter engagiert. Nein — das ist EasyToGrow. <strong>Jeder Post, jede DM klingt nach mir</strong> — nur konsistenter als ich es je war. Auf Twitter/X habe ich jetzt doppelt so viele bezahlte Abonnenten."</p>
+          <div style="border-top:1px solid var(--border);padding-top:16px;display:flex;align-items:center;gap:12px;">
+            <div style="width:40px;height:40px;border-radius:50%;background:linear-gradient(135deg,#f59e0b,#f97316);display:flex;align-items:center;justify-content:center;font-size:1.1rem;flex-shrink:0;">✨</div>
+            <div><div style="color:var(--text);font-weight:700;font-size:0.9rem;">Sophia K.</div><div style="color:var(--text-muted);font-size:0.78rem;">Beauty & Lifestyle · Twitter/X & Instagram · Berlin</div></div>
+            <div style="margin-left:auto;font-size:0.72rem;font-weight:700;color:var(--green);background:var(--green-glow);border:1px solid var(--border-green);padding:3px 10px;border-radius:100px;white-space:nowrap;">Authentisch ✓</div>
+          </div>
+        </div>
+
+        <!-- 11. Alex B. -->
+        <div class="ts-card">
+          <div style="font-size:3rem;color:var(--green);opacity:0.25;position:absolute;top:16px;right:20px;line-height:1;font-family:Georgia,serif;">"</div>
+          <p style="color:var(--text);font-size:0.97rem;line-height:1.75;font-style:italic;margin:0;">„Ich reise ständig und kann nicht immer tippen. Die App läuft auf dem iPhone, ich bestätige Antworten vom Pool aus. Meine Fans glauben, ich sitze immer am Schreibtisch. Das ist mein Geheimnis."</p>
+          <div style="border-top:1px solid var(--border);padding-top:16px;display:flex;align-items:center;gap:12px;">
+            <div style="width:40px;height:40px;border-radius:50%;background:linear-gradient(135deg,#14b8a6,#3b82f6);display:flex;align-items:center;justify-content:center;font-size:1.1rem;flex-shrink:0;">✈️</div>
+            <div><div style="color:var(--text);font-weight:700;font-size:0.9rem;">Alex B.</div><div style="color:var(--text-muted);font-size:0.78rem;">Travel & Lifestyle · TikTok & Instagram · Wien</div></div>
+            <div style="margin-left:auto;font-size:0.72rem;font-weight:700;color:var(--green);background:var(--green-glow);border:1px solid var(--border-green);padding:3px 10px;border-radius:100px;white-space:nowrap;">Mobil ✓</div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+    <!-- Nav: Arrows + Dots -->
+    <div class="ts-nav-row">
+      <button class="ts-arrow" onclick="tsSlide(-1)">&#8592;</button>
+      <div class="ts-dots" id="ts-dots"></div>
+      <button class="ts-arrow" onclick="tsSlide(1)">&#8594;</button>
+    </div>
+  </div>
+  <script>
+  (function(){
+    const track = document.getElementById('ts-track');
+    const wrap = track.parentElement;
+    const cards = track.querySelectorAll('.ts-card');
+    const dotsWrap = document.getElementById('ts-dots');
+    const total = cards.length;
+    const gap = 24;
+    let idx = 0;
+    const isMobile = () => window.innerWidth <= 768;
+    const perView = () => isMobile() ? 1 : 3;
+    const maxIdx = () => Math.max(0, total - perView());
+
+    function sizeCards(){
+      const w = wrap.clientWidth;
+      const pv = perView();
+      const cardW = (w - gap * (pv - 1)) / pv;
+      cards.forEach(c => { c.style.width = cardW + 'px'; });
+    }
+
+    function buildDots(){
+      dotsWrap.innerHTML = '';
+      const pages = maxIdx() + 1;
+      for(let i = 0; i < pages; i++){
+        const d = document.createElement('div');
+        d.className = 'ts-dot' + (i === idx ? ' active' : '');
+        d.onclick = () => { idx = i; update(); };
+        dotsWrap.appendChild(d);
+      }
+    }
+
+    function update(){
+      if(idx > maxIdx()) idx = maxIdx();
+      if(idx < 0) idx = 0;
+      const cardW = cards[0].offsetWidth + gap;
+      track.style.transform = 'translateX(-' + (idx * cardW) + 'px)';
+      cards.forEach((c,i) => c.classList.toggle('active', i >= idx && i < idx + perView()));
+      dotsWrap.querySelectorAll('.ts-dot').forEach((d,i) => d.classList.toggle('active', i === idx));
+    }
+
+    window.tsSlide = function(dir){ idx += dir; update(); };
+    requestAnimationFrame(() => { sizeCards(); buildDots(); update(); });
+
+    // Touch/swipe support
+    let startX = 0;
+    track.addEventListener('touchstart', e => { startX = e.touches[0].clientX; }, {passive:true});
+    track.addEventListener('touchend', e => {
+      const diff = startX - e.changedTouches[0].clientX;
+      if(Math.abs(diff) > 50){ idx += diff > 0 ? 1 : -1; update(); }
+    }, {passive:true});
+
+    window.addEventListener('resize', () => { sizeCards(); buildDots(); update(); });
+  })();
+  </script>
+</section>
+<!-- ═══════════════════════════════════════════
+     KOMPAKTER USP-BLOCK
+═══════════════════════════════════════════ -->
+<section id="usp-compact" style="padding:60px 0 30px;">
+  <div class="container">
+    <div style="max-width:860px;margin:0 auto;" class="fade-in">
+      <!-- Header -->
+      <div style="text-align:center;margin-bottom:32px;">
+        <div class="section-label">Das macht den Unterschied</div>
+        <h2 style="font-size:clamp(1.6rem,3.5vw,2.4rem);">Warum Creator zu EasyToGrow wechseln</h2>
+      </div>
+      <!-- 4 Kacheln — fly-in abwechselnd + hover -->
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:28px;">
+        <div class="usp-kachel fly-left" data-delay="0" style="background:linear-gradient(135deg,rgba(34,197,94,0.1),rgba(20,184,166,0.06));border:1px solid var(--border-green);border-radius:var(--radius);padding:22px 24px;display:flex;align-items:center;gap:16px;">
+          <span style="font-size:1.8rem;flex-shrink:0;">🎯</span>
+          <span style="color:var(--text);font-weight:700;font-size:1rem;">Erkennt, wann ein Fan kaufen will</span>
+        </div>
+        <div class="usp-kachel fly-right" data-delay="150" style="background:linear-gradient(135deg,rgba(34,197,94,0.1),rgba(20,184,166,0.06));border:1px solid var(--border-green);border-radius:var(--radius);padding:22px 24px;display:flex;align-items:center;gap:16px;">
+          <span style="font-size:1.8rem;flex-shrink:0;">🌐</span>
+          <span style="color:var(--text);font-weight:700;font-size:1rem;">Funktioniert auf 10 Plattformen gleichzeitig</span>
+        </div>
+        <div class="usp-kachel fly-left" data-delay="300" style="background:linear-gradient(135deg,rgba(34,197,94,0.1),rgba(20,184,166,0.06));border:1px solid var(--border-green);border-radius:var(--radius);padding:22px 24px;display:flex;align-items:center;gap:16px;">
+          <span style="font-size:1.8rem;flex-shrink:0;">🪞</span>
+          <span style="color:var(--text);font-weight:700;font-size:1rem;">Bleibt immer in deiner Persönlichkeit</span>
+        </div>
+        <div class="usp-kachel fly-right" data-delay="450" style="background:linear-gradient(135deg,rgba(34,197,94,0.1),rgba(20,184,166,0.06));border:1px solid var(--border-green);border-radius:var(--radius);padding:22px 24px;display:flex;align-items:center;gap:16px;">
+          <span style="font-size:1.8rem;flex-shrink:0;">⚡</span>
+          <span style="color:var(--text);font-weight:700;font-size:1rem;">Chat, Content und Strategie in einem System</span>
+        </div>
+      </div>
+      <!-- Positionierungssatz -->
+      <div style="text-align:center;padding:20px 32px;background:var(--bg3);border:1px solid var(--border);border-radius:var(--radius-lg);">
+        <p style="margin:0;font-size:1.05rem;font-weight:700;color:var(--text);">
+          Kein Chatbot. Kein CRM. Ein System das im Chat verkauft.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- ═══════════════════════════════════════════
+     TRUST / SICHERHEIT
+═══════════════════════════════════════════ -->
+<section id="trust" style="padding:60px 0;">
+  <div class="container">
+    <div style="max-width:780px;margin:0 auto;" class="fade-in">
+      <div style="text-align:center;margin-bottom:36px;">
+        <div class="section-label">Deine Sicherheit</div>
+        <h2>Du behältst die <span class="gradient-text">volle Kontrolle</span></h2>
+        <p style="margin-top:10px;">Viele Creator fragen: „Werde ich gebannt?" — Nein. Hier ist warum.</p>
+      </div>
+      <div style="background:var(--bg2);border:2px solid var(--border-green);border-radius:var(--radius-lg);padding:40px;box-shadow:var(--shadow-green);">
+        <div style="display:flex;flex-direction:column;gap:20px;">
+          <div style="display:flex;align-items:center;gap:18px;padding-bottom:20px;border-bottom:1px solid var(--border);">
+            <span style="font-size:1.6rem;flex-shrink:0;">🚫</span>
+            <div>
+              <strong style="color:var(--text);font-size:1.05rem;display:block;">🚫 Keine automatischen Antworten</strong>
+              <span style="color:var(--text-muted);font-size:0.9rem;">EasyToGrow sendet niemals selbst. Jede Antwort wird von dir geprüft und manuell abgesendet.</span>
+            </div>
+          </div>
+          <div style="display:flex;align-items:center;gap:18px;padding-bottom:20px;border-bottom:1px solid var(--border);">
+            <span style="font-size:1.6rem;flex-shrink:0;">✅</span>
+            <div>
+              <strong style="color:var(--text);font-size:1.05rem;display:block;">✅ Jede Nachricht wird von dir freigegeben</strong>
+              <span style="color:var(--text-muted);font-size:0.9rem;">Die KI schlägt vor — du entscheidest. Immer. Kein einziger automatischer Schritt ohne deine Bestätigung.</span>
+            </div>
+          </div>
+          <div style="display:flex;align-items:center;gap:18px;padding-bottom:20px;border-bottom:1px solid var(--border);">
+            <span style="font-size:1.6rem;flex-shrink:0;">🛡️</span>
+            <div>
+              <strong style="color:var(--text);font-size:1.05rem;display:block;">🛡️ Plattform-sicher optimiert</strong>
+              <span style="color:var(--text-muted);font-size:0.9rem;">Kein Zugriff auf Plattform-APIs, kein Scraping, keine Bots. Konform mit den AGB von OnlyFans, Fansly, Instagram & Co.</span>
+            </div>
+          </div>
+          <div style="display:flex;align-items:center;gap:18px;">
+            <span style="font-size:1.6rem;flex-shrink:0;">⚙️</span>
+            <div>
+              <strong style="color:var(--text);font-size:1.05rem;display:block;">⚙️ Kein Risiko durch unkontrollierte Automation</strong>
+              <span style="color:var(--text-muted);font-size:0.9rem;">Entwickelt nach den Prinzipien des EU AI Acts. Kein automatischer Datenzugriff. Du gibst nur ein, was du selbst siehst.</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- ═══════════════════════════════════════════
+     PAIN POINT – Das Problem
+═══════════════════════════════════════════ -->
+<div id="pain">
+  <div class="container">
+    <div class="pain-inner">
+      <div class="pain-stat">
+        <div class="pain-number">30–120</div>
+        <div class="pain-desc">Fan-Nachrichten täglich — ohne System verlierst du den Überblick</div>
+      </div>
+      <div class="pain-stat">
+        <div class="pain-number">3+ Std.</div>
+        <div class="pain-desc">täglich verschwendet — Zeit, die du für Content brauchst</div>
+      </div>
+      <div class="pain-stat">
+        <div class="pain-number">150€+</div>
+        <div class="pain-desc">monatlich verschenkt — an Tools die prozentual abrechnen</div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- ═══════════════════════════════════════════
+     REVENUE SHARE CALLOUT – Stärkster USP
+═══════════════════════════════════════════ -->
+<section id="revenue-save">
+  <div class="container">
+    <div class="revenue-inner">
+      <div class="revenue-text fade-in">
+        <div class="section-label">Dein Erfolg gehört dir</div>
+        <h2>150€+ pro Monat — einfach weg. Jeden Monat.</h2>
+        <p>
+          Die meisten Tools rechnen prozentual ab. Bei 3.000€ Umsatz zahlst du 150€ extra — jeden Monat. EasyToGrow kostet 39€. Flat. Egal wie viel du verdienst.
+        </p>
+        <div class="revenue-quote">
+          „Bei 5.000€ Monatsumsatz spart EasyToGrow dir über 2.400€ im Jahr. Das ist kein Nebeneffekt — das ist das Modell."
+        </div>
+      </div>
+
+      <div class="revenue-calc fade-in">
+        <div class="calc-header">💰 Was sparst du mit EasyToGrow?</div>
+        <div class="calc-slider-wrap">
+          <div class="calc-label">
+            Dein monatlicher Umsatz:
+            <span id="revenue-display">3.000 €</span>
+          </div>
+          <input type="range" id="revenue-slider"
+            min="500" max="15000" step="250" value="3000"
+            oninput="updateCalc()">
+        </div>
+        <div class="calc-results">
+          <div class="calc-row bad">
+            <div class="calc-row-label">
+              Marktbegleiter (mit Revenue Share)
+              <span class="sub">Abo + 5% Revenue Share</span>
+            </div>
+            <div class="calc-row-price" id="sc-cost">249 €</div>
+          </div>
+          <div class="calc-row good">
+            <div class="calc-row-label">
+              EasyToGrow
+              <span class="sub">Flat Rate, kein Revenue Share</span>
+            </div>
+            <div class="calc-row-price">39 €</div>
+          </div>
+          <div class="calc-saving">
+            <div class="calc-saving-label">Deine monatliche Ersparnis</div>
+            <div class="calc-saving-amount" id="saving-display">210 €</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- ═══════════════════════════════════════════
+     HOW IT WORKS
+═══════════════════════════════════════════ -->
+<section id="how">
+  <div class="container">
+    <div class="section-header fade-in">
+      <div class="section-label">So einfach geht's</div>
+      <h2>3 Schritte — fertig</h2>
+      <p>Kein kompliziertes Setup. Keine Automatisierungen, die gegen Plattform-AGB verstoßen. Du behältst immer die Kontrolle.</p>
+    </div>
+    <div class="steps">
+      <div class="steps-connector"></div>
+      <div class="step-card fade-in">
+        <div class="step-number">1</div>
+        <div class="step-emoji">📩</div>
+        <h3>Nachricht reinkopieren</h3>
+        <p>Fan schreibt dir. Du kopierst die Nachricht in EasyToGrow.</p>
+      </div>
+      <div class="step-card fade-in">
+        <div class="step-number">2</div>
+        <div class="step-emoji">🤖</div>
+        <h3>KI generiert die Antwort</h3>
+        <p>EasyToGrow analysiert den Kontext, erkennt Kaufmomente und schlägt dir die perfekte Antwort vor.</p>
+      </div>
+      <div class="step-card fade-in">
+        <div class="step-number">3</div>
+        <div class="step-emoji">✅</div>
+        <h3>Du sendest — fertig</h3>
+        <p>Du prüfst, kopierst und sendest. Du hast immer die Kontrolle. Keine Automatik, kein Risiko.</p>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- ═══════════════════════════════════════════
+     FÜR WEN?
+═══════════════════════════════════════════ -->
+<section id="for-whom">
+  <div class="container">
+    <div class="section-header fade-in">
+      <div class="section-label">Für wen ist EasyToGrow?</div>
+      <h2>Ein Tool — alle Creator-Typen</h2>
+      <div style="display:flex;gap:16px;justify-content:center;flex-wrap:wrap;margin-top:24px;">
+        <div class="fly-left" data-delay="0" style="padding:20px 32px;background:linear-gradient(135deg,rgba(34,197,94,0.15),rgba(20,184,166,0.08));border:2px solid var(--green);border-radius:var(--radius-lg);text-align:left;box-shadow:0 0 32px rgba(34,197,94,0.15);min-width:260px;">
+          <div style="font-size:0.72rem;font-weight:700;color:var(--green);text-transform:uppercase;letter-spacing:0.12em;margin-bottom:6px;">🎯 Für Creator</div>
+          <div style="color:var(--text);font-weight:700;font-size:1rem;">Mehr Umsatz pro Fan –<br>ohne mehr Zeit im Chat</div>
+        </div>
+        <div class="fly-right" data-delay="0" style="padding:20px 32px;background:var(--bg2);border:1px solid var(--border);border-radius:var(--radius-lg);text-align:left;min-width:260px;">
+          <div style="font-size:0.72rem;font-weight:700;color:var(--text-muted);text-transform:uppercase;letter-spacing:0.12em;margin-bottom:6px;">🏢 Für Agenturen</div>
+          <div style="color:var(--text);font-weight:600;font-size:1rem;">Skaliere mehrere Creator und<br>reduziere Chat-Aufwand drastisch</div>
+        </div>
+      </div>
+    </div>
+    <div class="forwhom-grid">
+
+      <article class="forwhom-card fade-in">
+        <div class="forwhom-icon">🔥</div>
+        <h3>Content Creator 🔥</h3>
+        <p>Du willst mehr Umsatz pro Fan, ohne mehr Zeit im Chat zu verbringen.</p>
+        <ul class="forwhom-pains">
+          <li><span class="x">✗</span>Täglich 50–120 Nachrichten, immer ähnlich</li>
+          <li><span class="x">✗</span>Revenue Share der Konkurrenz frisst dein Einkommen</li>
+          <li><span class="x">✗</span>Kein deutsches Tool, das Adult wirklich versteht</li>
+          <li><span class="x">✗</span>Abends am Handy tippen statt relaxen</li>
+        </ul>
+        <ul class="forwhom-pains" style="margin-top:10px">
+          <li><span class="ck" style="color:var(--green)">✓</span>PPV-Indikator — erkennt wann ein Verkauf möglich ist</li>
+          <li><span class="ck" style="color:var(--green)">✓</span>Verschiedene Flirtstufen — von freundlich bis explizit</li>
+          <li><span class="ck" style="color:var(--green)">✓</span>Adult-Sprache die klingt wie du — nicht wie eine KI</li>
+        </ul>
+      </article>
+
+      <article class="forwhom-card fade-in">
+        <div class="forwhom-icon">💪</div>
+        <h3>Lifestyle & Fitness Creator 💪</h3>
+        <p>Du baust echte Beziehungen zu deinen Fans — EasyToGrow hält deinen Stil.</p>
+        <ul class="forwhom-pains">
+          <li><span class="x">✗</span>DMs bleiben unbeantwortet — schlechtes Engagement</li>
+          <li><span class="x">✗</span>Content für Instagram, TikTok, Threads & Co. manuell erstellen kostet Stunden täglich</li>
+          <li><span class="x">✗</span>Alle anderen Tools sind auf Adult fokussiert — du gehörst nicht dazu</li>
+          <li><span class="x">✗</span>Keine KI die deinen echten Stil und deine Werte wirklich versteht</li>
+        </ul>
+        <ul class="forwhom-pains" style="margin-top:10px">
+          <li><span class="ck" style="color:var(--green)">✓</span>DM-Antworten in Sekunden — auf allen Plattformen</li>
+          <li><span class="ck" style="color:var(--green)">✓</span>Content-Generator für 10 Plattformen gleichzeitig</li>
+          <li><span class="ck" style="color:var(--green)">✓</span>Eigener Creator-Typ Lifestyle/Business — kein Adult-Bias</li>
+          <li><span class="ck" style="color:var(--green)">✓</span>Charakter-Bibel lernt deinen echten Stil und deine Werte</li>
+        </ul>
+      </article>
+
+      <article class="forwhom-card fade-in">
+        <div class="forwhom-icon">🏢</div>
+        <h3>Agenturen 🏢</h3>
+        <p>Skaliere mehrere Creator gleichzeitig und reduziere den Chat-Aufwand drastisch.</p>
+        <ul class="forwhom-pains">
+          <li><span class="x">✗</span>Für jeden Creator ein eigenes Setup — Chaos</li>
+          <li><span class="x">✗</span>Revenue Share skaliert mit Erfolg — zu deinen Ungunsten</li>
+          <li><span class="x">✗</span>Kein Tool das Agentur-Workflows wirklich unterstützt</li>
+          <li><span class="x">✗</span>Kein deutsches Tool mit EU-Rechtssicherheit</li>
+        </ul>
+        <ul class="forwhom-pains" style="margin-top:10px">
+          <li><span class="ck" style="color:var(--green)">✓</span>Multi-Workspace — ein Login, alle Creator sauber getrennt</li>
+          <li><span class="ck" style="color:var(--green)">✓</span>Flat Rate pro Workspace — kein Revenue Share, egal wie viel die Creator verdienen</li>
+          <li><span class="ck" style="color:var(--green)">✓</span>Charakter-Bibel pro Creator — einheitliche Qualität im Team</li>
+          <li><span class="ck" style="color:var(--green)">✓</span>DSGVO + EU AI Act konform — entwickelt nach deutschem Datenschutzrecht</li>
+        </ul>
+      </article>
+
+    </div>
+  </div>
+</section>
+<!-- ═══════════════════════════════════════════
+     USPs / FEATURES
+═══════════════════════════════════════════ -->
+<section id="features">
+  <div class="container">
+    <div class="section-header fade-in">
+      <div class="section-label">Warum EasyToGrow gewinnt</div>
+      <h2>Alles was du brauchst —<br><span class="gradient-text">in einem System.</span></h2>
+      <p>Kein anderes Tool verbindet Chat-Antworten, Kaufmomenten-Erkennung, Content-Plan und Strategie in einer App. Gebaut für Creator die mehr verdienen wollen — ohne mehr zu arbeiten.</p>
+    </div>
+    <div class="usp-grid">
+
+      <article class="usp-card fade-in">
+        <div class="usp-icon-wrap">💶</div>
+        <div class="usp-tagline">„Dein Erfolg gehört dir."</div>
+        <h3>Kein Revenue Share — Flat Rate</h3>
+        <p>Marktbegleiter nehmen bis zu 5% deines Umsatzes. EasyToGrow: <strong style="color:var(--text)">ab 39€. Flat. Egal wie viel du verdienst.</strong></p>
+      </article>
+
+      <article class="usp-card fade-in">
+        <div class="usp-icon-wrap">🎯</div>
+        <div class="usp-tagline">„Erkennt wann ein Fan bereit ist zu kaufen."</div>
+        <h3>Kaufmomente erkennen — nie wieder verpassen</h3>
+        <p>Der PPV-Indikator zeigt dir exakt wann ein Fan kaufbereit ist. <strong style="color:var(--text)">Du verpasst nie wieder einen Verkauf.</strong></p>
+      </article>
+
+      <article class="usp-card fade-in">
+        <div class="usp-icon-wrap">🪞</div>
+        <div class="usp-tagline">„Klingt immer wie du — nicht wie eine KI."</div>
+        <h3>Deine Persönlichkeit in jeder Nachricht</h3>
+        <p>Die Charakter-Bibel trainiert deinen Stil, deine Sprache, deine Werte. <strong style="color:var(--text)">Kein Fan merkt den Unterschied.</strong></p>
+      </article>
+
+      <article class="usp-card fade-in">
+        <div class="usp-icon-wrap">📱</div>
+        <div class="usp-tagline">„Arbeite vom Sofa. Vom Hotel. Von überall."</div>
+        <h3>Mobile PWA — läuft überall</h3>
+        <p>iPhone, Android, Desktop. <strong style="color:var(--text)">Kein App Store, keine Installation. Läuft in 10 Sekunden.</strong></p>
+      </article>
+
+      <article class="usp-card fade-in">
+        <div class="usp-icon-wrap">🧠</div>
+        <div class="usp-tagline">„Deine KI kennt deine Fans."</div>
+        <h3>Jeder Fan fühlt sich besonders</h3>
+        <p>Fan-Memory erinnert sich an Vorlieben, Gespräche und bestellte Inhalte. <strong style="color:var(--text)">Jede Antwort klingt persönlich. Weil sie es ist.</strong></p>
+      </article>
+
+      <article class="usp-card fade-in">
+        <div class="usp-icon-wrap">🏢</div>
+        <div class="usp-tagline">„Skalier ohne mehr Aufwand."</div>
+        <h3>Bis zu 20 Creator — ein Dashboard</h3>
+        <p>Für Agenturen: ein Login, alle Creator sauber getrennt. <strong style="color:var(--text)">Flat Rate egal wie viel sie verdienen.</strong></p>
+      </article>
+
+    </div>
+  </div>
+</section>
+<!-- ═══════════════════════════════════════════
+     MODULES
+═══════════════════════════════════════════ -->
+<section id="modules">
+  <div class="container">
+    <div class="section-header fade-in">
+      <div class="section-label">Alles in einem System</div>
+      <h2>Mehr als nur Chat-Antworten —<br><span class="gradient-text">volle Kontrolle über deinen Umsatz.</span></h2>
+      <p>EasyToGrow ist kein Chatbot. Es ist dein System für mehr Umsatz im Chat — mit Content, Strategie und Analytics in einer App.</p>
+    </div>
+    <div class="modules-grid">
+
+      <div class="module-card highlight fade-in">
+        <div class="module-badge">Kern-Feature</div>
+        <div class="module-icon">💬</div>
+        <h3>Antworten</h3>
+        <p>Nachricht einfügen, KI generiert die Antwort im Stil des Creators. Du prüfst, kopierst, sendest selbst ab. Fan-Memory sorgt für echte Nähe.</p>
+      </div>
+
+      <div class="module-card fade-in">
+        <div class="module-icon">🚀</div>
+        <h3>Traffic &amp; Content</h3>
+        <p>Posts, Captions und Content für alle 10 Plattformen gleichzeitig — basierend auf deiner Charakter-Bibel. Ein Klick, alle Kanäle bespielt.</p>
+      </div>
+
+      <div class="module-card fade-in">
+        <div class="module-icon">🧠</div>
+        <h3>Du weißt immer wohin du wachsen sollst</h3>
+        <p>KI-Strategie auf Basis deiner Bibel: Schwerpunkte setzen, Wachstumsfragen stellen, Richtung anpassen — wenn sich Trends ändern, passt sich das System an.</p>
+      </div>
+
+      <div class="module-card fade-in">
+        <div class="module-icon">📊</div>
+        <h3>Sieh sofort was Umsatz bringt</h3>
+        <p>Echtzeit-Übersicht über Nachrichten, Reaktionen und Performance. Verstehe was bei deinen Fans wirklich funktioniert — und hör auf mit dem Rest.</p>
+      </div>
+
+      <div class="module-card fade-in">
+        <div class="module-icon">📅</div>
+        <h3>Du weißt jeden Tag was du posten sollst</h3>
+        <p>KI-generierter Redaktionsplan für alle Plattformen. Kein Planungs-Chaos — du öffnest die App und weißt sofort was heute dran ist.</p>
+      </div>
+
+      <div class="module-card fade-in">
+        <div class="module-icon">🔧</div>
+        <h3>Volle Transparenz — immer</h3>
+        <p>Echtzeit-Monitoring welche Plattform gerade aktiv erkannt wird. Du siehst immer was läuft — und kannst sofort eingreifen wenn nötig.</p>
+      </div>
+
+    </div>
+
+    <!-- Coming Soon -->
+    <div class="coming-soon-block fade-in">
+      <div class="coming-soon-label">Roadmap — v2</div>
+      <h3>Was als nächstes kommt</h3>
+      <div class="coming-soon-grid">
+        <div class="coming-soon-item">
+          <span class="cs-icon">👋</span>
+          <strong>Welcome Message Generator</strong>
+          <span>Automatisch personalisierte Begrüßung für neue Fans</span>
+        </div>
+        <div class="coming-soon-item">
+          <span class="cs-icon">⏰</span>
+          <strong>Expiring Fan Reminder</strong>
+          <span>Erinnerung wenn ein Fan-Abo bald ausläuft — nie wieder einen Verlängerungs-Umsatz verpassen</span>
+        </div>
+        <div class="coming-soon-item">
+          <span class="cs-icon">🔄</span>
+          <strong>Re-Engagement Flow</strong>
+          <span>KI-generierte Nachrichten für abgewanderte Fans — mit einem Klick reaktivieren</span>
+        </div>
+        <div class="coming-soon-item">
+          <span class="cs-icon">📝</span>
+          <strong>Scripts &amp; Vorlagen</strong>
+          <span>Wiederverwendbare Nachrichten-Templates für häufige Situationen</span>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+<!-- ═══════════════════════════════════════════
+     PLATFORMS
+═══════════════════════════════════════════ -->
+<section id="platforms">
+  <div class="container">
+    <div class="section-header fade-in">
+      <div class="section-label">Unterstützte Plattformen</div>
+      <h2>Eine App — 10 Plattformen</h2>
+      <p>Egal wo deine Fans sind — EasyToGrow ist dabei. Adult und Non-Adult.</p>
+    </div>
+    <div class="platform-grid fade-in">
+      <div class="platform-badge"><span class="pi">🔥</span> OnlyFans</div>
+      <div class="platform-badge"><span class="pi">💜</span> Fansly</div>
+      <div class="platform-badge"><span class="pi">💚</span> Fanvue</div>
+      <div class="platform-badge"><span class="pi">📸</span> Instagram</div>
+      <div class="platform-badge"><span class="pi">🎵</span> TikTok</div>
+      <div class="platform-badge"><span class="pi">✈️</span> Telegram</div>
+      <div class="platform-badge"><span class="pi">👽</span> Reddit</div>
+      <div class="platform-badge"><span class="pi">🧵</span> Threads</div>
+      <div class="platform-badge"><span class="pi">🐦</span> Twitter / X</div>
+      <div class="platform-badge"><span class="pi">👍</span> Facebook</div>
+    </div>
+  </div>
+</section>
+<!-- ═══════════════════════════════════════════
+     PWA INSTALL
+═══════════════════════════════════════════ -->
+<section id="install">
+  <div class="container">
+    <div class="section-header fade-in">
+      <div class="section-label">Kein Download. Kein App Store.</div>
+      <h2>Läuft auf jedem Gerät —<br><span class="gradient-text">sofort, ohne Installation</span></h2>
+      <p>Einfach die Website öffnen und zum Home-Bildschirm hinzufügen. Fertig. Läuft wie eine native App — ohne App Store, ohne Download, ohne Genehmigung.</p>
+    </div>
+
+    <div class="install-intro fade-in">
+      <div class="install-intro-icon">⚡</div>
+      <div class="install-intro-text">
+        EasyToGrow ist eine <span>Progressive Web App (PWA)</span> — das bedeutet: du öffnest die Website einmal, tippst auf "Zum Home-Bildschirm hinzufügen" und hast eine vollwertige App-Erfahrung. Auf iPhone, Android und Desktop. Kostenlos. In 10 Sekunden.
+      </div>
+    </div>
+
+    <div class="install-grid">
+
+      <div class="install-card fade-in">
+        <div class="install-os-icon">📱</div>
+        <h3>iPhone / iPad</h3>
+        <ul class="install-steps">
+          <li>
+            <span class="install-step-num">1</span>
+            <span>Öffne <strong style="color:var(--text)">easytogrowki.de</strong> in Safari</span>
+          </li>
+          <li>
+            <span class="install-step-num">2</span>
+            <span>Tippe auf das <strong style="color:var(--text)">Teilen-Symbol</strong> (Pfeil nach oben)</span>
+          </li>
+          <li>
+            <span class="install-step-num">3</span>
+            <span>Wähle <strong style="color:var(--text)">"Zum Home-Bildschirm"</strong></span>
+          </li>
+          <li>
+            <span class="install-step-num">4</span>
+            <span>Tippe <strong style="color:var(--text)">"Hinzufügen"</strong> — fertig! 🎉</span>
+          </li>
+        </ul>
+      </div>
+
+      <div class="install-card fade-in">
+        <div class="install-os-icon">📲</div>
+        <h3>Android</h3>
+        <ul class="install-steps">
+          <li>
+            <span class="install-step-num">1</span>
+            <span>Öffne <strong style="color:var(--text)">easytogrowki.de</strong> in Chrome</span>
+          </li>
+          <li>
+            <span class="install-step-num">2</span>
+            <span>Tippe auf die <strong style="color:var(--text)">drei Punkte</strong> (Menü)</span>
+          </li>
+          <li>
+            <span class="install-step-num">3</span>
+            <span>Wähle <strong style="color:var(--text)">"App installieren"</strong></span>
+          </li>
+          <li>
+            <span class="install-step-num">4</span>
+            <span>Bestätige — App ist auf deinem Startscreen 🎉</span>
+          </li>
+        </ul>
+      </div>
+
+      <div class="install-card fade-in">
+        <div class="install-os-icon">💻</div>
+        <h3>Desktop (Mac &amp; Windows)</h3>
+        <ul class="install-steps">
+          <li>
+            <span class="install-step-num">1</span>
+            <span>Öffne <strong style="color:var(--text)">easytogrowki.de</strong> in Chrome</span>
+          </li>
+          <li>
+            <span class="install-step-num">2</span>
+            <span>Klicke auf das <strong style="color:var(--text)">Install-Symbol</strong> in der Adressleiste (⊕)</span>
+          </li>
+          <li>
+            <span class="install-step-num">3</span>
+            <span>Klicke <strong style="color:var(--text)">"Installieren"</strong></span>
+          </li>
+          <li>
+            <span class="install-step-num">4</span>
+            <span>Läuft als eigenes Fenster ohne Browser 🎉</span>
+          </li>
+        </ul>
+      </div>
+
+    </div>
+
+    <div class="install-vs fade-in">
+      <div class="install-vs-icon">⚠️</div>
+      <div class="install-vs-text">
+        <strong>Zum Vergleich:</strong> Andere Marktbegleiter erfordern einen vollständigen Desktop-Browser-Download für Mac oder Windows — kein Mobile, kein iPhone, kein Android. EasyToGrow läuft überall, sofort, ohne einen einzigen Download.
+      </div>
+    </div>
+  </div>
+</section>
+<!-- ═══════════════════════════════════════════
+     PRICING
+═══════════════════════════════════════════ -->
+<section id="pricing">
+  <div class="container">
+    <div class="section-header fade-in">
+      <div class="section-label">Preise</div>
+      <h2>Dieses Tool <span class="gradient-text">bezahlt sich selbst.</span></h2>
+      <p>Ein Verkauf mehr pro Tag deckt deinen Plan. Alles danach ist reiner Gewinn. Kein Revenue Share — Flat Rate, egal wie viel du verdienst.</p>
+      <div style="display:inline-block;margin-top:18px;padding:14px 28px;background:linear-gradient(135deg,rgba(34,197,94,0.1),rgba(20,184,166,0.1));border:1px solid var(--border-green);border-radius:100px;font-size:0.95rem;font-weight:600;color:var(--text);">
+        💡 EasyToGrow ist kein Chatbot. Es ist dein System für mehr Umsatz im Chat.
+      </div>
+    </div>
+
+    <p style="text-align:center;color:var(--green-light);font-size:1rem;font-weight:600;margin-bottom:24px;">Ein Verkauf mehr pro Tag deckt deinen Plan.</p>
+
+    <!-- Billing Toggle -->
+    <div class="billing-toggle fade-in">
+      <button class="billing-btn active" id="btn-monthly" onclick="setBilling('monthly')">Monatlich</button>
+      <button class="billing-btn" id="btn-yearly" onclick="setBilling('yearly')">Jährlich <span class="toggle-badge">-17%</span></button>
+    </div>
+
+    <!-- Content Creator Label -->
+    <div class="pricing-section-label fade-in">
+      <h3 class="pricing-section-title">Content Creator</h3>
+      <p class="pricing-section-sub">Alle Plattformen · ohne Adult-Modul</p>
+    </div>
+
+    <div class="pricing-grid">
+      <!-- Starter -->
+      <div class="pricing-card fade-in"
+        data-monthly="39" data-yearly="390"
+        data-monthly-note="500 Aktionen/Monat · monatlich kündbar"
+        data-yearly-note="500 Aktionen/Monat · einmal jährlich">
+        <div class="pricing-tier">Starter</div>
+        <div>
+          <span class="pricing-amount" data-monthly="39" data-yearly="390">39€</span>
+          <span class="pricing-period" data-monthly="/Monat" data-yearly="/Jahr">/Monat</span>
+        </div>
+        <div class="pricing-yearly-info">
+          <div class="pricing-yearly-total">statt <s>468€</s> · entspricht 32€/Monat</div>
+          <div class="pricing-yearly-savings">🎉 78€ gespart</div>
+        </div>
+        <div class="pricing-first-wrap">
+          <div class="pricing-first">🎉 Erster Monat nur 19€</div>
+        </div>
+        <div class="pricing-note">500 Aktionen/Monat · monatlich kündbar</div>
+        <hr class="pricing-divider">
+        <ul class="pricing-features">
+          <li><span class="ck">✓</span><span><strong>500 KI-Aktionen</strong>/Monat</span></li>
+          <li><span class="ck">✓</span><span>1 Creator-Workspace</span></li>
+          <li><span class="ck">✓</span><span>Alle 10 Plattformen</span></li>
+          <li><span class="ck">✓</span><span>Chat-History (20 Nachrichten)</span></li>
+          <li><span class="ck">✓</span><span>Mobile PWA</span></li>
+          <li><span class="ck">✓</span><span>Deutsch &amp; Englisch</span></li>
+          <li><span class="ck">✓</span><span>Kein Revenue Share</span></li>
+        </ul>
+        <a href="https://buy.stripe.com/test_28E6oI4Ih6xB29530F8Vi08" class="btn btn-outline pricing-cta" style="width:100%;justify-content:center" target="_blank"
+          data-monthly-link="https://buy.stripe.com/test_28E6oI4Ih6xB29530F8Vi08"
+          data-yearly-link="https://buy.stripe.com/test_14A5kEa2B5tx1510Sx8Vi0a">
+          Starter wählen
+        </a>
+      </div>
+
+      <!-- Pro (Featured) -->
+      <div class="pricing-card featured fade-in"
+        data-monthly="79" data-yearly="790">
+        <div class="pricing-badge">⭐ Beliebteste Wahl</div>
+        <div class="pricing-tier">Pro</div>
+        <div>
+          <span class="pricing-amount" data-monthly="79" data-yearly="790">79€</span>
+          <span class="pricing-period" data-monthly="/Monat" data-yearly="/Jahr">/Monat</span>
+        </div>
+        <div class="pricing-yearly-info">
+          <div class="pricing-yearly-total">statt <s>948€</s> · entspricht 66€/Monat</div>
+          <div class="pricing-yearly-savings">🎉 158€ gespart</div>
+        </div>
+        <div class="pricing-first-wrap">
+          <div class="pricing-first">🎉 Erster Monat nur 39€</div>
+        </div>
+        <div class="pricing-note">1.500 Aktionen/Monat · monatlich kündbar</div>
+        <hr class="pricing-divider">
+        <ul class="pricing-features">
+          <li><span class="ck">✓</span><span><strong>1.500 KI-Aktionen</strong>/Monat</span></li>
+          <li><span class="ck">✓</span><span>3 Creator-Workspaces</span></li>
+          <li><span class="ck">✓</span><span>Alle 10 Plattformen</span></li>
+          <li><span class="ck">✓</span><span>Chat-History (20 Nachrichten)</span></li>
+          <li><span class="ck">✓</span><span>Individueller KI-Stil &amp; Ton</span></li>
+          <li><span class="ck">✓</span><span>Mobile PWA</span></li>
+          <li><span class="ck">✓</span><span>Prioritäts-Support</span></li>
+          <li><span class="ck">✓</span><span>Kein Revenue Share</span></li>
+        </ul>
+        <a href="https://buy.stripe.com/test_bJebJ2b6Fe032958kZ8Vi07" class="btn btn-primary pricing-cta" style="width:100%;justify-content:center" target="_blank"
+          data-monthly-link="https://buy.stripe.com/test_bJebJ2b6Fe032958kZ8Vi07"
+          data-yearly-link="https://buy.stripe.com/test_00wcN6b6F6xBbJF6cR8Vi0b">
+          Pro wählen →
+        </a>
+      </div>
+
+      <!-- Business -->
+      <div class="pricing-card fade-in"
+        data-monthly="149" data-yearly="1490">
+        <div class="pricing-tier">Business</div>
+        <div>
+          <span class="pricing-amount" data-monthly="149" data-yearly="1490">149€</span>
+          <span class="pricing-period" data-monthly="/Monat" data-yearly="/Jahr">/Monat</span>
+        </div>
+        <div class="pricing-yearly-info">
+          <div class="pricing-yearly-total">statt <s>1.788€</s> · entspricht 124€/Monat</div>
+          <div class="pricing-yearly-savings">🎉 298€ gespart</div>
+        </div>
+        <div class="pricing-first-wrap">
+          <div class="pricing-first">🎉 Erster Monat nur 74€</div>
+        </div>
+        <div class="pricing-note">3.500 Aktionen/Monat · für Agenturen</div>
+        <hr class="pricing-divider">
+        <ul class="pricing-features">
+          <li><span class="ck">✓</span><span><strong>3.500 KI-Aktionen</strong>/Monat</span></li>
+          <li><span class="ck">✓</span><span>Unbegrenzte Workspaces</span></li>
+          <li><span class="ck">✓</span><span>Alle 10 Plattformen</span></li>
+          <li><span class="ck">✓</span><span>Chat-History (20 Nachrichten)</span></li>
+          <li><span class="ck">✓</span><span>Team-Zugang &amp; Rechteverwaltung</span></li>
+          <li><span class="ck">✓</span><span>Individuelles Onboarding</span></li>
+          <li><span class="ck">✓</span><span>Dedizierter Support</span></li>
+          <li><span class="ck">✓</span><span>Kein Revenue Share</span></li>
+        </ul>
+        <a href="https://buy.stripe.com/test_eVq3cw3Ed9JN7tpcBf8Vi06" class="btn btn-outline pricing-cta" style="width:100%;justify-content:center" target="_blank"
+          data-monthly-link="https://buy.stripe.com/test_eVq3cw3Ed9JN7tpcBf8Vi06"
+          data-yearly-link="https://buy.stripe.com/test_cNi6oIfmVaNRaFB1WB8Vi0c">
+          Business wählen
+        </a>
+      </div>
+    </div>
+
+    <!-- Adult Creator Label -->
+    <div class="pricing-section-label pricing-section-adult fade-in" style="margin-top:56px">
+      <h3 class="pricing-section-title">Adult Creator 🔥</h3>
+      <p class="pricing-section-sub">Alles aus Content Creator + Adult-Modul inklusive · +10€/Monat</p>
+    </div>
+
+    <div class="pricing-grid">
+      <!-- Adult Starter -->
+      <div class="pricing-card fade-in"
+        data-monthly="49" data-yearly="490"
+        data-monthly-note="500 Aktionen/Monat · monatlich kündbar"
+        data-yearly-note="500 Aktionen/Monat · einmal jährlich">
+        <div class="pricing-tier">Starter</div>
+        <div>
+          <span class="pricing-amount" data-monthly="49" data-yearly="490">49€</span>
+          <span class="pricing-period" data-monthly="/Monat" data-yearly="/Jahr">/Monat</span>
+        </div>
+        <div class="pricing-yearly-info">
+          <div class="pricing-yearly-total">statt <s>588€</s> · entspricht 41€/Monat</div>
+          <div class="pricing-yearly-savings">🎉 98€ gespart</div>
+        </div>
+        <div class="pricing-first-wrap">
+          <div class="pricing-first">🎉 Erster Monat nur 24€</div>
+        </div>
+        <div class="pricing-note">500 Aktionen/Monat · monatlich kündbar</div>
+        <hr class="pricing-divider">
+        <ul class="pricing-features">
+          <li><span class="ck">✓</span><span><strong>500 KI-Aktionen</strong>/Monat</span></li>
+          <li><span class="ck">✓</span><span>1 Creator-Workspace</span></li>
+          <li><span class="ck">✓</span><span>Alle 10 Plattformen</span></li>
+          <li><span class="ck">✓</span><span>Chat-History (20 Nachrichten)</span></li>
+          <li><span class="ck">✓</span><span>Mobile PWA</span></li>
+          <li><span class="ck">✓</span><span>Deutsch &amp; Englisch</span></li>
+          <li><span class="ck">✓</span><span>Kein Revenue Share</span></li>
+          <li><span class="ck" style="color:var(--green-light)">✓</span><span><strong>Adult-Modul inklusive</strong></span></li>
+        </ul>
+        <a href="https://buy.stripe.com/test_5kQ9AUfmVbRVdRNgRv8Vi05" class="btn btn-outline pricing-cta" style="width:100%;justify-content:center" target="_blank"
+          data-monthly-link="https://buy.stripe.com/test_5kQ9AUfmVbRVdRNgRv8Vi05"
+          data-yearly-link="https://buy.stripe.com/test_14A28sgqZ09d00XeJn8Vi0d">
+          Starter wählen
+        </a>
+      </div>
+
+      <!-- Adult Pro (Featured) -->
+      <div class="pricing-card featured fade-in"
+        data-monthly="89" data-yearly="890">
+        <div class="pricing-badge">⭐ Beliebteste Wahl</div>
+        <div class="pricing-tier">Pro</div>
+        <div>
+          <span class="pricing-amount" data-monthly="89" data-yearly="890">89€</span>
+          <span class="pricing-period" data-monthly="/Monat" data-yearly="/Jahr">/Monat</span>
+        </div>
+        <div class="pricing-yearly-info">
+          <div class="pricing-yearly-total">statt <s>1.068€</s> · entspricht 74€/Monat</div>
+          <div class="pricing-yearly-savings">🎉 178€ gespart</div>
+        </div>
+        <div class="pricing-first-wrap">
+          <div class="pricing-first">🎉 Erster Monat nur 44€</div>
+        </div>
+        <div class="pricing-note">1.500 Aktionen/Monat · monatlich kündbar</div>
+        <hr class="pricing-divider">
+        <ul class="pricing-features">
+          <li><span class="ck">✓</span><span><strong>1.500 KI-Aktionen</strong>/Monat</span></li>
+          <li><span class="ck">✓</span><span>3 Creator-Workspaces</span></li>
+          <li><span class="ck">✓</span><span>Alle 10 Plattformen</span></li>
+          <li><span class="ck">✓</span><span>Chat-History (20 Nachrichten)</span></li>
+          <li><span class="ck">✓</span><span>Individueller KI-Stil &amp; Ton</span></li>
+          <li><span class="ck">✓</span><span>Mobile PWA</span></li>
+          <li><span class="ck">✓</span><span>Prioritäts-Support</span></li>
+          <li><span class="ck">✓</span><span>Kein Revenue Share</span></li>
+          <li><span class="ck" style="color:var(--green-light)">✓</span><span><strong>Adult-Modul inklusive</strong></span></li>
+        </ul>
+        <a href="https://buy.stripe.com/test_5kQcN62A95tx8xtgRv8Vi04" class="btn btn-primary pricing-cta" style="width:100%;justify-content:center" target="_blank"
+          data-monthly-link="https://buy.stripe.com/test_5kQcN62A95tx8xtgRv8Vi04"
+          data-yearly-link="https://buy.stripe.com/test_aFa4gA6Qp3lp7tp6cR8Vi0e">
+          Pro wählen →
+        </a>
+      </div>
+
+      <!-- Adult Business -->
+      <div class="pricing-card fade-in"
+        data-monthly="159" data-yearly="1590">
+        <div class="pricing-tier">Business</div>
+        <div>
+          <span class="pricing-amount" data-monthly="159" data-yearly="1590">159€</span>
+          <span class="pricing-period" data-monthly="/Monat" data-yearly="/Jahr">/Monat</span>
+        </div>
+        <div class="pricing-yearly-info">
+          <div class="pricing-yearly-total">statt <s>1.908€</s> · entspricht 133€/Monat</div>
+          <div class="pricing-yearly-savings">🎉 318€ gespart</div>
+        </div>
+        <div class="pricing-first-wrap">
+          <div class="pricing-first">🎉 Erster Monat nur 79€</div>
+        </div>
+        <div class="pricing-note">3.500 Aktionen/Monat · für Agenturen</div>
+        <hr class="pricing-divider">
+        <ul class="pricing-features">
+          <li><span class="ck">✓</span><span><strong>3.500 KI-Aktionen</strong>/Monat</span></li>
+          <li><span class="ck">✓</span><span>Unbegrenzte Workspaces</span></li>
+          <li><span class="ck">✓</span><span>Alle 10 Plattformen</span></li>
+          <li><span class="ck">✓</span><span>Chat-History (20 Nachrichten)</span></li>
+          <li><span class="ck">✓</span><span>Team-Zugang &amp; Rechteverwaltung</span></li>
+          <li><span class="ck">✓</span><span>Individuelles Onboarding</span></li>
+          <li><span class="ck">✓</span><span>Dedizierter Support</span></li>
+          <li><span class="ck">✓</span><span>Kein Revenue Share</span></li>
+          <li><span class="ck" style="color:var(--green-light)">✓</span><span><strong>Adult-Modul inklusive</strong></span></li>
+        </ul>
+        <a href="https://buy.stripe.com/test_dRmdRaeiR1dh29558N8Vi03" class="btn btn-outline pricing-cta" style="width:100%;justify-content:center" target="_blank"
+          data-monthly-link="https://buy.stripe.com/test_dRmdRaeiR1dh29558N8Vi03"
+          data-yearly-link="https://buy.stripe.com/test_bJe9AU8Yxf474hdeJn8Vi0f">
+          Business wählen
+        </a>
+      </div>
+    </div>
+
+    <!-- Top-Ups -->
+    <div class="topup-wrap fade-in">
+      <h3 style="color:var(--text);margin-bottom:6px">Aktionen aufstocken</h3>
+      <p style="font-size:0.88rem">Kontingent aufgebraucht? Top-Up Pakete kannst du jederzeit dazubuchen. Tipp: Ab 2 Top-Ups/Monat lohnt sich das nächste Abo.</p>
+      <div class="topup-grid">
+        <a href="https://buy.stripe.com/test_aFa28s0s12hl4hdat78Vi02" class="topup-card" target="_blank" style="text-decoration:none;cursor:pointer">
+          <div>
+            <div class="topup-name">Top-Up S</div>
+            <div class="topup-actions">100 Aktionen · 0,09€/Aktion</div>
+          </div>
+          <div style="display:flex;flex-direction:column;align-items:flex-end;gap:6px">
+            <div class="topup-price">9€</div>
+            <span style="font-size:0.75rem;font-weight:700;color:var(--green);white-space:nowrap">Jetzt kaufen →</span>
+          </div>
+        </a>
+        <a href="https://buy.stripe.com/test_6oUeVe6QpaNR5lh6cR8Vi01" class="topup-card" target="_blank" style="text-decoration:none;cursor:pointer">
+          <div>
+            <div class="topup-name">Top-Up M</div>
+            <div class="topup-actions">250 Aktionen · 0,076€/Aktion</div>
+          </div>
+          <div style="display:flex;flex-direction:column;align-items:flex-end;gap:6px">
+            <div class="topup-price">19€</div>
+            <span style="font-size:0.75rem;font-weight:700;color:var(--green);white-space:nowrap">Jetzt kaufen →</span>
+          </div>
+        </a>
+        <a href="https://buy.stripe.com/test_8x23cw7Ut5txdRN30F8Vi09" class="topup-card" target="_blank" style="text-decoration:none;cursor:pointer">
+          <div>
+            <div class="topup-name">Top-Up L</div>
+            <div class="topup-actions">600 Aktionen · 0,065€/Aktion</div>
+          </div>
+          <div style="display:flex;flex-direction:column;align-items:flex-end;gap:6px">
+            <div class="topup-price">39€</div>
+            <span style="font-size:0.75rem;font-weight:700;color:var(--green);white-space:nowrap">Jetzt kaufen →</span>
+          </div>
+        </a>
+      </div>
+    </div>
+
+  </div>
+</section>
+<!-- ═══════════════════════════════════════════
+     COMPARISON
+═══════════════════════════════════════════ -->
+<section id="comparison">
+  <div class="container">
+    <div class="section-header fade-in">
+      <div class="section-label">Direktvergleich</div>
+      <h2>EasyToGrow vs. die Marktbegleiter</h2>
+      <p>Umsatzabhängige Preise, Desktop-only, kein Impressum. EasyToGrow ist die einzige echte Flat Rate — mit DSGVO-konformem Betrieb und legalem Unternehmenssitz in Deutschland.</p>
+    </div>
+    <div class="comparison-scroll fade-in">
+      <table class="comp-table">
+        <thead>
+          <tr>
+            <th>Feature</th>
+            <th class="etg">✅ EasyToGrow</th>
+            <th>Marktbegleiter 1</th>
+            <th>Marktbegleiter 2</th>
+            <th>Marktbegleiter 3</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Preis ab</td>
+            <td class="etg"><strong style="color:var(--green-light)">39€/Monat — Flat</strong></td>
+            <td>Free / $99+5%</td>
+            <td>$40–$500</td>
+            <td>$30–$250</td>
+          </tr>
+          <tr>
+            <td>Preismodell</td>
+            <td class="etg"><span class="yes">✓ Echte Flat Rate</span></td>
+            <td><span class="no">✗ Umsatzabhängig</span></td>
+            <td><span class="no">✗ Umsatzabhängig</span></td>
+            <td><span class="no">✗ Umsatzabhängig</span></td>
+          </tr>
+          <tr>
+            <td>Revenue Share</td>
+            <td class="etg"><span class="yes">✓ Keiner</span></td>
+            <td><span class="no">✗ +5% (KI-Plan)</span></td>
+            <td><span class="partial">~ Nein, skaliert bis $500</span></td>
+            <td><span class="partial">~ Nein, skaliert bis $250</span></td>
+          </tr>
+          <tr>
+            <td>Sprache / Markt</td>
+            <td class="etg"><span class="yes">✓ DACH-First</span></td>
+            <td><span class="no">✗ Nur Englisch</span></td>
+            <td><span class="partial">~ Übersetzt (kein DACH-Fokus)</span></td>
+            <td><span class="no">✗ Nur Englisch</span></td>
+          </tr>
+          <tr>
+            <td>Mobile</td>
+            <td class="etg"><span class="yes">✓ PWA — kein App Store</span></td>
+            <td><span class="partial">~ App (App Store nötig)</span></td>
+            <td><span class="partial">~ Unklar</span></td>
+            <td><span class="no">✗ Nur Desktop (Mac/Win)</span></td>
+          </tr>
+          <tr>
+            <td>Kein Download nötig</td>
+            <td class="etg"><span class="yes">✓ Läuft im Browser / PWA</span></td>
+            <td><span class="partial">~ App-Download nötig</span></td>
+            <td><span class="partial">~ Unklar</span></td>
+            <td><span class="no">✗ Desktop-Download Pflicht</span></td>
+          </tr>
+          <tr>
+            <td>Rechtssitz &amp; Impressum</td>
+            <td class="etg"><span class="yes">✓ Deutschland / DSGVO</span></td>
+            <td><span class="partial">~ Unklar</span></td>
+            <td><span class="no">✗ Spanien, kein Impressum</span></td>
+            <td><span class="no">✗ Zypern, kein Impressum</span></td>
+          </tr>
+          <tr>
+            <td>Browser-Extension / Datenscraping</td>
+            <td class="etg"><span class="yes">✓ Kein Scraping — by design</span></td>
+            <td><span class="no">✗ Extension erforderlich</span></td>
+            <td><span class="no">✗ Extension erforderlich</span></td>
+            <td><span class="no">✗ Extension erforderlich</span></td>
+          </tr>
+          <tr>
+            <td>DSGVO + EU AI Act konform</td>
+            <td class="etg"><span class="yes">✓ Ja — entwickelt nach EU-Recht</span></td>
+            <td><span class="partial">~ Unklar</span></td>
+            <td><span class="partial">~ Unklar</span></td>
+            <td><span class="partial">~ Unklar</span></td>
+          </tr>
+          <tr>
+            <td>Fan-Memory</td>
+            <td class="etg"><span class="yes">✓ Vollständig</span></td>
+            <td><span class="partial">~ Begrenzt</span></td>
+            <td><span class="no">✗ Nein</span></td>
+            <td><span class="no">✗ Nein</span></td>
+          </tr>
+          <tr>
+            <td>Multi-Workspace</td>
+            <td class="etg"><span class="yes">✓ Ja</span></td>
+            <td><span class="yes">✓ Ja</span></td>
+            <td><span class="yes">✓ Ja</span></td>
+            <td><span class="no">✗ Nein</span></td>
+          </tr>
+          <tr>
+            <td>Non-Adult Creator</td>
+            <td class="etg"><span class="yes">✓ Ja</span></td>
+            <td><span class="partial">~ Begrenzt</span></td>
+            <td><span class="partial">~ Begrenzt</span></td>
+            <td><span class="no">✗ Nein</span></td>
+          </tr>
+          <tr>
+            <td>Einstiegs-Angebot</td>
+            <td class="etg"><span class="yes">✓ 50% günstiger</span></td>
+            <td><span class="yes">✓ 14 Tage Trial</span></td>
+            <td><span class="yes">✓ Free Trial</span></td>
+            <td><span class="no">✗ Keins</span></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+<!-- ═══════════════════════════════════════════
+     FAQ
+═══════════════════════════════════════════ -->
+<section id="faq">
+  <div class="container">
+    <div class="section-header fade-in">
+      <div class="section-label">Häufige Fragen</div>
+      <h2>Alle Antworten auf einen Blick</h2>
+    </div>
+    <div class="faq-list fade-in">
+
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">
+          Verletzt EasyToGrow die AGB von OnlyFans oder Instagram?
+          <svg class="faq-arrow" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/></svg>
+        </button>
+        <div class="faq-a"><div class="faq-a-inner">
+          Nein. In der Desktop-Version liest EasyToGrow auf fast allen Plattformen eingehende Fan-Nachrichten automatisch ein und generiert direkt einen Antwortvorschlag — das spart dir die Copy-Paste-Arbeit. Das Einsetzen und Absenden erfolgt jedoch <strong>immer manuell durch dich</strong>. In der mobilen App läuft alles vollständig manuell. EasyToGrow greift nicht in Plattform-APIs ein und führt keine eigenständigen Aktionen durch. Das Prinzip: die KI schlägt vor — du entscheidest, du sendest.
+        </div></div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">
+          Was bedeutet „Human-in-the-Loop"?
+          <svg class="faq-arrow" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/></svg>
+        </button>
+        <div class="faq-a"><div class="faq-a-inner">
+          Die KI generiert einen Vorschlag — aber du entscheidest und sendest immer selbst ab. Keine automatischen Nachrichten, keine KI die eigenständig agiert. Das ist die Anforderung des EU AI Acts: ein Mensch ist immer in der Entscheidungskette. EasyToGrow ist damit compliant ab Tag 1.
+        </div></div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">
+          Was ist eine „Aktion" und wie viele brauche ich?
+          <svg class="faq-arrow" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/></svg>
+        </button>
+        <div class="faq-a"><div class="faq-a-inner">
+          Eine Aktion = ein KI-generierter Antwortvorschlag. Bei 500 Aktionen im Starter bist du mit 15–20 Nachrichten täglich gut aufgestellt. Wer täglich 50+ Nachrichten beantwortet, ist mit dem Pro-Plan (1.500 Aktionen) besser bedient. Brauchst du mehr, gibt es jederzeit Top-Up Pakete.
+        </div></div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">
+          Warum ist EasyToGrow günstiger als die Marktbegleiter, obwohl es mehr kann?
+          <svg class="faq-arrow" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/></svg>
+        </button>
+        <div class="faq-a"><div class="faq-a-inner">
+          Weil wir nicht mit deinem Erfolg mitverdienen. Die führenden Tools im Markt nehmen entweder 5% Revenue Share auf den KI-Plan — oder sie staffeln ihren Preis nach deinem Einkommen bis zu $500/Monat. Das klingt günstig wenn du wenig verdienst, wird aber teuer sobald du wächst. EasyToGrow startet ab 39€ — egal ob du 500€ oder 50.000€ verdienst. Kein Revenue Share, kein umsatzabhängiges Pricing.
+        </div></div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">
+          Kann ich meinen eigenen Schreibstil trainieren?
+          <svg class="faq-arrow" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/></svg>
+        </button>
+        <div class="faq-a"><div class="faq-a-inner">
+          Ja! In allen Plänen kannst du Tonalität, Sprache, typische Phrasen und Tabu-Wörter einstellen. Im Pro- und Business-Plan wird der individuelle Stil noch tiefer trainiert — mit der vollständigen Charakter-Bibel. Die KI klingt wie du — nicht wie eine generische KI.
+        </div></div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">
+          Was ist Fan-Memory genau?
+          <svg class="faq-arrow" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/></svg>
+        </button>
+        <div class="faq-a"><div class="faq-a-inner">
+          Fan-Memory speichert Infos zu einzelnen Fans — Vorlieben, frühere Gespräche, bestellte Inhalte, persönliche Details die sie dir verraten haben. Die KI nutzt das, um jede Antwort zu personalisieren. Fans merken, dass du dich "erinnerst" — das stärkt die Bindung und erhöht die Umsätze.
+        </div></div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">
+          Ich bin Agentur und manage mehrere Creator — geht das?
+          <svg class="faq-arrow" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/></svg>
+        </button>
+        <div class="faq-a"><div class="faq-a-inner">
+          Ja, dafür ist der Business-Plan gemacht. Du erstellst für jeden Creator einen eigenen Workspace mit individueller KI-Persona, Fan-Memory, Plattformen und Tonalität. Dein Team sieht alle Accounts in einer Oberfläche — sauber getrennt, trotzdem zentral verwaltet.
+        </div></div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">
+          Wie sicher sind meine Daten? Wird etwas gespeichert?
+          <svg class="faq-arrow" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/></svg>
+        </button>
+        <div class="faq-a"><div class="faq-a-inner">
+          Alle Daten werden DSGVO-konform verarbeitet. Wir nutzen ausschließlich zertifizierte Dienstleister mit EU-Standardvertragsklauseln (SCCs). Fan-Memory-Daten gehören dir und können jederzeit gelöscht werden. Als deutsches Unternehmen sind wir an die DSGVO und den EU AI Act gebunden — mit voller Transparenz über alle eingesetzten Dienste in unserer Datenschutzerklärung.
+        </div></div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">
+          Ist EasyToGrow EU AI Act konform — und was bedeutet das für mich?
+          <svg class="faq-arrow" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/></svg>
+        </button>
+        <div class="faq-a"><div class="faq-a-inner">
+          Ja — und das ist uns wichtig. Der EU AI Act ist die weltweit erste verbindliche KI-Regulierung. Die nächste große Stufe tritt im August 2025 in Kraft. EasyToGrow ist von Anfang an so gebaut, dass wir diese Anforderungen erfüllen:<br><br>
+          <strong>Human-in-the-Loop by Design:</strong> Die KI schlägt vor — du entscheidest. Keine Nachricht wird automatisch gesendet. Das ist nicht nur unser Prinzip, sondern exakt das was der EU AI Act für KI-gestützte Kommunikation fordert.<br><br>
+          <strong>Keine automatische Datenerfassung:</strong> EasyToGrow liest keine Plattform-Daten automatisch aus. Du gibst nur das ein, was du selbst siehst — kein verstecktes Scraping, keine Browser-Extension die im Hintergrund Daten sammelt.<br><br>
+          <strong>Transparenz über KI-Einsatz:</strong> Wir kommunizieren offen welche KI-Modelle wir einsetzen und wie deine Daten verarbeitet werden — vollständig dokumentiert in unserer Datenschutzerklärung.<br><br>
+          <strong>DSGVO + EU AI Act als Einheit:</strong> Als deutsches Unternehmen sind wir nicht nur rechtlich verpflichtet — wir sehen es als Vertrauensbasis zu unseren Nutzern. Wer mit EasyToGrow arbeitet, arbeitet mit einem Tool das nach europäischen Standards gebaut ist.
+        </div></div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">
+          Kann ich jederzeit kündigen?
+          <svg class="faq-arrow" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/></svg>
+        </button>
+        <div class="faq-a"><div class="faq-a-inner">
+          Ja. Alle Monats-Abos sind monatlich kündbar — keine Mindestlaufzeit außer dem laufenden Monat. Das Jahresabo läuft 12 Monate. Du hast kein Risiko — deshalb gibt es auch den ersten Monat für 50% — damit du siehst, dass es sich lohnt, bevor du den vollen Preis zahlst.
+        </div></div>
+      </div>
+
+    </div>
+  </div>
+</section>
+<!-- ═══════════════════════════════════════════
+     FINAL CTA
+═══════════════════════════════════════════ -->
+<section id="cta-final">
+  <div class="container">
+    <div class="cta-box fade-in">
+      <div class="section-label" style="margin:0 auto 22px">Jetzt loslegen</div>
+      <h2>Weniger tippen.<br><span class="gradient-text">Mehr verdienen.</span></h2>
+      <p>Starte heute. Kein Revenue Share. Monatlich kündbar.</p>
+      <a href="#pricing" class="btn btn-primary btn-lg">
+        Jetzt mehr Umsatz im Chat →
+      </a>
+      <div class="cta-sub">
+        Kein Revenue Share · DACH-First · DSGVO + EU AI Act konform · Monatlich kündbar · Läuft auf allen Geräten
+      </div>
+    </div>
+  </div>
+</section>
+<!-- ═══════════════════════════════════════════
+     FOOTER
+═══════════════════════════════════════════ -->
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <img src="logo.png" alt="EasyToGrow Logo">
+        <div class="footer-brand-name">EasyToGrow</div>
+        <p>Die Creator Management Suite für den DACH-Raum. Antworten, Content, Strategie &amp; Analytics — auf 10 Plattformen, in deiner Sprache.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Produkt</h4>
+        <ul>
+          <li><a href="#how">Wie es funktioniert</a></li>
+          <li><a href="#features">Features</a></li>
+          <li><a href="#pricing">Preise</a></li>
+          <li><a href="#comparison">Vergleich</a></li>
+          <li><a href="#faq">FAQ</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Plattformen</h4>
+        <ul>
+          <li><span>OnlyFans KI</span></li>
+          <li><span>Fansly KI</span></li>
+          <li><span>Fanvue KI</span></li>
+          <li><span>Instagram KI</span></li>
+          <li><span>TikTok KI</span></li>
+          <li><span>Facebook KI</span></li>
+          <li><span>Threads KI</span></li>
+          <li><span>Twitter / X KI</span></li>
+          <li><span>Telegram KI</span></li>
+          <li><span>Reddit KI</span></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Rechtliches</h4>
+        <ul>
+          <li><a href="impressum.html">Impressum</a></li>
+          <li><a href="datenschutz.html">Datenschutzerklärung</a></li>
+          <li><a href="agb.html">AGB</a></li>
+          <li><a href="widerruf.html">Widerrufsbelehrung</a></li>
+          <li><a href="cookie.html">Cookie- & Storage-Hinweis</a></li>
+          <li><a href="kuendigung.html" style="color:#ef4444">Abo kündigen</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div>© 2026 EasyToGrow · easytogrowki.de · Einfach wachsen mit KI</div>
+      <div class="footer-legal">
+        <a href="impressum.html">Impressum</a>
+        <a href="datenschutz.html">Datenschutz</a>
+        <a href="agb.html">AGB</a>
+        <a href="widerruf.html">Widerruf</a>
+        <a href="kuendigung.html" style="color:#ef4444">Abo kündigen</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script>
+  // ── NAV SCROLL ──
+  const navbar = document.getElementById('navbar');
+  window.addEventListener('scroll', () => {
+    navbar.classList.toggle('scrolled', window.scrollY > 20);
+  }, { passive: true });
+
+  // ── MOBILE MENU ──
+  function toggleMenu() {
+    document.getElementById('mobile-menu').classList.toggle('open');
+  }
+
+  // ── FAQ ──
+  function toggleFaq(btn) {
+    const item = btn.closest('.faq-item');
+    const isOpen = item.classList.contains('open');
+    document.querySelectorAll('.faq-item.open').forEach(el => el.classList.remove('open'));
+    if (!isOpen) item.classList.add('open');
+  }
+
+  // ── REVENUE SHARE CALCULATOR ──
+  function updateCalc() {
+    const slider = document.getElementById('revenue-slider');
+    const revenue = parseInt(slider.value);
+
+    // Marktbegleiter mit Revenue Share: $99 Abo + 5% auf KI-Umsatz
+    const scCost = 99 + Math.round(revenue * 0.05);
+    const saving = scCost - 39;
+
+    document.getElementById('revenue-display').textContent =
+      revenue.toLocaleString('de-DE') + ' €';
+    document.getElementById('sc-cost').textContent = scCost + ' €';
+    document.getElementById('saving-display').textContent = saving + ' €';
+
+    // Color slider fill
+    const pct = (revenue - 500) / (15000 - 500) * 100;
+    slider.style.background =
+      `linear-gradient(90deg, var(--green) ${pct}%, var(--bg4) ${pct}%)`;
+  }
+
+  // Init slider
+  updateCalc();
+
+  // ── SCROLL ANIMATIONS (echter Stagger mit setTimeout) ──
+  function revealEl(el) {
+    const delay = parseInt(el.dataset.delay || '0', 10);
+    setTimeout(() => el.classList.add('visible'), delay);
+  }
+
+  const animObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        revealEl(entry.target);
+        animObserver.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+
+  document.querySelectorAll('.fade-in, .fly-left, .fly-right').forEach(el => {
+    const rect = el.getBoundingClientRect();
+    // Hero-Pills und Hero-Elemente: sofort animieren beim Laden
+    if (rect.top < window.innerHeight && rect.top >= 0) {
+      revealEl(el);
+    } else {
+      animObserver.observe(el);
+    }
+  });
+
+  // Sicherheitsfallback nach 3s
+  setTimeout(() => {
+    document.querySelectorAll('.fade-in, .fly-left, .fly-right').forEach(el => el.classList.add('visible'));
+  }, 3000);
+
+  // ── TESTIMONIAL HOVER CLASS ──
+  document.querySelectorAll('#testimonials .fade-in > div, #testimonials div[style*="background:var(--bg3)"]').forEach(el => {
+    el.classList.add('testimonial-card');
+  });
+  // Direkt alle Kinder des Testimonial-Grids
+  const tGrid = document.querySelector('#testimonials div[style*="grid"]');
+  if (tGrid) tGrid.querySelectorAll(':scope > div').forEach(el => el.classList.add('testimonial-card'));
+
+  // ── BILLING TOGGLE ──
+  window.setBilling = function(mode) {
+    const isYearly = mode === 'yearly';
+    document.getElementById('btn-monthly').classList.toggle('active', !isYearly);
+    document.getElementById('btn-yearly').classList.toggle('active', isYearly);
+
+    document.querySelectorAll('.pricing-amount').forEach(el => {
+      el.textContent = el.dataset[mode] + '€';
+    });
+    document.querySelectorAll('.pricing-period').forEach(el => {
+      el.textContent = el.dataset[mode];
+    });
+    document.querySelectorAll('.pricing-yearly-info').forEach(el => {
+      el.classList.toggle('show', isYearly);
+    });
+    document.querySelectorAll('.pricing-first').forEach(el => {
+      el.classList.toggle('hidden', isYearly);
+    });
+    document.querySelectorAll('.pricing-note').forEach((el, i) => {
+      const notes = [
+        ['500 Aktionen/Monat · monatlich kündbar', '500 Aktionen/Monat · einmal jährlich abgerechnet'],
+        ['1.500 Aktionen/Monat · monatlich kündbar', '1.500 Aktionen/Monat · einmal jährlich abgerechnet'],
+        ['3.500 Aktionen/Monat · für Agenturen', '3.500 Aktionen/Monat · einmal jährlich abgerechnet']
+      ];
+      if (notes[i]) el.textContent = notes[i][isYearly ? 1 : 0];
+    });
+    // Stripe Links wechseln
+    document.querySelectorAll('.pricing-cta').forEach(el => {
+      const link = isYearly ? el.dataset.yearlyLink : el.dataset.monthlyLink;
+      if (link) el.href = link;
+    });
+  };
+
+  // ── SMOOTH SCROLL ──
+  document.querySelectorAll('a[href^="#"]').forEach(a => {
+    a.addEventListener('click', e => {
+      const href = a.getAttribute('href');
+      if (href === '#') return;
+      const target = document.querySelector(href);
+      if (target) {
+        e.preventDefault();
+        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+    });
+  });
+</script>
+
+<!-- ═══════════════════════════════════════════
+     SUPPORT CHATBOT WIDGET
+═══════════════════════════════════════════ -->
+<style>
+  #etg-chat-btn {
+    position: fixed; bottom: 24px; right: 24px; z-index: 9999;
+    width: 56px; height: 56px; border-radius: 50%;
+    background: #22c55e; border: none; cursor: pointer;
+    box-shadow: 0 4px 24px rgba(34,197,94,0.4);
+    display: flex; align-items: center; justify-content: center;
+    transition: transform 0.2s, box-shadow 0.2s;
+  }
+  #etg-chat-btn:hover { transform: scale(1.08); box-shadow: 0 6px 32px rgba(34,197,94,0.6); }
+  #etg-chat-btn svg { width: 26px; height: 26px; fill: #0a0f0d; }
+
+  #etg-chat-window {
+    display: none;
+    position: fixed; bottom: 90px; right: 24px; z-index: 9999;
+    width: 340px; max-width: calc(100vw - 32px);
+    background: #111812; border: 1px solid #1e2e20;
+    border-radius: 16px; box-shadow: 0 8px 48px rgba(0,0,0,0.5);
+    flex-direction: column; overflow: hidden;
+  }
+  #etg-chat-window.open { display: flex; }
+
+  .etg-chat-header {
+    background: #0a0f0d; padding: 14px 16px;
+    display: flex; align-items: center; justify-content: space-between;
+    border-bottom: 1px solid #1e2e20;
+  }
+  .etg-chat-header-info { display: flex; align-items: center; gap: 10px; }
+  .etg-chat-avatar {
+    width: 34px; height: 34px; border-radius: 50%;
+    background: #22c55e; display: flex; align-items: center; justify-content: center;
+    font-size: 16px;
+  }
+  .etg-chat-name { font-size: 0.9rem; font-weight: 700; color: #f0f4f1; }
+  .etg-chat-status { font-size: 0.72rem; color: #22c55e; }
+  .etg-chat-close {
+    background: none; border: none; color: #4a5e4d; cursor: pointer;
+    font-size: 1.2rem; padding: 4px; line-height: 1;
+  }
+  .etg-chat-close:hover { color: #f0f4f1; }
+
+  #etg-chat-messages {
+    flex: 1; overflow-y: auto; padding: 16px;
+    display: flex; flex-direction: column; gap: 10px;
+    max-height: 340px; min-height: 200px;
+  }
+  .etg-msg {
+    max-width: 85%; padding: 10px 14px;
+    border-radius: 12px; font-size: 0.875rem; line-height: 1.5;
+  }
+  .etg-msg.bot {
+    background: #0a0f0d; color: #c8d8cb; border-radius: 4px 12px 12px 12px;
+    align-self: flex-start;
+  }
+  .etg-msg.user {
+    background: #22c55e; color: #0a0f0d; font-weight: 500;
+    border-radius: 12px 4px 12px 12px; align-self: flex-end;
+  }
+  .etg-msg.typing { color: #4a5e4d; font-style: italic; }
+
+  .etg-chat-input-row {
+    display: flex; gap: 8px; padding: 12px 16px;
+    border-top: 1px solid #1e2e20; background: #0a0f0d;
+  }
+  #etg-chat-input {
+    flex: 1; background: #111812; border: 1px solid #1e2e20;
+    border-radius: 10px; color: #f0f4f1; font-size: 0.875rem;
+    padding: 10px 14px; outline: none; resize: none;
+    font-family: inherit; line-height: 1.4;
+  }
+  #etg-chat-input:focus { border-color: #22c55e; }
+  #etg-chat-send {
+    background: #22c55e; border: none; border-radius: 10px;
+    width: 40px; min-width: 40px; cursor: pointer;
+    display: flex; align-items: center; justify-content: center;
+    transition: background 0.2s;
+  }
+  #etg-chat-send:hover { background: #16a34a; }
+  #etg-chat-send svg { width: 18px; height: 18px; fill: #0a0f0d; }
+  #etg-chat-send:disabled { background: #1e2e20; cursor: not-allowed; }
+</style>
+
+<!-- Chat Button -->
+<button id="etg-chat-btn" onclick="etgToggleChat()" title="Support Chat">
+  <svg viewBox="0 0 24 24"><path d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm-2 12H6v-2h12v2zm0-3H6V9h12v2zm0-3H6V6h12v2z"/></svg>
+</button>
+
+<!-- Chat Window -->
+<div id="etg-chat-window">
+  <div class="etg-chat-header">
+    <div class="etg-chat-header-info">
+      <div class="etg-chat-avatar">🤖</div>
+      <div>
+        <div class="etg-chat-name">EasyToGrow Support</div>
+        <div class="etg-chat-status">● 24/7 für dich da</div>
+      </div>
+    </div>
+    <button class="etg-chat-close" onclick="etgToggleChat()">✕</button>
+  </div>
+  <div id="etg-chat-messages"></div>
+  <div class="etg-chat-input-row">
+    <textarea id="etg-chat-input" rows="1" placeholder="Wie kann ich dir helfen?"
+      onkeydown="if(event.key==='Enter'&&!event.shiftKey){event.preventDefault();etgSend()}"></textarea>
+    <button id="etg-chat-send" onclick="etgSend()">
+      <svg viewBox="0 0 24 24"><path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"/></svg>
+    </button>
+  </div>
+</div>
+
+<script>
+(function() {
+  const API = '/.netlify/functions/chat-proxy';
+  let sessionId = '';
+  let history = [];
+  let isOpen = false;
+  let greeted = false;
+
+  const QUICK_REPLIES = [
+    { label: '🔑 Login Problem',      msg: 'Ich kann mich nicht einloggen' },
+    { label: '⚡ Credits & Abo',       msg: 'Ich habe eine Frage zu Credits oder meinem Abo' },
+    { label: '🧩 Chrome Extension',    msg: 'Die Chrome Extension funktioniert nicht' },
+    { label: '🐛 Bug melden',          msg: 'Ich möchte einen Bug melden' },
+  ];
+
+  function etgShowQuickReplies() {
+    const msgs = document.getElementById('etg-chat-messages');
+    const wrap = document.createElement('div');
+    wrap.id = 'etg-quick-replies';
+    wrap.style.cssText = 'display:flex;flex-wrap:wrap;gap:8px;padding:4px 0 8px;';
+    QUICK_REPLIES.forEach(({ label, msg }) => {
+      const btn = document.createElement('button');
+      btn.textContent = label;
+      btn.style.cssText = 'background:transparent;border:1px solid #22c55e;color:#22c55e;border-radius:20px;padding:6px 12px;font-size:0.8rem;cursor:pointer;white-space:nowrap;transition:all 0.2s;';
+      btn.onmouseover = () => { btn.style.background='#22c55e'; btn.style.color='#0a0f0d'; };
+      btn.onmouseout  = () => { btn.style.background='transparent'; btn.style.color='#22c55e'; };
+      btn.onclick = () => {
+        wrap.remove();
+        document.getElementById('etg-chat-input').value = msg;
+        etgSend();
+      };
+      wrap.appendChild(btn);
+    });
+    msgs.appendChild(wrap);
+    msgs.scrollTop = msgs.scrollHeight;
+  }
+
+  window.etgToggleChat = function() {
+    isOpen = !isOpen;
+    const win = document.getElementById('etg-chat-window');
+    win.classList.toggle('open', isOpen);
+    if (isOpen && !greeted) {
+      greeted = true;
+      etgAddMsg('bot', 'Hallo! 👋 Ich bin der EasyToGrow Support-Bot. Womit kann ich dir helfen?');
+      etgShowQuickReplies();
+      document.getElementById('etg-chat-input').focus();
+    }
+  };
+
+  window.etgSend = async function() {
+    const input = document.getElementById('etg-chat-input');
+    const msg = input.value.trim();
+    if (!msg) return;
+    const sendBtn = document.getElementById('etg-chat-send');
+
+    etgAddMsg('user', msg);
+    input.value = '';
+    sendBtn.disabled = true;
+
+    const typingId = etgAddMsg('bot', '...', 'typing');
+
+    try {
+      const res = await fetch(API, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ message: msg, session_id: sessionId, history }),
+      });
+      const data = await res.json();
+      if (data.session_id) sessionId = data.session_id;
+      history.push({ role: 'user', content: msg });
+      history.push({ role: 'assistant', content: data.reply });
+      etgRemoveMsg(typingId);
+      etgAddMsg('bot', data.reply);
+    } catch(e) {
+      etgRemoveMsg(typingId);
+      etgAddMsg('bot', 'Entschuldigung, da ist etwas schiefgelaufen. Bitte schreib uns direkt an easytogrow@gmx.de 💚');
+    } finally {
+      sendBtn.disabled = false;
+      input.focus();
+    }
+  };
+
+  let msgId = 0;
+  function etgAddMsg(role, text, extra) {
+    const id = 'etg-msg-' + (++msgId);
+    const msgs = document.getElementById('etg-chat-messages');
+    const div = document.createElement('div');
+    div.id = id;
+    div.className = 'etg-msg ' + role + (extra ? ' ' + extra : '');
+    div.textContent = text;
+    msgs.appendChild(div);
+    msgs.scrollTop = msgs.scrollHeight;
+    return id;
+  }
+
+  function etgRemoveMsg(id) {
+    const el = document.getElementById(id);
+    if (el) el.remove();
+  }
+})();
+</script>
+
+<!-- Nach-oben-Button -->
+<button id="back-to-top" onclick="window.scrollTo({top:0,behavior:'smooth'})" style="position:fixed;bottom:28px;left:28px;z-index:200;width:44px;height:44px;border-radius:50%;background:var(--bg3);border:1.5px solid rgba(255,255,255,0.2);color:var(--text);font-size:1.1rem;cursor:pointer;display:none;align-items:center;justify-content:center;box-shadow:0 4px 20px rgba(0,0,0,0.4);transition:all 0.2s ease;" onmouseover="this.style.borderColor='var(--green)';this.style.color='var(--green)'" onmouseout="this.style.borderColor='rgba(255,255,255,0.2)';this.style.color='var(--text)'">↑</button>
+<script>
+  var btt = document.getElementById('back-to-top');
+  window.addEventListener('scroll', function() {
+    btt.style.display = window.scrollY > 400 ? 'flex' : 'none';
+  });
+</script>
+</body>
+</html>
