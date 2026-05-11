@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Datenschutzerklärung – EasyToGrow</title>
-  <meta name="robots" content="noindex, nofollow">
+  <meta name="robots" content="index, follow">
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     :root {
@@ -39,8 +39,16 @@
       background: rgba(34,197,94,0.07); border: 1px solid var(--border-green);
       border-radius: var(--radius); padding: 20px 24px; margin: 16px 0;
     }
+    .info-box {
+      background: rgba(59,130,246,0.06); border: 1px solid rgba(59,130,246,0.25);
+      border-radius: var(--radius); padding: 20px 24px; margin: 16px 0;
+      color: var(--text-muted); font-size: 0.88rem;
+    }
     strong { color: var(--text); }
     .footer-note { display: block; margin-top: 64px; font-size: 0.8rem; color: var(--text-dim); }
+    table { width: 100%; border-collapse: collapse; margin: 14px 0 20px; font-size: 0.9rem; }
+    th, td { border: 1px solid var(--border); padding: 10px 12px; text-align: left; vertical-align: top; color: var(--text-muted); }
+    th { color: var(--text); background: var(--bg2); font-weight: 700; }
   </style>
 </head>
 <body>
@@ -55,88 +63,174 @@
 <div class="container">
   <div class="page-label">Rechtliches</div>
   <h1>Datenschutzerklärung</h1>
-  <p class="subtitle">Stand: April 2026 · Gültig für Website, App und browserbasierte Nutzung von easytogrowki.de</p>
+  <p class="subtitle">Stand: Mai 2026 · Gültig für Website, App, Browser-Extension, API-Anbindungen und Automatisierungsfunktionen von easytogrowki.de</p>
 
-  <h2>Verantwortlicher</h2>
+  <h2>1. Verantwortlicher</h2>
+  <p>Verantwortlicher im Sinne der Datenschutz-Grundverordnung ist:</p>
   <p>
-    <strong>A. Scheffels</strong><br>
-    Sjipwai 36, 25980 Tinnum, Deutschland<br>
+    <strong>Andreas Scheffels</strong><br>
+    Sjipwai 36 a<br>
+    25980 Tinnum<br>
+    Deutschland<br>
     E-Mail: <a href="mailto:easytogrow@gmx.de">easytogrow@gmx.de</a><br>
     Website: <a href="https://easytogrowki.de">easytogrowki.de</a>
   </p>
 
-  <h2>1. Allgemeines</h2>
-  <p>Wir verarbeiten personenbezogene Daten nur im Rahmen der geltenden datenschutzrechtlichen Vorschriften. Diese Datenschutzerklärung gilt für die Website easytogrowki.de, die browserbasierte EasyToGrow-Anwendung sowie die zugehörigen, im Browser bereitgestellten Funktionen.</p>
+  <h2>2. Datenschutzbeauftragter</h2>
+  <p>Ein Datenschutzbeauftragter ist derzeit nicht bestellt, da nach aktueller Einschätzung keine gesetzliche Pflicht zur Bestellung besteht. Sofern sich Art, Umfang oder Organisation der Datenverarbeitung ändern und eine Pflicht zur Bestellung entsteht, wird diese Datenschutzerklärung entsprechend aktualisiert.</p>
 
-  <h2>2. Besuch der Website und technische Bereitstellung</h2>
-  <p>Beim Aufruf der Website oder der Anwendung werden technisch erforderliche Informationen verarbeitet, insbesondere:</p>
-  <ul>
-    <li>IP-Adresse</li>
-    <li>Datum und Uhrzeit des Zugriffs</li>
-    <li>Angeforderte Inhalte</li>
-    <li>Browser- und Geräteinformationen</li>
-    <li>Technische Protokolldaten</li>
-  </ul>
-  <p>Die Verarbeitung erfolgt zur sicheren Bereitstellung der Website und Anwendung, zur Fehlerbehebung sowie zur Systemsicherheit auf Grundlage von <strong>Art. 6 Abs. 1 lit. f DSGVO</strong>. Für Hosting- und Infrastrukturleistungen setzen wir externe Dienstleister ein, insbesondere <strong>Vercel</strong> und <strong>Railway</strong>.</p>
+  <h2>3. Allgemeines zur Datenverarbeitung</h2>
+  <p>EasyToGrow ist eine Softwarelösung für Creator, Agenturen und Unternehmen, die KI-gestützte Antwortvorschläge, Content-Planung, Posteingangsverwaltung und automatisierte Kommunikationsabläufe über angebundene Plattformen bereitstellt. Dazu können, je nach genutztem Funktionsumfang, personenbezogene Daten von Kunden, Teammitgliedern, Followern, Interessenten und Kommunikationspartnern verarbeitet werden.</p>
+  <p>Wir verarbeiten personenbezogene Daten nur, soweit dies zur Bereitstellung unserer Website, App, Vertragsleistungen, Automatisierungsfunktionen, Zahlungsabwicklung, Sicherheit, Fehleranalyse und Kommunikation erforderlich ist. Die Verarbeitung erfolgt nach Maßgabe der DSGVO, des TTDSG/TDDDG und sonstiger anwendbarer Datenschutzvorschriften.</p>
 
-  <h2>3. Registrierung, Konto und Vertragsabwicklung</h2>
-  <p>Wenn Sie ein Konto anlegen oder ein Abonnement buchen, verarbeiten wir die von Ihnen angegebenen Daten wie Name, E-Mail-Adresse, Anmeldedaten, Tarifinformationen, Abrechnungsdaten sowie Nutzungs- und Vertragsdaten.</p>
-  <p>Die Verarbeitung erfolgt zur Durchführung vorvertraglicher Maßnahmen, zur Vertragserfüllung, zur Freischaltung Ihres Zugangs sowie zur Abwicklung Ihres Abonnements auf Grundlage von <strong>Art. 6 Abs. 1 lit. b DSGVO</strong>. Für Authentifizierung, Datenbank- und Anwendungsspeicherung setzen wir insbesondere <strong>Supabase</strong> ein.</p>
+  <h2>4. SSL-/TLS-Verschlüsselung</h2>
+  <p>Unsere Website und App werden über HTTPS bereitgestellt. Dadurch werden Daten, die zwischen Ihrem Browser und unseren Systemen übertragen werden, transportverschlüsselt. Eine lückenlose Sicherheit bei der Datenübertragung im Internet kann jedoch nicht garantiert werden.</p>
 
-  <h2>4. Zahlungsabwicklung</h2>
-  <p>Für die Zahlungsabwicklung können wir externe Zahlungsdienstleister einsetzen, insbesondere <strong>Stripe</strong>. Dabei werden die für Zahlung und Rechnungsstellung erforderlichen Daten verarbeitet. Die Verarbeitung erfolgt zur Vertragsdurchführung und Abrechnung auf Grundlage von Art. 6 Abs. 1 lit. b DSGVO sowie gegebenenfalls aufgrund gesetzlicher Aufbewahrungspflichten nach Art. 6 Abs. 1 lit. c DSGVO.</p>
+  <h2>5. Besuch der Website und Server-Logfiles</h2>
+  <p>Beim Aufruf unserer Website oder App werden technisch erforderliche Zugriffsdaten verarbeitet. Dazu gehören insbesondere IP-Adresse, Datum und Uhrzeit des Zugriffs, aufgerufene URL, Referrer-URL, Browsertyp, Betriebssystem, Geräteinformationen, HTTP-Statuscodes und technische Protokolldaten.</p>
+  <table>
+    <thead>
+      <tr><th>Zweck</th><th>Rechtsgrundlage</th><th>Speicherdauer</th></tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Technische Bereitstellung der Website und App</td>
+        <td>Art. 6 Abs. 1 lit. f DSGVO</td>
+        <td>So kurz wie möglich, regelmäßig höchstens 30 Tage, sofern keine Sicherheitsereignisse eine längere Aufbewahrung erfordern</td>
+      </tr>
+      <tr>
+        <td>Systemsicherheit, Missbrauchserkennung und Fehleranalyse</td>
+        <td>Art. 6 Abs. 1 lit. f DSGVO</td>
+        <td>Höchstens 30 Tage, bei sicherheitsrelevanten Vorfällen bis zur Klärung des Vorfalls</td>
+      </tr>
+    </tbody>
+  </table>
+  <p>Unser berechtigtes Interesse liegt in der sicheren, stabilen und fehlerfreien Bereitstellung unserer digitalen Dienste.</p>
 
-  <h2>5. KI-Funktionen und vom Nutzer verarbeitete Inhalte</h2>
-  <p>Wenn Sie EasyToGrow zur Erstellung von Antwortvorschlägen, Texten, Planungen oder strategischen Inhalten nutzen, werden von Ihnen bereitgestellte Eingaben und Inhalte verarbeitet. Dazu können – je nach Nutzung – auch Inhalte gehören, die Sie aus Kommunikationsverläufen oder Profilen übernehmen.</p>
-  <p>Zur Bereitstellung einzelner KI-Funktionen setzen wir externe KI-Dienstleister ein, insbesondere <strong>xAI (Grok)</strong> und <strong>Anthropic (Claude)</strong>.</p>
-  <div class="highlight-box">
-    <strong>Hinweis:</strong> Soweit Sie über EasyToGrow personenbezogene Daten Dritter verarbeiten, sind Sie selbst dafür verantwortlich, dass hierfür eine rechtliche Grundlage besteht. Soweit wir solche Daten ausschließlich in Ihrem Auftrag verarbeiten, erfolgt dies im Rahmen des Vertragsverhältnisses mit Ihnen.
+  <h2>6. Registrierung, Nutzerkonto und Vertragsabwicklung</h2>
+  <p>Wenn Sie ein Nutzerkonto anlegen, einen Tarif buchen oder EasyToGrow als Kunde nutzen, verarbeiten wir die für Registrierung, Login, Vertragsdurchführung und Abrechnung erforderlichen Daten. Dazu gehören insbesondere Name, E-Mail-Adresse, Login-Daten, Tarifinformationen, Zahlungsstatus, Rechnungsdaten, Nutzungsdaten, Team- und Workspace-Daten sowie technische Kontoinformationen.</p>
+  <p>Die Verarbeitung erfolgt zur Durchführung vorvertraglicher Maßnahmen und zur Erfüllung des Vertrags gemäß <strong>Art. 6 Abs. 1 lit. b DSGVO</strong>. Soweit gesetzliche Aufbewahrungspflichten bestehen, erfolgt die Verarbeitung zusätzlich auf Grundlage von <strong>Art. 6 Abs. 1 lit. c DSGVO</strong>.</p>
+
+  <h2>7. Zahlungsabwicklung über Stripe</h2>
+  <p>Für Zahlungen, Abonnements, Rechnungsstellung und gegebenenfalls Top-ups oder Credit-Systeme setzen wir <strong>Stripe</strong> ein. Stripe verarbeitet Zahlungsdaten, Rechnungsdaten, Transaktionsdaten und technische Sicherheitsdaten eigenverantwortlich beziehungsweise in unserem Auftrag, soweit dies für die Zahlungsabwicklung erforderlich ist.</p>
+  <p>Die Verarbeitung erfolgt auf Grundlage von <strong>Art. 6 Abs. 1 lit. b DSGVO</strong>, soweit sie zur Vertragsdurchführung erforderlich ist, sowie <strong>Art. 6 Abs. 1 lit. c DSGVO</strong>, soweit gesetzliche Aufbewahrungspflichten bestehen.</p>
+
+  <h2>8. Cookies, Local Storage und ähnliche Technologien</h2>
+  <p>Für den Betrieb unserer Website und App können Cookies, Local Storage, Session Storage oder vergleichbare Technologien eingesetzt werden. Diese dienen insbesondere dem Login-Status, der sicheren Sitzung, Spracheinstellungen, technischen Präferenzen, Funktionszuständen und der Verhinderung von Missbrauch.</p>
+  <table>
+    <thead>
+      <tr><th>Kategorie</th><th>Zweck</th><th>Rechtsgrundlage</th></tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Technisch erforderlich</td>
+        <td>Login, Sicherheit, Sitzungsverwaltung, App-Funktionen</td>
+        <td>Art. 6 Abs. 1 lit. b und f DSGVO</td>
+      </tr>
+      <tr>
+        <td>Analyse, sofern eingesetzt</td>
+        <td>Reichweitenmessung und Produktverbesserung</td>
+        <td>Art. 6 Abs. 1 lit. f DSGVO oder Einwilligung, sofern gesetzlich erforderlich</td>
+      </tr>
+    </tbody>
+  </table>
+  <p>Soweit nicht notwendige Cookies oder vergleichbare Technologien eingesetzt werden, holen wir eine Einwilligung ein, sofern dies gesetzlich erforderlich ist.</p>
+
+  <h2>9. KI-Funktionen und Verarbeitung von Nutzereingaben</h2>
+  <p>EasyToGrow verarbeitet Inhalte, die Nutzer in der App eingeben oder über angebundene Plattformen zur Verarbeitung freigeben. Dazu können Nachrichteninhalte, Kommentare, Profilinformationen, Content-Ideen, Tonalitätsvorgaben, Persona-Informationen, Fan-Memory-Daten und Kontextinformationen gehören.</p>
+  <p>Die Verarbeitung erfolgt, um Antwortvorschläge, Auto-Replies, TriggerFlow-Abläufe, Content-Pläne, Strategien, Zusammenfassungen und weitere KI-gestützte Funktionen bereitzustellen. Rechtsgrundlage ist <strong>Art. 6 Abs. 1 lit. b DSGVO</strong>, soweit die Verarbeitung zur Vertragserfüllung gegenüber dem EasyToGrow-Kunden erforderlich ist. Soweit Sicherheits-, Qualitäts- oder Missbrauchsschutzinteressen betroffen sind, kann <strong>Art. 6 Abs. 1 lit. f DSGVO</strong> hinzutreten.</p>
+
+  <h2>10. Verarbeitung von Meta-Plattform-Daten (Instagram und Facebook)</h2>
+  <p>Wenn ein Kunde Instagram- oder Facebook-Konten, Seiten oder Posteingänge mit EasyToGrow verbindet, verarbeitet EasyToGrow Daten aus dem Meta-Ökosystem, soweit dies zur Bereitstellung der gebuchten Funktionen erforderlich ist. Dies betrifft insbesondere Funktionen wie TriggerFlow, Auto-Reply, Posteingangsverwaltung, Kommentarantworten, Nachrichtenverwaltung und KI-gestützte Antwortgenerierung.</p>
+  <table>
+    <thead>
+      <tr><th>Datenkategorie</th><th>Beispiele</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>Kontodaten</td><td>Instagram- oder Facebook-Username, User-ID, Page-ID, Account-ID, Profilbild, Seitenname</td></tr>
+      <tr><td>Kommunikationsdaten</td><td>Nachrichteninhalte, Kommentarinhalte, Antwortentwürfe, Zeitstempel, Konversationskontext</td></tr>
+      <tr><td>Verbindungsdaten</td><td>OAuth-Tokens, Verbindungstokens, Berechtigungen, Token-Ablaufdaten, technische API-Statusdaten</td></tr>
+      <tr><td>Nutzungs- und Logdaten</td><td>Trigger-Auslösung, Versandstatus, Fehlerlogs, Automatisierungsprotokolle, <code>trigger_logs</code></td></tr>
+    </tbody>
+  </table>
+  <p>Die Verarbeitung erfolgt zum Zweck der Bereitstellung der Auto-Reply-Funktion, der Verwaltung von Nachrichten und Kommentaren, der Auslösung von TriggerFlow-Automationen, der Generierung und dem Versand beziehungsweise der Vorbereitung von Antworten sowie der technischen Sicherstellung der Verbindung zu Meta-Diensten.</p>
+  <p>Rechtsgrundlage ist <strong>Art. 6 Abs. 1 lit. b DSGVO</strong>, soweit die Verarbeitung zur Erfüllung des Vertrags zwischen EasyToGrow und dem Kunden erforderlich ist. Soweit der Kunde die Kommunikation mit seinen Followern, Interessenten oder Kunden effizient und automatisiert verwalten möchte, kann zusätzlich <strong>Art. 6 Abs. 1 lit. f DSGVO</strong> als berechtigtes Interesse des Kunden und von EasyToGrow an einer funktionsfähigen, sicheren und effizienten Kommunikationslösung herangezogen werden.</p>
+  <p>Verbindungstokens werden verschlüsselt gespeichert und nur so lange verarbeitet, wie die jeweilige Plattformverbindung aktiv ist oder gesetzliche beziehungsweise technische Nachweiszwecke eine begrenzte weitere Speicherung erfordern. Trigger- und technische Logs werden grundsätzlich für maximal 30 Tage gespeichert, sofern keine Sicherheitsereignisse, Abrechnungsnachweise oder rechtlichen Ansprüche eine längere Aufbewahrung erforderlich machen.</p>
+  <p>Datenübermittlungen an Meta Platforms und verbundene Unternehmen können eine Übermittlung in die USA beinhalten. Soweit erforderlich, erfolgt dies auf Grundlage eines Angemessenheitsbeschlusses, des EU-US Data Privacy Framework, Standardvertragsklauseln oder anderer geeigneter Garantien. Weitere Informationen finden Sie in der <a href="https://www.facebook.com/privacy/policy/" target="_blank" rel="noopener">Datenschutzrichtlinie von Meta</a>.</p>
+  <p>Kunden können die Verbindung zu Instagram oder Facebook jederzeit in der EasyToGrow-App trennen. In diesem Fall werden die gespeicherten Verbindungstokens gelöscht oder deaktiviert. Zugehörige technische Logs werden nach den oben genannten Fristen gelöscht oder anonymisiert.</p>
+
+  <h2>11. Verarbeitung von TikTok-Daten</h2>
+  <p>Wenn ein Kunde ein TikTok-Konto mit EasyToGrow verbindet, verarbeitet EasyToGrow TikTok-Daten, soweit dies zur Bereitstellung der gebuchten Funktionen erforderlich ist. Dies kann insbesondere Username, User-ID, Profilinformationen, Video-/Kommentarinformationen, Nachrichten- oder Kommentarinhalte, Antwortentwürfe, technische API-Daten, Verbindungstokens und Logdaten umfassen.</p>
+  <p>Die Verarbeitung erfolgt zur Bereitstellung von TikTok-bezogenen Automatisierungs-, Antwort-, Analyse- und Verwaltungsfunktionen. Rechtsgrundlage ist <strong>Art. 6 Abs. 1 lit. b DSGVO</strong>, soweit die Verarbeitung zur Vertragserfüllung gegenüber dem Kunden erforderlich ist. Zusätzlich kann <strong>Art. 6 Abs. 1 lit. f DSGVO</strong> einschlägig sein, soweit eine sichere und effiziente Kommunikation sowie Plattformverwaltung ermöglicht wird.</p>
+  <div class="info-box">
+    <strong>Drittlandhinweis TikTok:</strong> TikTok-Daten können durch TikTok Pte. Ltd., verbundene Unternehmen oder technische Dienstleister verarbeitet werden. Dabei können Drittlandübermittlungen nach <strong>Singapur, in die USA und je nach technischer Struktur auch in weitere Länder, einschließlich China</strong>, nicht ausgeschlossen werden. Soweit für die Verbindung oder Nutzung eine Einwilligung oder ausdrückliche Bestätigung erforderlich ist, erfolgt diese im Rahmen der Kontoverbindung beziehungsweise OAuth-Freigabe durch den Kunden.
   </div>
+  <p>Kunden können die TikTok-Verbindung jederzeit in der EasyToGrow-App trennen. Verbindungstokens werden dann gelöscht oder deaktiviert. Technische Logs werden grundsätzlich nach maximal 30 Tagen gelöscht oder anonymisiert, sofern keine längere Aufbewahrung gesetzlich erforderlich ist. Weitere Informationen finden Sie in der <a href="https://www.tiktok.com/legal/privacy-policy" target="_blank" rel="noopener">Datenschutzrichtlinie von TikTok</a>.</p>
 
-  <h2>6. Website-Analyse mit Plausible</h2>
-  <p>Wir verwenden <strong>Plausible Analytics</strong> zur datenschutzfreundlichen Reichweitenmessung. Plausible wird in cookiefreier Konfiguration eingesetzt und dient der statistischen Auswertung der Nutzung unserer Website. Die Verarbeitung erfolgt auf Grundlage von Art. 6 Abs. 1 lit. f DSGVO.</p>
+  <h2>12. Browser-Extension und manuelle Reply-Funktionen</h2>
+  <p>Soweit EasyToGrow eine Browser-Extension oder vergleichbare browserbasierte Funktionen bereitstellt, verarbeitet diese nur die für die jeweilige Funktion erforderlichen Daten. Dies kann das lokale Speichern von Login-Status, Zugriffstokens oder Einstellungen sowie das Auslesen von vom Nutzer geöffneten Nachrichten- oder Kommentarinhalten zur Generierung von Antwortvorschlägen umfassen.</p>
+  <p>Die Verarbeitung erfolgt zur Bereitstellung der vom Kunden ausdrücklich genutzten Funktion auf Grundlage von <strong>Art. 6 Abs. 1 lit. b DSGVO</strong>. Der Kunde bleibt dafür verantwortlich, dass er zur Verarbeitung der Inhalte berechtigt ist und die Regeln der jeweiligen Plattform einhält.</p>
 
-  <h2>7. Local Storage und technisch notwendige Speicherungen</h2>
-  <p>Für die Nutzung der Anwendung können technisch notwendige Speicherungen im Browser verwendet werden, insbesondere zur Speicherung des Login-Status, von Sicherheitstokens, Spracheinstellungen, Sitzungszuständen oder Funktionspräferenzen. Diese Speicherungen erfolgen, soweit sie für den ausdrücklich gewünschten Dienst technisch erforderlich sind.</p>
-  <p>Weitere Informationen finden Sie in unserem <a href="cookie.html">Cookie- und Storage-Hinweis</a>.</p>
+  <h2>13. Auftragsverarbeitung und Rollenverteilung</h2>
+  <p>Soweit Kunden über EasyToGrow personenbezogene Daten ihrer Follower, Interessenten, Fans, Kunden oder sonstigen Kommunikationspartner verarbeiten, sind die Kunden grundsätzlich <strong>Verantwortliche</strong> im Sinne von Art. 4 Nr. 7 DSGVO. EasyToGrow handelt insoweit als <strong>Auftragsverarbeiter</strong> im Sinne von Art. 28 DSGVO, sofern EasyToGrow diese Daten nach Weisung des Kunden und zur Erbringung der vertraglichen Leistung verarbeitet.</p>
+  <p>Zwischen EasyToGrow und dem Kunden wird beim Vertragsschluss oder spätestens vor Beginn einer entsprechenden Verarbeitung ein Auftragsverarbeitungsvertrag geschlossen. Der Kunde ist dafür verantwortlich, seine eigenen Informationspflichten gegenüber betroffenen Personen zu erfüllen und sicherzustellen, dass für die Nutzung der Plattformdaten, Automatisierungen und KI-Funktionen eine geeignete Rechtsgrundlage besteht.</p>
 
-  <h2>8. Chrome-Browsererweiterung</h2>
-  <p>Soweit Sie die EasyToGrow Chrome-Extension nutzen, greift diese ausschließlich auf technisch erforderliche Daten zu: Sie liest den Login-Token aus dem geöffneten EasyToGrow-App-Tab (app.easytogrowki.de) und speichert ihn lokal im Browser (chrome.storage.local). Auf den unterstützten Plattformen (z. B. Instagram, OnlyFans, Fansly, Fanvue, TikTok, Telegram, Twitter/X, Facebook, Threads, Reddit) liest die Extension Nachrichteninhalte, die zur KI-Antwortgenerierung an unsere Server übermittelt werden. Es erfolgt keine dauerhafte Speicherung dieser Inhalte und keine Weitergabe an Dritte außer den unter Abschnitt 9 genannten KI-Dienstleistern. Die Rechtsgrundlage ist Art. 6 Abs. 1 lit. b DSGVO (Vertragserfüllung).</p>
+  <h2>14. Empfänger und Sub-Auftragsverarbeiter</h2>
+  <p>Zur Bereitstellung unserer Leistungen setzen wir externe Dienstleister ein. Diese werden, soweit erforderlich, als Auftragsverarbeiter eingebunden oder verarbeiten Daten als eigenständige Verantwortliche, wenn dies gesetzlich oder sachlich geboten ist.</p>
+  <table>
+    <thead>
+      <tr><th>Dienstleister</th><th>Sitz</th><th>Zweck</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>Anthropic Inc. / Anthropic PBC</td><td>USA</td><td>KI-gestützte Antwort- und Textgenerierung, soweit eingesetzt</td></tr>
+      <tr><td>Supabase Inc.</td><td>USA, mit möglicher EU-Region</td><td>Datenbank, Authentifizierung, Speicherung von App-Daten</td></tr>
+      <tr><td>Railway Corp.</td><td>USA</td><td>Backend-Hosting und API-Betrieb</td></tr>
+      <tr><td>Vercel Inc.</td><td>USA</td><td>Frontend-Hosting und Auslieferung der App-Oberfläche</td></tr>
+      <tr><td>Resend</td><td>USA</td><td>Transaktions-E-Mails, Systembenachrichtigungen und Login-/Abrechnungs-E-Mails</td></tr>
+      <tr><td>Stripe Inc.</td><td>USA</td><td>Zahlungsabwicklung, Abonnements, Rechnungen und Zahlungsstatus</td></tr>
+      <tr><td>Meta Platforms Inc.</td><td>USA</td><td>Instagram- und Facebook-APIs, OAuth-Verbindungen und Plattformkommunikation</td></tr>
+      <tr><td>TikTok Pte. Ltd.</td><td>Singapur/USA</td><td>TikTok-APIs, OAuth-Verbindungen und Plattformkommunikation</td></tr>
+      <tr><td>xAI Corp., sofern produktiv eingesetzt</td><td>USA</td><td>KI-Antwortgenerierung oder ergänzende KI-Funktionen, sofern tatsächlich genutzt</td></tr>
+    </tbody>
+  </table>
+  <p>Soweit Daten in Drittländer außerhalb der EU oder des EWR übermittelt werden, erfolgt dies auf Grundlage eines Angemessenheitsbeschlusses, geeigneter Garantien, Standardvertragsklauseln oder einer ausdrücklichen Einwilligung, soweit diese erforderlich ist.</p>
 
-  <h2>9. Empfänger und Drittlandübermittlungen</h2>
-  <p>Empfänger personenbezogener Daten können insbesondere folgende Dienstleister sein:</p>
-  <ul>
-    <li><strong>Supabase Inc. (USA)</strong> – Datenbank & Authentifizierung</li>
-    <li><strong>xAI Corp. (USA)</strong> – KI-Antwortgenerierung (Grok)</li>
-    <li><strong>Anthropic PBC (USA)</strong> – KI-Admin-Funktionen (Claude)</li>
-    <li><strong>Railway Corp. (USA)</strong> – Backend-Hosting</li>
-    <li><strong>Vercel Inc. (USA)</strong> – Frontend-Hosting</li>
-    <li><strong>Stripe Inc. (USA)</strong> – Zahlungsabwicklung</li>
-  </ul>
-  <p>Soweit Dienstleister in Staaten außerhalb der Europäischen Union oder des Europäischen Wirtschaftsraums eingesetzt werden, erfolgt die Datenübermittlung nur unter Beachtung der gesetzlichen Voraussetzungen, insbesondere auf Basis eines Angemessenheitsbeschlusses, geeigneter Garantien oder <strong>Standardvertragsklauseln (SCCs)</strong>.</p>
+  <h2>15. Datenlöschung und Trennung von Plattformverbindungen</h2>
+  <p>Kunden können verbundene Plattformkonten jederzeit in der EasyToGrow-App trennen. Dabei werden Verbindungstokens gelöscht oder deaktiviert. Konto- und Vertragsdaten können über die App oder per E-Mail gelöscht werden, sofern keine gesetzlichen Aufbewahrungspflichten entgegenstehen.</p>
+  <div class="highlight-box">
+    <strong>Ausführliche Beschreibung der Löschwege:</strong> <a href="data-deletion.html">easytogrowki.de/data-deletion</a>
+  </div>
+  <p>Löschanfragen können per E-Mail an <a href="mailto:easytogrow@gmx.de">easytogrow@gmx.de</a> gestellt werden. Wir bestätigen den Eingang nach Möglichkeit innerhalb von sieben Tagen und bearbeiten Löschanfragen grundsätzlich innerhalb von maximal 30 Tagen.</p>
 
-  <h2>10. Speicherdauer</h2>
-  <p>Wir speichern personenbezogene Daten nur so lange, wie dies für die genannten Zwecke erforderlich ist oder gesetzliche Aufbewahrungspflichten bestehen. Vertrags-, Rechnungs- und Abrechnungsdaten speichern wir im Rahmen der handels- und steuerrechtlichen Vorgaben. Konto- und Nutzungsdaten werden gelöscht oder anonymisiert, sobald sie für die Vertragsabwicklung und berechtigte Nachweiszwecke nicht mehr erforderlich sind.</p>
+  <h2>16. Speicherdauer</h2>
+  <p>Wir speichern personenbezogene Daten nur so lange, wie dies für die jeweiligen Zwecke erforderlich ist. Vertrags-, Zahlungs- und Rechnungsdaten werden entsprechend gesetzlicher handels- und steuerrechtlicher Aufbewahrungspflichten gespeichert. Plattform-Verbindungstokens werden nur gespeichert, solange die Verbindung aktiv ist. Trigger-Logs und technische Plattformlogs werden grundsätzlich maximal 30 Tage gespeichert, sofern keine gesetzlichen, vertraglichen oder sicherheitsbezogenen Gründe eine längere Speicherung erfordern.</p>
+  <p>Backups mit personenbezogenen Daten werden nicht länger als 35 Tage aufbewahrt, soweit dies technisch umsetzbar ist und keine gesetzlichen Pflichten entgegenstehen. Audit-Logs können anonymisiert oder pseudonymisiert bis zu 12 Monate gespeichert werden, um Sicherheit, Missbrauchsschutz und Systemintegrität nachweisen zu können.</p>
 
-  <h2>11. Ihre Rechte</h2>
-  <ul>
-    <li>Recht auf Auskunft gemäß Art. 15 DSGVO</li>
-    <li>Recht auf Berichtigung gemäß Art. 16 DSGVO</li>
-    <li>Recht auf Löschung gemäß Art. 17 DSGVO</li>
-    <li>Recht auf Einschränkung der Verarbeitung gemäß Art. 18 DSGVO</li>
-    <li>Recht auf Datenübertragbarkeit gemäß Art. 20 DSGVO</li>
-    <li>Recht auf Widerspruch gemäß Art. 21 DSGVO</li>
-    <li>Recht auf Beschwerde bei einer Datenschutzaufsichtsbehörde gemäß Art. 77 DSGVO</li>
-  </ul>
+  <h2>17. Rechte betroffener Personen</h2>
+  <p>Betroffene Personen haben nach Maßgabe der gesetzlichen Voraussetzungen folgende Rechte:</p>
+  <table>
+    <thead>
+      <tr><th>Recht</th><th>Bedeutung</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>Auskunft</td><td>Sie können Auskunft über die zu Ihrer Person verarbeiteten Daten verlangen.</td></tr>
+      <tr><td>Berichtigung</td><td>Sie können unrichtige personenbezogene Daten berichtigen lassen.</td></tr>
+      <tr><td>Löschung</td><td>Sie können die Löschung personenbezogener Daten verlangen, sofern keine Aufbewahrungspflichten entgegenstehen.</td></tr>
+      <tr><td>Einschränkung</td><td>Sie können die Einschränkung der Verarbeitung verlangen.</td></tr>
+      <tr><td>Datenübertragbarkeit</td><td>Sie können Daten in einem strukturierten, gängigen und maschinenlesbaren Format erhalten.</td></tr>
+      <tr><td>Widerspruch</td><td>Sie können der Verarbeitung auf Grundlage berechtigter Interessen widersprechen.</td></tr>
+      <tr><td>Widerruf</td><td>Sie können eine erteilte Einwilligung jederzeit mit Wirkung für die Zukunft widerrufen.</td></tr>
+    </tbody>
+  </table>
   <p>Zur Ausübung Ihrer Rechte können Sie uns unter <a href="mailto:easytogrow@gmx.de">easytogrow@gmx.de</a> kontaktieren.</p>
 
-  <h2>12. Hinweise für Personen ohne eigenes EasyToGrow-Konto</h2>
-  <p>Wenn personenbezogene Daten von Personen verarbeitet werden, die selbst kein EasyToGrow-Konto haben, erfolgt dies in der Regel im Zusammenhang mit der Nutzung durch unsere Kunden. Auch betroffene Dritte können sich an die oben genannte Kontaktadresse wenden.</p>
+  <h2>18. Beschwerderecht bei einer Aufsichtsbehörde</h2>
+  <p>Betroffene Personen haben das Recht, sich bei einer Datenschutzaufsichtsbehörde zu beschweren. Zuständig kann insbesondere die Aufsichtsbehörde des Bundeslandes sein, in dem der Verantwortliche seinen Sitz hat, oder die Aufsichtsbehörde am Wohnort der betroffenen Person.</p>
 
-  <h2>13. Aktualisierung dieser Erklärung</h2>
-  <p>Wir behalten uns vor, diese Datenschutzerklärung anzupassen, wenn sich rechtliche, technische oder organisatorische Rahmenbedingungen ändern.</p>
+  <h2>19. Änderungen dieser Datenschutzerklärung</h2>
+  <p>Wir können diese Datenschutzerklärung anpassen, wenn sich rechtliche, technische oder organisatorische Rahmenbedingungen ändern. Die jeweils aktuelle Fassung ist unter <a href="https://easytogrowki.de/datenschutz">easytogrowki.de/datenschutz</a> abrufbar.</p>
 
-  <span class="footer-note">Stand: März 2026 · <a href="index.html">EasyToGrow</a> · easytogrowki.de</span>
+  <span class="footer-note">Stand: Mai 2026 · <a href="index.html">EasyToGrow</a> · easytogrowki.de</span>
 </div>
 </body>
 </html>
