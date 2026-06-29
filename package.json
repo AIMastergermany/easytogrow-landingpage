@@ -1,0 +1,9 @@
+{
+  "name": "easytogrow-landingpage",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Statische Landingpage easytogrowki.de inkl. Widerrufs-Consent-Protokoll-Function",
+  "dependencies": {
+    "@netlify/blobs": "^8.1.0"
+  }
+}

@@ -563,6 +563,29 @@
     .topup-actions { font-size: 0.82rem; color: var(--text-muted); margin-top: 3px; }
     .topup-price { font-size: 1.35rem; font-weight: 900; color: var(--green); }
 
+    /* Widerrufs-Consent — Pflicht-Checkbox vor Stripe-Kauf (§ 356 Abs. 5 BGB) */
+    .consent {
+      display: flex; gap: 10px; align-items: flex-start; text-align: left;
+      font-size: 0.78rem; line-height: 1.5; color: var(--text-muted);
+      margin: 14px 0; cursor: pointer;
+    }
+    .consent input {
+      margin-top: 2px; width: 17px; height: 17px; flex-shrink: 0;
+      accent-color: var(--green); cursor: pointer;
+    }
+    .consent a { color: var(--green); text-decoration: underline; }
+    .consent strong { color: var(--text); }
+    .btn.is-disabled {
+      opacity: 0.45; cursor: not-allowed; box-shadow: none;
+    }
+
+    /* Top-Up-Card: Container wird vertikal für Top-Row + Checkbox + Button */
+    .topup-card { flex-direction: column; align-items: stretch; gap: 4px; }
+    .topup-card-top {
+      display: flex; align-items: center; justify-content: space-between;
+      gap: 12px;
+    }
+
     /* Billing Toggle */
     .billing-toggle {
       display: flex; align-items: center; justify-content: center;
@@ -2032,7 +2055,11 @@
           <li><span class="ck">✓</span><span>Deutsch &amp; Englisch</span></li>
           <li><span class="ck">✓</span><span>Kein Revenue Share</span></li>
         </ul>
-        <a href="https://buy.stripe.com/eVq9AT0CQcG6bz83oU0x20i" class="btn btn-outline pricing-cta" style="width:100%;justify-content:center" target="_blank"
+        <label class="consent" data-consent-for="content-starter">
+          <input type="checkbox" class="widerruf-checkbox">
+          <span>Ich verlange ausdrücklich, dass die Ausführung sofort beginnt, und bestätige, dass mein <strong>Widerrufsrecht mit Beginn der Ausführung erlischt</strong>. <a href="agb.html" target="_blank" rel="noopener">AGB</a> &amp; <a href="widerruf.html" target="_blank" rel="noopener">Widerrufsbelehrung</a> habe ich gelesen.</span>
+        </label>
+        <a href="https://buy.stripe.com/eVq9AT0CQcG6bz83oU0x20i" class="btn btn-outline pricing-cta is-disabled" aria-disabled="true" data-plan-key="content-starter" style="width:100%;justify-content:center" target="_blank"
           data-monthly-link="https://buy.stripe.com/eVq9AT0CQcG6bz83oU0x20i"
           data-yearly-link="https://buy.stripe.com/5kQ3cv4T68pQ5aK0cI0x203">
           Starter wählen
@@ -2067,7 +2094,11 @@
           <li><span class="ck">✓</span><span>Prioritäts-Support</span></li>
           <li><span class="ck">✓</span><span>Kein Revenue Share</span></li>
         </ul>
-        <a href="https://buy.stripe.com/4gMfZhbhueOe46Ge3y0x20e" class="btn btn-primary pricing-cta" style="width:100%;justify-content:center" target="_blank"
+        <label class="consent" data-consent-for="content-pro">
+          <input type="checkbox" class="widerruf-checkbox">
+          <span>Ich verlange ausdrücklich, dass die Ausführung sofort beginnt, und bestätige, dass mein <strong>Widerrufsrecht mit Beginn der Ausführung erlischt</strong>. <a href="agb.html" target="_blank" rel="noopener">AGB</a> &amp; <a href="widerruf.html" target="_blank" rel="noopener">Widerrufsbelehrung</a> habe ich gelesen.</span>
+        </label>
+        <a href="https://buy.stripe.com/4gMfZhbhueOe46Ge3y0x20e" class="btn btn-primary pricing-cta is-disabled" aria-disabled="true" data-plan-key="content-pro" style="width:100%;justify-content:center" target="_blank"
           data-monthly-link="https://buy.stripe.com/4gMfZhbhueOe46Ge3y0x20e"
           data-yearly-link="https://buy.stripe.com/cNi14n99mbC20Uuf7C0x200">
           Pro wählen →
@@ -2101,7 +2132,11 @@
           <li><span class="ck">✓</span><span>Dedizierter Support</span></li>
           <li><span class="ck">✓</span><span>Kein Revenue Share</span></li>
         </ul>
-        <a href="https://buy.stripe.com/5kQ4gz0CQgWmgTs1gM0x20c" class="btn btn-outline pricing-cta" style="width:100%;justify-content:center" target="_blank"
+        <label class="consent" data-consent-for="content-business">
+          <input type="checkbox" class="widerruf-checkbox">
+          <span>Ich verlange ausdrücklich, dass die Ausführung sofort beginnt, und bestätige, dass mein <strong>Widerrufsrecht mit Beginn der Ausführung erlischt</strong>. <a href="agb.html" target="_blank" rel="noopener">AGB</a> &amp; <a href="widerruf.html" target="_blank" rel="noopener">Widerrufsbelehrung</a> habe ich gelesen.</span>
+        </label>
+        <a href="https://buy.stripe.com/5kQ4gz0CQgWmgTs1gM0x20c" class="btn btn-outline pricing-cta is-disabled" aria-disabled="true" data-plan-key="content-business" style="width:100%;justify-content:center" target="_blank"
           data-monthly-link="https://buy.stripe.com/5kQ4gz0CQgWmgTs1gM0x20c"
           data-yearly-link="https://buy.stripe.com/4gM3cvcly21s46G2kQ0x202">
           Business wählen
@@ -2145,7 +2180,11 @@
           <li><span class="ck">✓</span><span>Kein Revenue Share</span></li>
           <li><span class="ck" style="color:var(--green-light)">✓</span><span><strong>Adult-Modul inklusive</strong></span></li>
         </ul>
-        <a href="https://buy.stripe.com/3cIdR971e7lMfPobVq0x20d" class="btn btn-outline pricing-cta" style="width:100%;justify-content:center" target="_blank"
+        <label class="consent" data-consent-for="adult-starter">
+          <input type="checkbox" class="widerruf-checkbox">
+          <span>Ich verlange ausdrücklich, dass die Ausführung sofort beginnt, und bestätige, dass mein <strong>Widerrufsrecht mit Beginn der Ausführung erlischt</strong>. <a href="agb.html" target="_blank" rel="noopener">AGB</a> &amp; <a href="widerruf.html" target="_blank" rel="noopener">Widerrufsbelehrung</a> habe ich gelesen.</span>
+        </label>
+        <a href="https://buy.stripe.com/3cIdR971e7lMfPobVq0x20d" class="btn btn-outline pricing-cta is-disabled" aria-disabled="true" data-plan-key="adult-starter" style="width:100%;justify-content:center" target="_blank"
           data-monthly-link="https://buy.stripe.com/3cIdR971e7lMfPobVq0x20d"
           data-yearly-link="https://buy.stripe.com/dRm8wPetG9tUeLk2kQ0x209">
           Starter wählen
@@ -2181,7 +2220,11 @@
           <li><span class="ck">✓</span><span>Kein Revenue Share</span></li>
           <li><span class="ck" style="color:var(--green-light)">✓</span><span><strong>Adult-Modul inklusive</strong></span></li>
         </ul>
-        <a href="https://buy.stripe.com/14AaEXbhudKa46G1gM0x20f" class="btn btn-primary pricing-cta" style="width:100%;justify-content:center" target="_blank"
+        <label class="consent" data-consent-for="adult-pro">
+          <input type="checkbox" class="widerruf-checkbox">
+          <span>Ich verlange ausdrücklich, dass die Ausführung sofort beginnt, und bestätige, dass mein <strong>Widerrufsrecht mit Beginn der Ausführung erlischt</strong>. <a href="agb.html" target="_blank" rel="noopener">AGB</a> &amp; <a href="widerruf.html" target="_blank" rel="noopener">Widerrufsbelehrung</a> habe ich gelesen.</span>
+        </label>
+        <a href="https://buy.stripe.com/14AaEXbhudKa46G1gM0x20f" class="btn btn-primary pricing-cta is-disabled" aria-disabled="true" data-plan-key="adult-pro" style="width:100%;justify-content:center" target="_blank"
           data-monthly-link="https://buy.stripe.com/14AaEXbhudKa46G1gM0x20f"
           data-yearly-link="https://buy.stripe.com/bJe28rfxKbC26eOe3y0x201">
           Pro wählen →
@@ -2216,7 +2259,11 @@
           <li><span class="ck">✓</span><span>Kein Revenue Share</span></li>
           <li><span class="ck" style="color:var(--green-light)">✓</span><span><strong>Adult-Modul inklusive</strong></span></li>
         </ul>
-        <a href="https://buy.stripe.com/28E28rcly9tUeLkbVq0x20j" class="btn btn-outline pricing-cta" style="width:100%;justify-content:center" target="_blank"
+        <label class="consent" data-consent-for="adult-business">
+          <input type="checkbox" class="widerruf-checkbox">
+          <span>Ich verlange ausdrücklich, dass die Ausführung sofort beginnt, und bestätige, dass mein <strong>Widerrufsrecht mit Beginn der Ausführung erlischt</strong>. <a href="agb.html" target="_blank" rel="noopener">AGB</a> &amp; <a href="widerruf.html" target="_blank" rel="noopener">Widerrufsbelehrung</a> habe ich gelesen.</span>
+        </label>
+        <a href="https://buy.stripe.com/28E28rcly9tUeLkbVq0x20j" class="btn btn-outline pricing-cta is-disabled" aria-disabled="true" data-plan-key="adult-business" style="width:100%;justify-content:center" target="_blank"
           data-monthly-link="https://buy.stripe.com/28E28rcly9tUeLkbVq0x20j"
           data-yearly-link="https://buy.stripe.com/eVqdR93P2cG646G4sY0x206">
           Business wählen
@@ -2229,66 +2276,90 @@
       <h3 style="color:var(--text);margin-bottom:6px">Aktionen aufstocken</h3>
       <p style="font-size:0.88rem">Kontingent aufgebraucht? Top-Up Pakete kannst du jederzeit dazubuchen. Tipp: Ab 2 Top-Ups/Monat lohnt sich das nächste Abo.</p>
       <div class="topup-grid">
-        <a href="https://buy.stripe.com/3cI6oH71ebC2cDc0cI0x20h" class="topup-card" target="_blank" style="text-decoration:none;cursor:pointer">
-          <div>
-            <div class="topup-name">Top-Up S</div>
-            <div class="topup-actions">100 Aktionen · 0,09€/Aktion</div>
-          </div>
-          <div style="display:flex;flex-direction:column;align-items:flex-end;gap:6px">
+        <div class="topup-card">
+          <div class="topup-card-top">
+            <div>
+              <div class="topup-name">Top-Up S</div>
+              <div class="topup-actions">100 Aktionen · 0,09€/Aktion</div>
+            </div>
             <div class="topup-price">9€</div>
-            <span style="font-size:0.75rem;font-weight:700;color:var(--green);white-space:nowrap">Jetzt kaufen →</span>
           </div>
-        </a>
-        <a href="https://buy.stripe.com/00w28rdpCfSi7iSaRm0x20g" class="topup-card" target="_blank" style="text-decoration:none;cursor:pointer">
-          <div>
-            <div class="topup-name">Top-Up M</div>
-            <div class="topup-actions">250 Aktionen · 0,076€/Aktion</div>
-          </div>
-          <div style="display:flex;flex-direction:column;align-items:flex-end;gap:6px">
+          <label class="consent" data-consent-for="topup-s">
+            <input type="checkbox" class="widerruf-checkbox">
+            <span>Ich verlange ausdrücklich, dass die Ausführung sofort beginnt, und bestätige, dass mein <strong>Widerrufsrecht mit Beginn der Ausführung erlischt</strong>. <a href="agb.html" target="_blank" rel="noopener">AGB</a> &amp; <a href="widerruf.html" target="_blank" rel="noopener">Widerrufsbelehrung</a> habe ich gelesen.</span>
+          </label>
+          <a href="https://buy.stripe.com/3cI6oH71ebC2cDc0cI0x20h" class="btn btn-primary pricing-cta is-disabled" aria-disabled="true" data-plan-key="topup-s" target="_blank" style="width:100%;justify-content:center">Top-Up S kaufen →</a>
+        </div>
+        <div class="topup-card">
+          <div class="topup-card-top">
+            <div>
+              <div class="topup-name">Top-Up M</div>
+              <div class="topup-actions">250 Aktionen · 0,076€/Aktion</div>
+            </div>
             <div class="topup-price">19€</div>
-            <span style="font-size:0.75rem;font-weight:700;color:var(--green);white-space:nowrap">Jetzt kaufen →</span>
           </div>
-        </a>
-        <a href="https://buy.stripe.com/eVq6oH2KYbC2av4gbG0x208" class="topup-card" target="_blank" style="text-decoration:none;cursor:pointer">
-          <div>
-            <div class="topup-name">Top-Up L</div>
-            <div class="topup-actions">600 Aktionen · 0,065€/Aktion</div>
-          </div>
-          <div style="display:flex;flex-direction:column;align-items:flex-end;gap:6px">
+          <label class="consent" data-consent-for="topup-m">
+            <input type="checkbox" class="widerruf-checkbox">
+            <span>Ich verlange ausdrücklich, dass die Ausführung sofort beginnt, und bestätige, dass mein <strong>Widerrufsrecht mit Beginn der Ausführung erlischt</strong>. <a href="agb.html" target="_blank" rel="noopener">AGB</a> &amp; <a href="widerruf.html" target="_blank" rel="noopener">Widerrufsbelehrung</a> habe ich gelesen.</span>
+          </label>
+          <a href="https://buy.stripe.com/00w28rdpCfSi7iSaRm0x20g" class="btn btn-primary pricing-cta is-disabled" aria-disabled="true" data-plan-key="topup-m" target="_blank" style="width:100%;justify-content:center">Top-Up M kaufen →</a>
+        </div>
+        <div class="topup-card">
+          <div class="topup-card-top">
+            <div>
+              <div class="topup-name">Top-Up L</div>
+              <div class="topup-actions">600 Aktionen · 0,065€/Aktion</div>
+            </div>
             <div class="topup-price">39€</div>
-            <span style="font-size:0.75rem;font-weight:700;color:var(--green);white-space:nowrap">Jetzt kaufen →</span>
           </div>
-        </a>
-        <a href="https://buy.stripe.com/14A8wP85igWmdHgaRm0x205" class="topup-card" target="_blank" style="text-decoration:none;cursor:pointer">
-          <div>
-            <div class="topup-name">Top-Up XL</div>
-            <div class="topup-actions">1.000 Aktionen · 0,059€/Aktion</div>
-          </div>
-          <div style="display:flex;flex-direction:column;align-items:flex-end;gap:6px">
+          <label class="consent" data-consent-for="topup-l">
+            <input type="checkbox" class="widerruf-checkbox">
+            <span>Ich verlange ausdrücklich, dass die Ausführung sofort beginnt, und bestätige, dass mein <strong>Widerrufsrecht mit Beginn der Ausführung erlischt</strong>. <a href="agb.html" target="_blank" rel="noopener">AGB</a> &amp; <a href="widerruf.html" target="_blank" rel="noopener">Widerrufsbelehrung</a> habe ich gelesen.</span>
+          </label>
+          <a href="https://buy.stripe.com/eVq6oH2KYbC2av4gbG0x208" class="btn btn-primary pricing-cta is-disabled" aria-disabled="true" data-plan-key="topup-l" target="_blank" style="width:100%;justify-content:center">Top-Up L kaufen →</a>
+        </div>
+        <div class="topup-card">
+          <div class="topup-card-top">
+            <div>
+              <div class="topup-name">Top-Up XL</div>
+              <div class="topup-actions">1.000 Aktionen · 0,059€/Aktion</div>
+            </div>
             <div class="topup-price">59€</div>
-            <span style="font-size:0.75rem;font-weight:700;color:var(--green);white-space:nowrap">Jetzt kaufen →</span>
           </div>
-        </a>
-        <a href="https://buy.stripe.com/bJe3cvcly8pQcDcaRm0x207" class="topup-card" target="_blank" style="text-decoration:none;cursor:pointer">
-          <div>
-            <div class="topup-name">Top-Up XXL</div>
-            <div class="topup-actions">2.500 Aktionen · 0,056€/Aktion</div>
-          </div>
-          <div style="display:flex;flex-direction:column;align-items:flex-end;gap:6px">
+          <label class="consent" data-consent-for="topup-xl">
+            <input type="checkbox" class="widerruf-checkbox">
+            <span>Ich verlange ausdrücklich, dass die Ausführung sofort beginnt, und bestätige, dass mein <strong>Widerrufsrecht mit Beginn der Ausführung erlischt</strong>. <a href="agb.html" target="_blank" rel="noopener">AGB</a> &amp; <a href="widerruf.html" target="_blank" rel="noopener">Widerrufsbelehrung</a> habe ich gelesen.</span>
+          </label>
+          <a href="https://buy.stripe.com/14A8wP85igWmdHgaRm0x205" class="btn btn-primary pricing-cta is-disabled" aria-disabled="true" data-plan-key="topup-xl" target="_blank" style="width:100%;justify-content:center">Top-Up XL kaufen →</a>
+        </div>
+        <div class="topup-card">
+          <div class="topup-card-top">
+            <div>
+              <div class="topup-name">Top-Up XXL</div>
+              <div class="topup-actions">2.500 Aktionen · 0,056€/Aktion</div>
+            </div>
             <div class="topup-price">139€</div>
-            <span style="font-size:0.75rem;font-weight:700;color:var(--green);white-space:nowrap">Jetzt kaufen →</span>
           </div>
-        </a>
-        <a href="https://buy.stripe.com/8x214n85i21s6eO8Je0x20a" class="topup-card" target="_blank" style="text-decoration:none;cursor:pointer">
-          <div>
-            <div class="topup-name">Top-Up XXXL</div>
-            <div class="topup-actions">5.000 Aktionen · 0,054€/Aktion</div>
-          </div>
-          <div style="display:flex;flex-direction:column;align-items:flex-end;gap:6px">
+          <label class="consent" data-consent-for="topup-xxl">
+            <input type="checkbox" class="widerruf-checkbox">
+            <span>Ich verlange ausdrücklich, dass die Ausführung sofort beginnt, und bestätige, dass mein <strong>Widerrufsrecht mit Beginn der Ausführung erlischt</strong>. <a href="agb.html" target="_blank" rel="noopener">AGB</a> &amp; <a href="widerruf.html" target="_blank" rel="noopener">Widerrufsbelehrung</a> habe ich gelesen.</span>
+          </label>
+          <a href="https://buy.stripe.com/bJe3cvcly8pQcDcaRm0x207" class="btn btn-primary pricing-cta is-disabled" aria-disabled="true" data-plan-key="topup-xxl" target="_blank" style="width:100%;justify-content:center">Top-Up XXL kaufen →</a>
+        </div>
+        <div class="topup-card">
+          <div class="topup-card-top">
+            <div>
+              <div class="topup-name">Top-Up XXXL</div>
+              <div class="topup-actions">5.000 Aktionen · 0,054€/Aktion</div>
+            </div>
             <div class="topup-price">269€</div>
-            <span style="font-size:0.75rem;font-weight:700;color:var(--green);white-space:nowrap">Jetzt kaufen →</span>
           </div>
-        </a>
+          <label class="consent" data-consent-for="topup-xxxl">
+            <input type="checkbox" class="widerruf-checkbox">
+            <span>Ich verlange ausdrücklich, dass die Ausführung sofort beginnt, und bestätige, dass mein <strong>Widerrufsrecht mit Beginn der Ausführung erlischt</strong>. <a href="agb.html" target="_blank" rel="noopener">AGB</a> &amp; <a href="widerruf.html" target="_blank" rel="noopener">Widerrufsbelehrung</a> habe ich gelesen.</span>
+          </label>
+          <a href="https://buy.stripe.com/8x214n85i21s6eO8Je0x20a" class="btn btn-primary pricing-cta is-disabled" aria-disabled="true" data-plan-key="topup-xxxl" target="_blank" style="width:100%;justify-content:center">Top-Up XXXL kaufen →</a>
+        </div>
       </div>
     </div>
 
@@ -2974,6 +3045,55 @@
   window.addEventListener('scroll', function() {
     btt.style.display = window.scrollY > 400 ? 'flex' : 'none';
   });
+</script>
+
+<!-- Widerrufs-Consent: Pro Card eine Checkbox + ein Stripe-Button. Beim Klick wird
+     die Zustimmung serverseitig protokolliert (sendBeacon) und der Stripe-Link mit
+     client_reference_id geöffnet. Pattern 1:1 wie auf etg-podcast.de. -->
+<script>
+  (() => {
+    const CONSENT_VERSION = '2026-05';
+    document.querySelectorAll('.pricing-cta').forEach(btn => {
+      const card = btn.closest('.pricing-card, .topup-card');
+      if (!card) return;
+      const consent = card.querySelector('.widerruf-checkbox');
+      if (!consent) return;
+      const consentText = (card.querySelector('.consent span')?.innerText || '').trim();
+      const planKey = btn.getAttribute('data-plan-key') || '';
+
+      const sync = () => {
+        btn.classList.toggle('is-disabled', !consent.checked);
+        btn.setAttribute('aria-disabled', String(!consent.checked));
+      };
+      consent.addEventListener('change', sync);
+
+      btn.addEventListener('click', (e) => {
+        e.preventDefault();
+        if (!consent.checked) {
+          consent.focus();
+          btn.animate(
+            [{transform:'translateX(-5px)'},{transform:'translateX(5px)'},{transform:'translateX(0)'}],
+            {duration:220}
+          );
+          return;
+        }
+        // Aktuelles href wird ggf. vom Billing-Toggle (setBilling) überschrieben — wir
+        // lesen es deshalb zur Klick-Zeit, nicht zur Init-Zeit.
+        const STRIPE_URL = btn.getAttribute('href');
+        const id = 'c-' + Date.now().toString(36) + '-' + Math.random().toString(36).slice(2, 10);
+        try {
+          const payload = JSON.stringify({
+            id, textVersion: CONSENT_VERSION, consentText,
+            clientTs: new Date().toISOString(), planKey
+          });
+          navigator.sendBeacon('/.netlify/functions/consent', new Blob([payload], { type: 'application/json' }));
+        } catch (_) {}
+        const sep = STRIPE_URL.includes('?') ? '&' : '?';
+        window.open(STRIPE_URL + sep + 'client_reference_id=' + encodeURIComponent(id), '_blank', 'noopener');
+      });
+      sync();
+    });
+  })();
 </script>
 </body>
 </html>

@@ -110,6 +110,24 @@
   <p>Für Zahlungen, Abonnements, Rechnungsstellung und gegebenenfalls Top-ups oder Credit-Systeme setzen wir <strong>Stripe</strong> ein. Stripe verarbeitet Zahlungsdaten, Rechnungsdaten, Transaktionsdaten und technische Sicherheitsdaten eigenverantwortlich beziehungsweise in unserem Auftrag, soweit dies für die Zahlungsabwicklung erforderlich ist.</p>
   <p>Die Verarbeitung erfolgt auf Grundlage von <strong>Art. 6 Abs. 1 lit. b DSGVO</strong>, soweit sie zur Vertragsdurchführung erforderlich ist, sowie <strong>Art. 6 Abs. 1 lit. c DSGVO</strong>, soweit gesetzliche Aufbewahrungspflichten bestehen.</p>
 
+  <h2>7a. Speicherung der Widerrufs-Zustimmung (Nachweis nach § 356 Abs. 5 BGB)</h2>
+  <p>Wenn Sie vor dem Kauf eines Abonnements oder Top-ups die Pflicht-Checkbox bestätigen, mit der Sie die sofortige Ausführung verlangen und das Erlöschen Ihres Widerrufsrechts zur Kenntnis nehmen (§ 356 Abs. 5 BGB), speichern wir diese Zustimmung als Nachweis.</p>
+  <p><strong>Gespeicherte Daten:</strong></p>
+  <ul>
+    <li>Server-Zeitstempel (UTC) zum Zeitpunkt der Zustimmung</li>
+    <li>IP-Adresse, von der die Zustimmung erfolgte</li>
+    <li>Browserkennung (User-Agent-String)</li>
+    <li>Wortlaut und Versionsnummer des Zustimmungstexts</li>
+    <li>Eindeutige Referenz-ID, die als <code>client_reference_id</code> mit der Stripe-Zahlung verknüpft wird</li>
+    <li>Bezeichnung des gewählten Plans bzw. Top-ups</li>
+    <li>Kryptographische Signatur (HMAC-SHA256) als Fälschungsschutz</li>
+  </ul>
+  <p><strong>Zweck:</strong> Nachweis gegenüber Ihnen, Behörden und Gerichten, dass und wann die Zustimmung erteilt wurde, sowie Schutz vor unberechtigten Widerrufsforderungen nach Beginn der Leistungserbringung.</p>
+  <p><strong>Rechtsgrundlage:</strong> <strong>Art. 6 Abs. 1 lit. c DSGVO</strong> (rechtliche Verpflichtung zum Nachweis nach BGB) sowie <strong>Art. 6 Abs. 1 lit. f DSGVO</strong> (berechtigtes Interesse an der Beweissicherung).</p>
+  <p><strong>Speicherort:</strong> Die Daten werden über die Hosting-Infrastruktur unserer Website (Netlify Blobs) in deren EU-Datenzentren gespeichert.</p>
+  <p><strong>Speicherdauer:</strong> Die Daten werden für die Dauer der gesetzlichen Aufbewahrungsfrist (3 Jahre nach Vertragsschluss, § 195 BGB) aufbewahrt und anschließend gelöscht. Bei Widerrufsstreitigkeiten kann die Speicherung bis zum Abschluss des Verfahrens verlängert werden.</p>
+  <p><strong>Ihre Rechte:</strong> Sie können jederzeit unter <a href="mailto:easytogrow@gmx.de">easytogrow@gmx.de</a> eine Kopie Ihrer gespeicherten Zustimmungs-Nachweise anfordern. Eine Löschung vor Ablauf der Aufbewahrungsfrist ist nicht möglich, weil dies die Beweissicherungspflicht verletzen würde.</p>
+
   <h2>8. Cookies, Local Storage und ähnliche Technologien</h2>
   <p>Für den Betrieb unserer Website und App können Cookies, Local Storage, Session Storage oder vergleichbare Technologien eingesetzt werden. Diese dienen insbesondere dem Login-Status, der sicheren Sitzung, Spracheinstellungen, technischen Präferenzen, Funktionszuständen und der Verhinderung von Missbrauch.</p>
   <table>

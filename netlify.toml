@@ -1,2 +1,12 @@
+[build]
+  publish = "."
+
 [functions]
   directory = "netlify/functions"
+  node_bundler = "esbuild"
+
+# Geschützte Nachweis-Übersicht (Basic Auth in der Function)
+[[redirects]]
+  from = "/nachweise"
+  to   = "/.netlify/functions/consent-list"
+  status = 200
