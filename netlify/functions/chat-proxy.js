@@ -44,9 +44,18 @@ exports.handler = async function(event) {
     };
   }
 
-  // Origin prüfen — nur von eigener Domain erlauben
-  const origin = event.headers.origin || event.headers.referer || '';
-  if (!origin.includes('easytogrowki.de') && !origin.includes('localhost') && !origin.includes('netlify')) {
+  // Origin prüfen — nur von eigener Domain erlauben (Hostname-genau, nicht via
+  // .includes(): sonst würde z.B. easytogrowki.de.angreifer.com durchrutschen).
+  const rawOrigin = event.headers.origin || event.headers.referer || '';
+  let originAllowed = false;
+  try {
+    const host = new URL(rawOrigin).hostname;
+    originAllowed = host === 'easytogrowki.de'
+      || host === 'www.easytogrowki.de'
+      || host === 'localhost'
+      || host.endsWith('.netlify.app');
+  } catch (_) {}
+  if (!originAllowed) {
     return {
       statusCode: 403,
       body: JSON.stringify({ error: 'Nicht erlaubt' })

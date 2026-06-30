@@ -3,7 +3,19 @@
 // Schutz: HTTP Basic Auth, Passwort aus Netlify-Umgebungsvariable
 // CONSENT_VIEW_PASSWORD. Ohne gesetztes Passwort: KEIN Zugriff (fail-closed,
 // da die Datensätze IP-Adressen enthalten).
-import { createHmac } from 'node:crypto';
+import { createHmac, timingSafeEqual } from 'node:crypto';
+
+// Brute-Force-Schutz: max. 5 Fehlversuche pro IP in 5 Minuten (best effort,
+// Netlify-Functions sind ephemer). Schützt das IP-haltige Nachweis-Register.
+const loginAttempts = new Map();
+
+// Konstant-Zeit-Vergleich gegen Timing-Angriffe auf das Passwort.
+const compareTimingSafe = (a, b) => {
+  const aBuf = Buffer.from(String(a));
+  const bBuf = Buffer.from(String(b));
+  if (aBuf.length !== bBuf.length) return false;
+  return timingSafeEqual(aBuf, bBuf);
+};
 
 export default async (req) => {
   const PASSWORD = process.env.CONSENT_VIEW_PASSWORD;
@@ -15,6 +27,19 @@ export default async (req) => {
     );
   }
 
+  // --- Brute-Force-Drossel pro IP ---
+  const ip = req.headers.get('x-nf-client-connection-ip')
+    || (req.headers.get('x-forwarded-for') || '').split(',')[0].trim()
+    || '0.0.0.0';
+  const now = Date.now();
+  const recent = (loginAttempts.get(ip) || []).filter(t => now - t < 300000);
+  if (recent.length >= 5) {
+    return new Response('Zu viele Fehlversuche. Bitte in einigen Minuten erneut versuchen.', {
+      status: 429,
+      headers: { 'content-type': 'text/plain; charset=utf-8' }
+    });
+  }
+
   // --- Basic Auth (nur das Passwort wird geprüft, Benutzername beliebig) ---
   const auth = req.headers.get('authorization') || '';
   let authed = false;
@@ -22,10 +47,12 @@ export default async (req) => {
     try {
       const decoded = Buffer.from(auth.slice(6), 'base64').toString('utf8');
       const pass = decoded.slice(decoded.indexOf(':') + 1);
-      authed = pass === PASSWORD;
+      authed = compareTimingSafe(pass, PASSWORD);
     } catch (_) {}
   }
   if (!authed) {
+    recent.push(now);
+    loginAttempts.set(ip, recent);
     return new Response('Authentifizierung erforderlich', {
       status: 401,
       headers: { 'WWW-Authenticate': 'Basic realm="EasyToGrow Consent-Nachweise"', 'content-type': 'text/plain; charset=utf-8' }

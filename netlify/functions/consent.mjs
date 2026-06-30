@@ -4,10 +4,48 @@
 // client_reference_id an Stripe -> Zustimmung ist mit dem Kauf verknüpft.
 import { createHmac } from 'node:crypto';
 
+// Grober Flut-Schutz pro IP. Netlify-Functions sind ephemer, daher nur
+// Best-Effort (jeder Cold-Start beginnt frisch) — reicht gegen einfache Floods.
+const consentAttempts = new Map();
+const CONSENT_RL_MAX = 20;
+const CONSENT_RL_WINDOW = 60 * 1000;
+
 export default async (req, context) => {
   if (req.method !== 'POST') {
     return new Response('Method Not Allowed', { status: 405 });
   }
+
+  // Body-Größe begrenzen (Müll-/DoS-Schutz)
+  const contentLength = parseInt(req.headers.get('content-length') || '0', 10);
+  if (contentLength > 8192) {
+    return new Response('Payload too large', { status: 413 });
+  }
+
+  // Fremde Origins blocken. Fehlende Origin wird durchgelassen, weil manche
+  // same-origin sendBeacon-Aufrufe keinen Origin-Header setzen — ein Block würde
+  // sonst einen rechtlich relevanten Widerrufs-Nachweis verschlucken.
+  const reqOrigin = req.headers.get('origin') || '';
+  if (reqOrigin) {
+    let originOk = false;
+    try {
+      originOk = ['easytogrowki.de', 'www.easytogrowki.de'].includes(new URL(reqOrigin).hostname);
+    } catch (_) {}
+    if (!originOk) {
+      return new Response('Forbidden', { status: 403 });
+    }
+  }
+
+  // Rate-Limit pro IP
+  const rlIp = req.headers.get('x-nf-client-connection-ip')
+    || (req.headers.get('x-forwarded-for') || '').split(',')[0].trim()
+    || '0.0.0.0';
+  const rlNow = Date.now();
+  const rlList = (consentAttempts.get(rlIp) || []).filter(t => rlNow - t < CONSENT_RL_WINDOW);
+  if (rlList.length >= CONSENT_RL_MAX) {
+    return new Response('Zu viele Anfragen', { status: 429 });
+  }
+  rlList.push(rlNow);
+  consentAttempts.set(rlIp, rlList);
 
   let body = {};
   try { body = await req.json(); } catch (_) {}
