@@ -2927,6 +2927,7 @@
     <button class="etg-chat-close" onclick="etgToggleChat()">✕</button>
   </div>
   <div id="etg-chat-messages"></div>
+  <div id="etg-turnstile" style="padding:6px 16px 0;"></div>
   <div class="etg-chat-input-row">
     <textarea id="etg-chat-input" rows="1" placeholder="Wie kann ich dir helfen?"
       onkeydown="if(event.key==='Enter'&&!event.shiftKey){event.preventDefault();etgSend()}"></textarea>
@@ -2936,13 +2937,30 @@
   </div>
 </div>
 
+<script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
 <script>
 (function() {
   const API = '/.netlify/functions/chat-proxy';
+  const TURNSTILE_SITEKEY = '0x4AAAAAADthcrO5w7ZvZaO9';
+  let cfWidgetId = null;
   let sessionId = '';
   let history = [];
   let isOpen = false;
   let greeted = false;
+
+  // M-06: Bot-Schutz für den Support-Chat. Rendert das Turnstile-Widget beim
+  // Öffnen des Chats (Managed-Modus, für echte Besucher meist unsichtbar).
+  function etgRenderTurnstile() {
+    if (cfWidgetId !== null) return;
+    if (!window.turnstile || !window.turnstile.render) { setTimeout(etgRenderTurnstile, 300); return; }
+    try {
+      cfWidgetId = window.turnstile.render('#etg-turnstile', {
+        sitekey: TURNSTILE_SITEKEY,
+        theme: 'dark',
+        size: 'flexible',
+      });
+    } catch (e) { /* bereits gerendert */ }
+  }
 
   const QUICK_REPLIES = [
     { label: '🔑 Login Problem',      msg: 'Ich kann mich nicht einloggen' },
@@ -2983,6 +3001,7 @@
       etgShowQuickReplies();
       document.getElementById('etg-chat-input').focus();
     }
+    if (isOpen) etgRenderTurnstile();
   };
 
   window.etgSend = async function() {
@@ -2997,11 +3016,13 @@
 
     const typingId = etgAddMsg('bot', '...', 'typing');
 
+    const cfToken = (window.turnstile && cfWidgetId !== null) ? window.turnstile.getResponse(cfWidgetId) : '';
+
     try {
       const res = await fetch(API, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ message: msg, session_id: sessionId, history }),
+        body: JSON.stringify({ message: msg, session_id: sessionId, history, cf_token: cfToken }),
       });
       const data = await res.json();
       if (data.session_id) sessionId = data.session_id;
@@ -3015,6 +3036,7 @@
     } finally {
       sendBtn.disabled = false;
       input.focus();
+      if (window.turnstile && cfWidgetId !== null) { try { window.turnstile.reset(cfWidgetId); } catch(e){} }
     }
   };
 
