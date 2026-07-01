@@ -62,44 +62,14 @@ exports.handler = async function(event) {
     };
   }
 
-  // M-06: Body parsen (für Turnstile-Token-Prüfung + Weiterleitung ohne Token)
-  let payload = {};
-  try { payload = JSON.parse(event.body || '{}'); } catch (_) {}
-
-  // Cloudflare-Turnstile verifizieren. Fail-open: solange TURNSTILE_SECRET_KEY
-  // nicht gesetzt ist, läuft der Chat unverändert weiter (Schutz aktiviert sich,
-  // sobald der Secret Key in den Netlify-Env-Vars hinterlegt ist).
-  const TURNSTILE_SECRET = process.env.TURNSTILE_SECRET_KEY;
-  if (TURNSTILE_SECRET) {
-    try {
-      const verifyRes = await fetch('https://challenges.cloudflare.com/turnstile/v0/siteverify', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-        body: new URLSearchParams({
-          secret: TURNSTILE_SECRET,
-          response: payload.cf_token || '',
-          remoteip: ip
-        })
-      });
-      const verify = await verifyRes.json();
-      if (!verify.success) {
-        return {
-          statusCode: 403,
-          body: JSON.stringify({ error: 'Bitte bestätige, dass du kein Bot bist, und lade die Seite neu.' })
-        };
-      }
-    } catch (_) {
-      // Verifizierungs-Dienst nicht erreichbar → Chat nicht hart blocken
-    }
-  }
-  // Token nicht ans Backend weiterreichen
-  delete payload.cf_token;
-
+  // M-06: Turnstile-Token (cf_token) wird unverändert ans Backend durchgereicht;
+  // die Verifizierung passiert in Railway (/chat/support), damit der Secret Key
+  // dort in den Env-Vars liegt (nicht auf Netlify).
   try {
     const response = await fetch('https://velvet-creator-app-production.up.railway.app/chat/support', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify(payload)
+      body: event.body
     });
 
     const data = await response.json();
