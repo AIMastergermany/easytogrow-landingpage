@@ -1,0 +1,28 @@
+# EasyToGrow (ETG)
+
+> EasyToGrow ist eine Creator-Suite aus Deutschland: der digitale Twin (das
+> „ETG-Gehirn") beantwortet Fan-Nachrichten in der echten Stimme des Creators,
+> erstellt Content-Pläne, Traffic-Posts und Strategien — auf bis zu 10 Plattformen.
+> Flat-Rate-Abos ohne Revenue Share.
+
+## Was ist EasyToGrow
+- Digitaler Twin pro Creator: eine „Charakter-Bibel" hält Stil, Tonalität, Angebote und No-Gos fest; Antworten klingen wie der Creator selbst, nicht generisch.
+- Funktionen: Fan-Antworten, Content-Pläne, Traffic-Posts, Strategie-Analysen, Bibel-Erstellung per Fragebogen, TriggerFlow (regelbasierte Auto-Antworten für Instagram/Facebook/Threads).
+- Plattformen: Instagram, TikTok, Facebook, Threads, OnlyFans, Fansly, Fanvue, Reddit, Telegram, Twitter/X.
+- Optionales Komfort-Add-on: Browser-Erweiterung für Chrome, Firefox und Safari (die App selbst braucht keinen Download — Progressive Web App).
+- Daten in der EU, verschlüsselte Speicherung; DSGVO-konform inkl. Auftragsverarbeitungsvertrag (Art. 28).
+
+## Preise
+- Starter 39 €/Monat, Pro 79 €/Monat, Business 149 €/Monat. Adult-Modul +10 €/Monat.
+- Credit-basierte Nutzung (z. B. Fan-Antwort 1 Credit, Übersetzung 0). Top-Ups verfügbar.
+- Kein Gratis-Test; Abos monatlich kündbar.
+
+## ETG-Produktfamilie
+- ETG ChatterHub — Operations-Cockpit für Creator-Agenturen (Unified Inbox, Fan-CRM, Live-Sales): https://etg-chatterhub.de
+- ETG Podcast & Cut — native Mac-App fürs Produktions- und Live-Studio: https://etg-podcast.de
+
+## Links
+- Website: https://easytogrowki.de
+- App: https://app.easytogrowki.de
+- Impressum: https://easytogrowki.de/impressum
+- Datenschutz: https://easytogrowki.de/datenschutz
