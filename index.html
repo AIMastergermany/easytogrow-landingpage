@@ -996,9 +996,38 @@
           Dein digitaler Creator-Zwilling — entwickelt in Deutschland
         </div>
         <h1 class="hero-title">
-          <span style="display:block;white-space:nowrap;">Mehr Umsatz im Chat.</span>
-          <span class="gradient-text">Mit deinem Twin.</span>
+          <span id="hero-l1" style="display:block;transition:opacity .4s ease;">Mehr Umsatz im Chat.</span>
+          <span id="hero-l2" class="gradient-text" style="transition:opacity .4s ease;">Mit deinem Twin.</span>
         </h1>
+        <script>
+        /* Hero-Rotation: 5 Nutzen-Hooks, sanftes Fade ~4s. Respektiert prefers-reduced-motion.
+           Erster Slide steht im HTML (SEO/kein Flash). Rein additiv, kein Layout-Umbau. */
+        (function () {
+          var slides = [
+            ['Mehr Umsatz im Chat.', 'Mit deinem Twin.'],
+            ['Klingt wie du.', 'Nicht wie ein Bot.'],
+            ['Kein Revenue Share.', '100 % bleibt bei dir.'],
+            ['10× schneller im Chat.', 'Ohne Mehraufwand.'],
+            ['Ein Tool, 10 Plattformen.', 'Alles in deinem Ton.']
+          ];
+          var l1 = document.getElementById('hero-l1');
+          var l2 = document.getElementById('hero-l2');
+          if (!l1 || !l2) return;
+          if (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+          var i = 0;
+          setInterval(function () {
+            l1.style.opacity = '0';
+            l2.style.opacity = '0';
+            setTimeout(function () {
+              i = (i + 1) % slides.length;
+              l1.textContent = slides[i][0];
+              l2.textContent = slides[i][1];
+              l1.style.opacity = '1';
+              l2.style.opacity = '1';
+            }, 400);
+          }, 4000);
+        })();
+        </script>
         <p style="font-size:1.25rem;font-weight:700;color:var(--green-light);margin-bottom:10px;letter-spacing:-0.01em;">
           Dein digitaler Twin kennt deine Tonalität, deine Angebote und deine Fans — und macht aus Reichweite echten Umsatz.
         </p>
