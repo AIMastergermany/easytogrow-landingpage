@@ -1,5 +1,7 @@
 [build]
-  publish = "."
+  # Nur gebaute Website-Assets ausliefern. Serverless-Quellcode (netlify/functions),
+  # package.json etc. liegen bewusst AUSSERHALB von public/ und sind damit nicht abrufbar.
+  publish = "public"
 
 [functions]
   directory = "netlify/functions"
