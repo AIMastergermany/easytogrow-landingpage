@@ -791,6 +791,36 @@
     .footer-legal { display: flex; gap: 20px; }
     .footer-legal a { color: var(--text-dim); text-decoration: none; }
     .footer-legal a:hover { color: var(--text-muted); }
+    /* ═══ ETG Family-Block (zentraler Familien-Standard, Quelle: family.json — nicht lokal ändern) ═══ */
+    .family-block { margin-top: 56px; padding-top: 40px; border-top: 1px solid var(--border); }
+    .family-pill {
+      display: inline-block; font-size: 0.72rem; font-weight: 600; letter-spacing: 0.14em;
+      text-transform: uppercase; color: var(--green); background: var(--green-glow);
+      border: 1px solid var(--border-green); padding: 4px 12px; border-radius: 999px; margin-bottom: 10px;
+    }
+    .family-title { font-size: 1.15rem; font-weight: 700; letter-spacing: -0.01em; margin-bottom: 6px; }
+    .family-sub { font-size: 0.9rem; color: var(--text-muted); max-width: 62ch; margin-bottom: 24px; }
+    .family-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; }
+    .family-tile {
+      display: flex; flex-direction: column; gap: 12px; position: relative;
+      background: var(--bg2); border: 1px solid var(--border); border-radius: var(--radius);
+      padding: 18px; text-decoration: none; color: var(--text);
+      transition: transform 0.18s ease, border-color 0.18s ease;
+    }
+    a.family-tile:hover { transform: translateY(-3px); border-color: var(--border-green); }
+    .family-tile img { width: 56px; height: 56px; border-radius: 13px; border: 1px solid var(--border); display: block; }
+    .family-name { font-weight: 700; font-size: 0.95rem; }
+    .family-line { font-size: 0.8rem; color: var(--text-muted); line-height: 1.45; flex-grow: 1; }
+    .family-meta { display: flex; align-items: center; justify-content: space-between; font-size: 0.78rem; color: var(--text-dim); }
+    a.family-tile .family-go { color: var(--green); font-weight: 600; }
+    .family-soon { opacity: 0.6; border-style: dashed; cursor: default; }
+    .family-badge {
+      position: absolute; top: 12px; right: 12px; font-size: 0.66rem; font-weight: 600;
+      letter-spacing: 0.08em; text-transform: uppercase; color: var(--amber);
+      background: rgba(245,158,11,0.12); border: 1px solid rgba(245,158,11,0.3);
+      padding: 2px 8px; border-radius: 999px;
+    }
+    @media (prefers-reduced-motion: reduce) { .family-tile { transition: none; } }
 
     /* ──────────────────────────────────────────
        MODULES
@@ -925,6 +955,7 @@
       .hero-visual { display: none; }
       .revenue-inner { grid-template-columns: 1fr; }
       .footer-grid { grid-template-columns: 1fr 1fr; }
+      .family-grid { grid-template-columns: 1fr 1fr; }
     }
     @media (max-width: 768px) {
       section { padding: 64px 0; }
@@ -941,6 +972,7 @@
       nav .nav-links, nav .nav-right .btn { display: none; }
       .hamburger { display: flex; }
       .footer-grid { grid-template-columns: 1fr; gap: 32px; }
+      .family-grid { grid-template-columns: 1fr; }
       .footer-bottom { flex-direction: column; text-align: center; }
     }
     @media (max-width: 480px) {
@@ -2681,8 +2713,6 @@
           <li><a href="#pricing">Preise</a></li>
           <li><a href="#comparison">Vergleich</a></li>
           <li><a href="#faq">FAQ</a></li>
-          <li><a href="https://etg-chatterhub.de" target="_blank" rel="noopener">ETG ChatterHub — Agentur-Cockpit</a></li>
-          <li><a href="https://etg-podcast.de" target="_blank" rel="noopener">ETG Podcast&amp;Cut — Mac-Studio</a></li>
         </ul>
       </div>
       <div class="footer-col">
@@ -2711,6 +2741,40 @@
           <li><a href="data-deletion.html">Datenlöschung</a></li>
           <li><a href="kuendigung.html" style="color:#ef4444">Abo kündigen</a></li>
         </ul>
+      </div>
+    </div>
+    <!-- ═══ ETG Family — zentraler Familien-Standard. Quelle: ETG_Family_Vernetzung/family.json (Version 2026-07-23.2). NICHT lokal ändern. ═══ -->
+    <div class="family-block">
+      <span class="family-pill">ETG Family</span>
+      <div class="family-title">Eine Familie. Eine Rakete. Deine Marke.</div>
+      <p class="family-sub">Jedes Werkzeug läuft für sich — zusammen sind sie ein komplettes Creator-Business.</p>
+      <div class="family-grid">
+        <a class="family-tile" href="https://etg-chatterhub.de" target="_blank" rel="noopener">
+          <img src="family/chatterhub.png" alt="ETG ChatterHub Logo" width="56" height="56" loading="lazy">
+          <span class="family-name">ETG ChatterHub</span>
+          <span class="family-line">Das Sales-Cockpit für Agenturen — Chat, Fans und Verkäufe an einem Ort.</span>
+          <span class="family-meta"><span>49 €/Monat</span><span class="family-go">Ansehen →</span></span>
+        </a>
+        <a class="family-tile" href="https://etg-podcast.de" target="_blank" rel="noopener">
+          <img src="family/podcast.png" alt="ETG Podcast &amp; Cut Logo" width="56" height="56" loading="lazy">
+          <span class="family-name">ETG Podcast &amp; Cut</span>
+          <span class="family-line">Aufnehmen, automatisch schneiden, live gehen — komplett lokal auf deinem Mac.</span>
+          <span class="family-meta"><span>29,90 €/Monat</span><span class="family-go">Ansehen →</span></span>
+        </a>
+        <div class="family-tile family-soon">
+          <span class="family-badge">Bald verfügbar</span>
+          <img src="family/video.png" alt="ETG Video Logo" width="56" height="56" loading="lazy">
+          <span class="family-name">ETG Video</span>
+          <span class="family-line">Werbematerial aus deinen eigenen Unterlagen — Baustein für Baustein.</span>
+          <span class="family-meta"><span>ab 14,90 €/Monat</span></span>
+        </div>
+        <div class="family-tile family-soon">
+          <span class="family-badge">Bald verfügbar</span>
+          <img src="family/intelligence.png" alt="ETG Intelligence Logo" width="56" height="56" loading="lazy">
+          <span class="family-name">ETG Intelligence</span>
+          <span class="family-line">Der Strategie-Layer für Agenturen — auswerten, verstehen, wachsen.</span>
+          <span class="family-meta"><span>Business-Klasse</span></span>
+        </div>
       </div>
     </div>
     <div class="footer-bottom">
