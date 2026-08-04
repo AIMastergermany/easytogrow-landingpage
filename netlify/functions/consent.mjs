@@ -91,8 +91,14 @@ export default async (req, context) => {
     console.error('consent blob store failed:', e && e.message);
   }
 
-  // Zusätzliche, durchsuchbare Spur in den Function-Logs.
-  console.log('WIDERRUF_CONSENT', JSON.stringify({ ...record, stored }));
+  // Durchsuchbare Spur in den Function-Logs — Modul L (Log-Hygiene):
+  // bewusst OHNE IP, User-Agent und Consent-Volltext; die vollständigen,
+  // signierten Nachweisdaten liegen ausschließlich im Blob (3 Jahre, Modul G).
+  console.log('WIDERRUF_CONSENT', JSON.stringify({
+    id: record.id, serverTs: record.serverTs, product: record.product,
+    planKey: record.planKey, textVersion: record.textVersion,
+    signed: !!record.sig, stored,
+  }));
 
   return Response.json({ ok: true, id, stored, signed: !!record.sig });
 };
