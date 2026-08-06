@@ -18,3 +18,6 @@ Marketing-Landingpage der ETG-Kern-App „EasyToGrow" (der digitale Twin). Stati
 
 ## Family-Fakten ändern?
 Preis/Domain/Produktname eines Familienmitglieds → **nicht hier**, sondern in `family.json` (zentral) melden; Footer + alle Bots ziehen zentral nach.
+
+## ⚖️ Parallel-Stand 06.08.2026 — Kanzlei-Endfassung (NICHT zurückbauen)
+Ein paralleler Chat hat am 06.08.2026 die Kanzlei-Endfassung des Rechtscheck-Nachtrags umgesetzt — auch in diesem Repo (Git-Tag `rechtscheck-endfassung-2026-08-06`). Betroffen: Checkout-/Consent-Texte (CONSENT_VERSION 2026-08), AGB-Laufzeitklauseln, Widerrufsbelehrung, neue Seite „Vertrag widerrufen" (§ 356a, zentraler Endpoint /public/widerruf im ETG-Backend), Footer-Links. **Diese Texte sind verbindliche Kanzlei-Wortlaute — wortgleich lassen, Seiten nicht entfernen, Version nicht ändern.** Vor jeder Arbeit: `git fetch` + `git log`. Gesamtdoku: `~/Desktop/ETG_Familie/Compliance/UEBERGABE_Rechtscheck_2026-08-06.md`.
