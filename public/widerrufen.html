@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Vertrag widerrufen – EasyToGrow</title>
+  <meta name="robots" content="noindex, nofollow">
+  <link rel="icon" type="image/png" href="logo.png">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root { --bg: #0a0f0d; --text: #f0f4f1; --text-muted: #8a9e8d; --text-dim: #4a5e4d; --green: #22c55e; --red: #ef4444; --border: #1e2e20; }
+    body { background: var(--bg); color: var(--text); font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; line-height: 1.75; }
+    nav { position: sticky; top: 0; z-index: 100; background: rgba(10,15,13,0.95); backdrop-filter: blur(12px); border-bottom: 1px solid var(--border); padding: 0 24px; height: 64px; display: flex; align-items: center; justify-content: space-between; }
+    .nav-brand { display: flex; align-items: center; gap: 10px; text-decoration: none; }
+    .nav-brand img { width: 32px; height: 32px; }
+    .nav-brand span { font-weight: 700; color: var(--text); font-size: 1rem; }
+    .nav-back { color: var(--text-muted); text-decoration: none; font-size: 0.9rem; }
+    .container { max-width: 640px; margin: 0 auto; padding: 64px 24px 96px; }
+    .page-label { font-size: 0.72rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--green); margin-bottom: 12px; }
+    h1 { font-size: 2rem; font-weight: 800; margin-bottom: 12px; }
+    .subtitle { color: var(--text-muted); font-size: 0.9rem; margin-bottom: 32px; }
+    p, li, label { color: var(--text-muted); font-size: 0.93rem; }
+    a { color: var(--green); }
+    label { display: block; font-weight: 600; margin-bottom: 6px; color: var(--text); }
+    input, select { width: 100%; padding: 10px 12px; border-radius: 8px; border: 1px solid var(--border); background: rgba(255,255,255,0.05); color: var(--text); font: inherit; margin-bottom: 16px; }
+    .confirm { display: none; border: 1px solid rgba(239,68,68,0.5); border-radius: 10px; padding: 14px 16px; margin-bottom: 16px; }
+    .confirm.show { display: block; }
+    .btn { padding: 12px 18px; border-radius: 10px; border: none; font: inherit; font-weight: 700; cursor: pointer; }
+    .btn-next { background: rgba(255,255,255,0.12); color: var(--text); }
+    .btn-submit { display: none; background: var(--red); color: #fff; }
+    .btn-submit.show { display: inline-block; }
+    .success { display: none; border: 1px solid rgba(34,197,94,0.5); border-radius: 10px; padding: 18px; }
+    .success.show { display: block; }
+    .footer-note { display: block; margin-top: 48px; font-size: 0.8rem; color: var(--text-dim); }
+  </style>
+</head>
+<body>
+<nav>
+  <a class="nav-brand" href="index.html"><img src="logo.png" alt="EasyToGrow"><span>EasyToGrow</span></a>
+  <a class="nav-back" href="index.html">← Zurück zur Startseite</a>
+</nav>
+<div class="container">
+  <div class="page-label">Widerruf</div>
+  <h1>Vertrag widerrufen</h1>
+  <p class="subtitle">Elektronische Widerrufsfunktion gemäß § 356a BGB. Du erhältst unverzüglich eine Eingangsbestätigung per E-Mail.</p>
+
+  <div class="success" id="wSuccess">
+    <h2>✅ Widerruf eingegangen</h2>
+    <p>Wir haben deine Widerrufserklärung erhalten. Die Eingangsbestätigung mit Datum und Uhrzeit ist unterwegs an deine E-Mail-Adresse. Wir prüfen den Widerruf und melden uns umgehend zur Abwicklung.</p>
+  </div>
+
+  <form id="wForm">
+    <label for="wname">Vollständiger Name *</label>
+    <input type="text" id="wname" placeholder="Dein Name" required>
+    <label for="wemail">E-Mail-Adresse (für die Eingangsbestätigung) *</label>
+    <input type="email" id="wemail" placeholder="deine@email.de" required>
+    <label for="wvertrag">Vertrag / Bestellung *</label>
+    <select id="wvertrag" required>
+      <option value="" disabled selected>Bitte auswählen …</option>
+      <option>EasyToGrow-Abo (Monat)</option>
+      <option>EasyToGrow-Abo (Jahr)</option>
+      <option>Top-up / Credit-Paket</option>
+      <option>Intelligence-Add-on</option>
+    </select>
+
+    <div class="confirm" id="wConfirm">
+      <p>Du widerrufst folgenden Vertrag:</p>
+      <p><strong id="cN">–</strong> · <strong id="cE">–</strong><br>Vertrag: <strong id="cV">–</strong></p>
+    </div>
+
+    <button type="button" class="btn btn-next" id="wNext">Vertrag widerrufen</button>
+    <button type="submit" class="btn btn-submit" id="wSubmit">Widerruf bestätigen</button>
+  </form>
+
+  <span class="footer-note">Alternativ: formlose Erklärung an <a href="mailto:easytogrow@gmx.de">easytogrow@gmx.de</a> · <a href="widerruf.html">Widerrufsbelehrung</a></span>
+</div>
+<script>
+  document.getElementById('wNext').addEventListener('click', function () {
+    var n = document.getElementById('wname').value.trim();
+    var e = document.getElementById('wemail').value.trim();
+    var v = document.getElementById('wvertrag').value;
+    if (!n || !e || !v) { alert('Bitte fülle alle Felder aus.'); return; }
+    document.getElementById('cN').textContent = n;
+    document.getElementById('cE').textContent = e;
+    document.getElementById('cV').textContent = v;
+    document.getElementById('wConfirm').classList.add('show');
+    this.style.display = 'none';
+    document.getElementById('wSubmit').classList.add('show');
+  });
+  document.getElementById('wForm').addEventListener('submit', function (ev) {
+    ev.preventDefault();
+    var form = this;
+    fetch('https://velvet-creator-app-production.up.railway.app/public/widerruf', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        produkt: 'EasyToGrow',
+        name: document.getElementById('wname').value.trim(),
+        email: document.getElementById('wemail').value.trim(),
+        vertrag: document.getElementById('wvertrag').value
+      })
+    })
+      .then(function (r) { return r.json(); })
+      .then(function (j) {
+        if (!j.ok) throw new Error('send');
+        form.style.display = 'none';
+        document.getElementById('wSuccess').classList.add('show');
+      })
+      .catch(function () { alert('Fehler beim Senden. Bitte erkläre den Widerruf direkt per E-Mail: easytogrow@gmx.de'); });
+  });
+</script>
+</body>
+</html>
