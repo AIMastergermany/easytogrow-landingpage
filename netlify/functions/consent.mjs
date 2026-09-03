@@ -28,7 +28,10 @@ export default async (req, context) => {
   if (reqOrigin) {
     let originOk = false;
     try {
-      originOk = ['easytogrowki.de', 'www.easytogrowki.de'].includes(new URL(reqOrigin).hostname);
+      // app.easytogrowki.de: App-Käufe docken laut Auftrag 30.06. an dieses
+      // Nachweis-System an (sendBeacon aus dem Upgrade-Modal). Ohne den Eintrag
+      // lief jeder App-Kauf-Nachweis in 403 (Audit 03.09., H6).
+      originOk = ['easytogrowki.de', 'www.easytogrowki.de', 'app.easytogrowki.de'].includes(new URL(reqOrigin).hostname);
     } catch (_) {}
     if (!originOk) {
       return new Response('Forbidden', { status: 403 });
