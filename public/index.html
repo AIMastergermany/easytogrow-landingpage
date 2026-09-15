@@ -1054,6 +1054,21 @@
           var l2 = document.getElementById('hero-l2');
           if (!l1 || !l2) return;
           if (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+          // Layout-Shift-Fix: Hoehe des groessten Hooks reservieren, damit der 4s-Textwechsel
+          // die Seite nicht springen laesst (laengere Hooks brechen auf Desktop auf 1 Zeile mehr um).
+          var heroH1 = l1.closest('.hero-title') || l1.parentElement;
+          function sizeHero() {
+            heroH1.style.minHeight = '';
+            var save = [l1.textContent, l2.textContent], max = 0;
+            for (var k = 0; k < slides.length; k++) {
+              l1.textContent = slides[k][0]; l2.textContent = slides[k][1];
+              var h = heroH1.getBoundingClientRect().height; if (h > max) max = h;
+            }
+            l1.textContent = save[0]; l2.textContent = save[1];
+            heroH1.style.minHeight = Math.ceil(max) + 'px';
+          }
+          sizeHero();
+          var _hrt; window.addEventListener('resize', function () { clearTimeout(_hrt); _hrt = setTimeout(sizeHero, 150); });
           var i = 0;
           setInterval(function () {
             l1.style.opacity = '0';
