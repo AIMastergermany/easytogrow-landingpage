@@ -38,8 +38,9 @@
   {
     "@context": "https://schema.org",
     "@type": "SoftwareApplication",
-    "name": "EasyToGrow",
-    "alternateName": "EasyToGrowKI",
+    "@id": "https://easytogrowki.de/#app",
+    "name": "ETG Easy to Grow",
+    "alternateName": ["EasyToGrow", "EasyToGrowKI"],
     "description": "KI-gestützte Creator Management Suite. Beantwortet Fan-Nachrichten, generiert Content und entwickelt Strategie für 10 Plattformen: OnlyFans, Fansly, Fanvue, Instagram, TikTok, Telegram, Reddit, Threads, Twitter/X, Facebook. DACH-First, EU AI Act konform.",
     "url": "https://easytogrowki.de",
     "applicationCategory": "BusinessApplication",
@@ -1249,211 +1250,51 @@
 ═══════════════════════════════════════════ -->
 <section id="testimonials" style="padding:100px 0;background:var(--bg);">
   <style>
-    .ts-slider-wrap{position:relative;overflow:hidden;}
-    .ts-track{display:flex;transition:transform 0.4s ease;}
-    .ts-track .ts-card{flex-shrink:0;margin-right:24px;background:var(--bg3);border:1px solid rgba(34,197,94,0.28);border-radius:var(--radius-lg);padding:32px;display:flex;flex-direction:column;gap:20px;position:relative;transition:border-color 0.3s,box-shadow 0.3s;opacity:1;}
-    .ts-track .ts-card:hover{opacity:1 !important;transform:none !important;}
-    .ts-track .ts-card.active{border:2px solid rgba(34,197,94,0.6);box-shadow:0 0 24px rgba(34,197,94,0.18);}
-    .ts-nav-row{display:flex;align-items:center;gap:16px;margin-top:24px;justify-content:center;}
-    .ts-arrow{width:48px;height:48px;border-radius:50%;background:var(--bg3);border:2px solid var(--green);color:#fff;font-size:1.3rem;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:all 0.2s;flex-shrink:0;}
-    .ts-arrow:hover{background:var(--green);color:#000;}
-    .ts-dots{display:flex;gap:8px;}
-    .ts-dot{width:10px;height:10px;border-radius:50%;background:var(--bg4);border:1px solid var(--border);cursor:pointer;transition:all 0.2s;}
-    .ts-dot.active{background:var(--green);border-color:var(--green);}
+    .ts-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:24px;align-items:stretch;}
+    .ts-grid .ts-card{background:var(--bg3);border:1px solid rgba(34,197,94,0.28);border-radius:var(--radius-lg);padding:32px;display:flex;flex-direction:column;gap:18px;position:relative;}
+    .ts-grid .ts-card blockquote{margin:0;color:var(--text);font-size:0.97rem;line-height:1.75;font-style:italic;}
+    .ts-grid .ts-qmark{font-size:3rem;color:var(--green);opacity:0.25;position:absolute;top:16px;right:20px;line-height:1;font-family:Georgia,serif;}
+    .ts-grid .ts-card cite{border-top:1px solid var(--border);padding-top:16px;color:var(--text);font-weight:700;font-size:0.9rem;font-style:normal;}
   </style>
   <div class="container">
     <div class="section-header fade-in">
-      <div class="section-label">Echte Creator. Echte Ergebnisse.</div>
-      <h2>Das sagen Creator<br><span class="gradient-text">über EasyToGrow</span></h2>
-      <p style="margin-top:12px;">Für Adult und Non-Adult Creator — Chat, Content, Strategie &amp; Redaktionsplan in einem System.</p>
+      <h2>Das sagen Nutzer<br><span class="gradient-text">über ETG Easy to Grow</span></h2>
+      <p style="margin-top:12px;">Auszüge aus dem Feedback unserer Nutzer.</p>
     </div>
-    <div class="ts-slider-wrap fade-in">
-      <div class="ts-track" id="ts-track">
+    <div class="ts-grid fade-in">
 
-        <!-- 1. Sarah L. -->
-        <div class="ts-card">
-          <div style="font-size:3rem;color:var(--green);opacity:0.25;position:absolute;top:16px;right:20px;line-height:1;font-family:Georgia,serif;">"</div>
-          <p style="color:var(--text);font-size:0.97rem;line-height:1.75;font-style:italic;margin:0;">„Ich war skeptisch. Aber nach dem ersten Monat hatte ich <strong>1.200€ mehr Umsatz</strong> als im Vormonat. Einfach weil jede Antwort jetzt sitzt."</p>
-          <div style="border-top:1px solid var(--border);padding-top:16px;display:flex;align-items:center;gap:12px;">
-            <div style="width:40px;height:40px;border-radius:50%;background:linear-gradient(135deg,#22c55e,#16a34a);display:flex;align-items:center;justify-content:center;font-size:1.1rem;flex-shrink:0;">💰</div>
-            <div><div style="color:var(--text);font-weight:700;font-size:0.9rem;">Sarah L.</div><div style="color:var(--text-muted);font-size:0.78rem;">OnlyFans Creator · Berlin</div></div>
-            <div style="margin-left:auto;font-size:0.72rem;font-weight:700;color:var(--green);background:var(--green-glow);border:1px solid var(--border-green);padding:3px 10px;border-radius:100px;white-space:nowrap;">+1.200€/Monat</div>
-          </div>
-        </div>
-
-        <!-- 2. Lisa M. -->
-        <div class="ts-card">
-          <div style="font-size:3rem;color:var(--green);opacity:0.25;position:absolute;top:16px;right:20px;line-height:1;font-family:Georgia,serif;">"</div>
-          <p style="color:var(--text);font-size:0.97rem;line-height:1.75;font-style:italic;margin:0;">„Die Fan-Nachricht erscheint automatisch in der App — ich klicke einmal und die Antwort ist fertig. Mein Rekord: <strong>47 DMs in 23 Minuten</strong> beantwortet. Auf Telegram hat mein Umsatz sich im ersten Monat verdoppelt."</p>
-          <div style="border-top:1px solid var(--border);padding-top:16px;display:flex;align-items:center;gap:12px;">
-            <div style="width:40px;height:40px;border-radius:50%;background:linear-gradient(135deg,#f97316,#ec4899);display:flex;align-items:center;justify-content:center;font-size:1.1rem;flex-shrink:0;">🔥</div>
-            <div><div style="color:var(--text);font-weight:700;font-size:0.9rem;">Lisa M.</div><div style="color:var(--text-muted);font-size:0.78rem;">OnlyFans & Telegram Creator · München</div></div>
-            <div style="margin-left:auto;font-size:0.72rem;font-weight:700;color:var(--green);background:var(--green-glow);border:1px solid var(--border-green);padding:3px 10px;border-radius:100px;white-space:nowrap;">+400€/Monat</div>
-          </div>
-        </div>
-
-        <!-- 3. Tom R. -->
-        <div class="ts-card">
-          <div style="font-size:3rem;color:var(--green);opacity:0.25;position:absolute;top:16px;right:20px;line-height:1;font-family:Georgia,serif;">"</div>
-          <p style="color:var(--text);font-size:0.97rem;line-height:1.75;font-style:italic;margin:0;">„Wir managen 8 Creator gleichzeitig. Früher brauchten wir dafür <strong>3 Leute</strong>. Heute macht das EasyToGrow — jeder Creator klingt anders, jede Antwort sitzt. Das ist der Unterschied zwischen Chaos und System."</p>
-          <div style="border-top:1px solid var(--border);padding-top:16px;display:flex;align-items:center;gap:12px;">
-            <div style="width:40px;height:40px;border-radius:50%;background:linear-gradient(135deg,#6366f1,#8b5cf6);display:flex;align-items:center;justify-content:center;font-size:1.1rem;flex-shrink:0;">🏢</div>
-            <div><div style="color:var(--text);font-weight:700;font-size:0.9rem;">Tom R.</div><div style="color:var(--text-muted);font-size:0.78rem;">Creator-Agentur · 8 Creator · Frankfurt</div></div>
-            <div style="margin-left:auto;font-size:0.72rem;font-weight:700;color:var(--green);background:var(--green-glow);border:1px solid var(--border-green);padding:3px 10px;border-radius:100px;white-space:nowrap;">8 Creator</div>
-          </div>
-        </div>
-
-        <!-- 4. Nina S. (NEU — Post-Generator) -->
-        <div class="ts-card">
-          <div style="font-size:3rem;color:var(--green);opacity:0.25;position:absolute;top:16px;right:20px;line-height:1;font-family:Georgia,serif;">"</div>
-          <p style="color:var(--text);font-size:0.97rem;line-height:1.75;font-style:italic;margin:0;">„Ich poste jetzt auf 6 Plattformen gleichzeitig — mit einem Klick. Der <strong>Post-Generator spart mir täglich 90 Minuten</strong>. Ich hätte nie gedacht dass eine KI wirklich meinen Humor trifft."</p>
-          <div style="border-top:1px solid var(--border);padding-top:16px;display:flex;align-items:center;gap:12px;">
-            <div style="width:40px;height:40px;border-radius:50%;background:linear-gradient(135deg,#f59e0b,#ef4444);display:flex;align-items:center;justify-content:center;font-size:1.1rem;flex-shrink:0;">🎬</div>
-            <div><div style="color:var(--text);font-weight:700;font-size:0.9rem;">Nina S.</div><div style="color:var(--text-muted);font-size:0.78rem;">Lifestyle Creator · YouTube & Instagram · Hamburg</div></div>
-            <div style="margin-left:auto;font-size:0.72rem;font-weight:700;color:var(--green);background:var(--green-glow);border:1px solid var(--border-green);padding:3px 10px;border-radius:100px;white-space:nowrap;">90 Min/Tag gespart</div>
-          </div>
-        </div>
-
-        <!-- 5. Kai M. (NEU — Strategie-Agent) -->
-        <div class="ts-card">
-          <div style="font-size:3rem;color:var(--green);opacity:0.25;position:absolute;top:16px;right:20px;line-height:1;font-family:Georgia,serif;">"</div>
-          <p style="color:var(--text);font-size:0.97rem;line-height:1.75;font-style:italic;margin:0;">„Der Strategie-Agent zeigt mir jede Woche wo ich wachsen kann. Ich folge einfach den Empfehlungen — mein Account ist in <strong>6 Wochen um 40% gewachsen</strong>. Das ist kein Zufall mehr, das ist System."</p>
-          <div style="border-top:1px solid var(--border);padding-top:16px;display:flex;align-items:center;gap:12px;">
-            <div style="width:40px;height:40px;border-radius:50%;background:linear-gradient(135deg,#3b82f6,#6366f1);display:flex;align-items:center;justify-content:center;font-size:1.1rem;flex-shrink:0;">💼</div>
-            <div><div style="color:var(--text);font-weight:700;font-size:0.9rem;">Kai M.</div><div style="color:var(--text-muted);font-size:0.78rem;">Business Creator · Threads & TikTok · München</div></div>
-            <div style="margin-left:auto;font-size:0.72rem;font-weight:700;color:var(--green);background:var(--green-glow);border:1px solid var(--border-green);padding:3px 10px;border-radius:100px;white-space:nowrap;">+40% Wachstum</div>
-          </div>
-        </div>
-
-        <!-- 6. Lena B. (NEU — Redaktionsplan) -->
-        <div class="ts-card">
-          <div style="font-size:3rem;color:var(--green);opacity:0.25;position:absolute;top:16px;right:20px;line-height:1;font-family:Georgia,serif;">"</div>
-          <p style="color:var(--text);font-size:0.97rem;line-height:1.75;font-style:italic;margin:0;">„Als Fitness-Creatorin dachte ich, das Tool ist nur für Adult. Falsch. Der Redaktionsplan füllt meinen Kalender automatisch — mein Engagement ist <strong>um 340% gestiegen</strong> seit dem ersten Monat."</p>
-          <div style="border-top:1px solid var(--border);padding-top:16px;display:flex;align-items:center;gap:12px;">
-            <div style="width:40px;height:40px;border-radius:50%;background:linear-gradient(135deg,#22c55e,#14b8a6);display:flex;align-items:center;justify-content:center;font-size:1.1rem;flex-shrink:0;">💪</div>
-            <div><div style="color:var(--text);font-weight:700;font-size:0.9rem;">Lena B.</div><div style="color:var(--text-muted);font-size:0.78rem;">Fitness & Health Creator · Instagram · Zürich</div></div>
-            <div style="margin-left:auto;font-size:0.72rem;font-weight:700;color:var(--green);background:var(--green-glow);border:1px solid var(--border-green);padding:3px 10px;border-radius:100px;white-space:nowrap;">+340% Engagement</div>
-          </div>
-        </div>
-
-        <!-- 7. Mia R. (NEU — Wochenplan) -->
-        <div class="ts-card">
-          <div style="font-size:3rem;color:var(--green);opacity:0.25;position:absolute;top:16px;right:20px;line-height:1;font-family:Georgia,serif;">"</div>
-          <p style="color:var(--text);font-size:0.97rem;line-height:1.75;font-style:italic;margin:0;">„Ich nutze EasyToGrow auf Fanvue und TikTok gleichzeitig. Der Wochenplan füllt beide Kanäle automatisch. <strong>In 8 Wochen hat sich mein Fanvue-Umsatz verdreifacht</strong> — ohne dass ich täglich darüber nachdenken muss."</p>
-          <div style="border-top:1px solid var(--border);padding-top:16px;display:flex;align-items:center;gap:12px;">
-            <div style="width:40px;height:40px;border-radius:50%;background:linear-gradient(135deg,#a855f7,#ec4899);display:flex;align-items:center;justify-content:center;font-size:1.1rem;flex-shrink:0;">✨</div>
-            <div><div style="color:var(--text);font-weight:700;font-size:0.9rem;">Mia R.</div><div style="color:var(--text-muted);font-size:0.78rem;">Fanvue & TikTok Creator · Wien</div></div>
-            <div style="margin-left:auto;font-size:0.72rem;font-weight:700;color:var(--green);background:var(--green-glow);border:1px solid var(--border-green);padding:3px 10px;border-radius:100px;white-space:nowrap;">3x Umsatz in 8 Wochen</div>
-          </div>
-        </div>
-
-        <!-- 8. Jana W. (umformuliert) -->
-        <div class="ts-card">
-          <div style="font-size:3rem;color:var(--green);opacity:0.25;position:absolute;top:16px;right:20px;line-height:1;font-family:Georgia,serif;">"</div>
-          <p style="color:var(--text);font-size:0.97rem;line-height:1.75;font-style:italic;margin:0;">„Revenue Share war für mich ein absolutes No-Go. Allein durch den Wechsel zu EasyToGrow spare ich <strong>320€ pro Monat</strong>. Das Abo hat sich am ersten Tag bezahlt — den Rest buche ich als Gewinn."</p>
-          <div style="border-top:1px solid var(--border);padding-top:16px;display:flex;align-items:center;gap:12px;">
-            <div style="width:40px;height:40px;border-radius:50%;background:linear-gradient(135deg,#a855f7,#ec4899);display:flex;align-items:center;justify-content:center;font-size:1.1rem;flex-shrink:0;">💜</div>
-            <div><div style="color:var(--text);font-weight:700;font-size:0.9rem;">Jana W.</div><div style="color:var(--text-muted);font-size:0.78rem;">Fansly Creator · Köln</div></div>
-            <div style="margin-left:auto;font-size:0.72rem;font-weight:700;color:var(--green);background:var(--green-glow);border:1px solid var(--border-green);padding:3px 10px;border-radius:100px;white-space:nowrap;">3.840€/Jahr gespart</div>
-          </div>
-        </div>
-
-        <!-- 9. Marco T. -->
-        <div class="ts-card">
-          <div style="font-size:3rem;color:var(--green);opacity:0.25;position:absolute;top:16px;right:20px;line-height:1;font-family:Georgia,serif;">"</div>
-          <p style="color:var(--text);font-size:0.97rem;line-height:1.75;font-style:italic;margin:0;">„Der Wochenplan hat mein Content-Leben komplett verändert. Ich öffne die App, sehe was heute dran ist, und poste. Kein Grübeln mehr. Ich verbringe jetzt <strong>2 Stunden weniger</strong> täglich am Handy."</p>
-          <div style="border-top:1px solid var(--border);padding-top:16px;display:flex;align-items:center;gap:12px;">
-            <div style="width:40px;height:40px;border-radius:50%;background:linear-gradient(135deg,#22c55e,#14b8a6);display:flex;align-items:center;justify-content:center;font-size:1.1rem;flex-shrink:0;">💪</div>
-            <div><div style="color:var(--text);font-weight:700;font-size:0.9rem;">Marco T.</div><div style="color:var(--text-muted);font-size:0.78rem;">Fitness Creator · Instagram, TikTok & Telegram · Hamburg</div></div>
-            <div style="margin-left:auto;font-size:0.72rem;font-weight:700;color:var(--green);background:var(--green-glow);border:1px solid var(--border-green);padding:3px 10px;border-radius:100px;white-space:nowrap;">2h/Tag gespart</div>
-          </div>
-        </div>
-
-        <!-- 10. Sophia K. -->
-        <div class="ts-card">
-          <div style="font-size:3rem;color:var(--green);opacity:0.25;position:absolute;top:16px;right:20px;line-height:1;font-family:Georgia,serif;">"</div>
-          <p style="color:var(--text);font-size:0.97rem;line-height:1.75;font-style:italic;margin:0;">„Meine Agentur dachte ich hätte einen Texter engagiert. Nein — das ist EasyToGrow. <strong>Jeder Post, jede DM klingt nach mir</strong> — nur konsistenter als ich es je war. Auf Twitter/X habe ich jetzt doppelt so viele bezahlte Abonnenten."</p>
-          <div style="border-top:1px solid var(--border);padding-top:16px;display:flex;align-items:center;gap:12px;">
-            <div style="width:40px;height:40px;border-radius:50%;background:linear-gradient(135deg,#f59e0b,#f97316);display:flex;align-items:center;justify-content:center;font-size:1.1rem;flex-shrink:0;">✨</div>
-            <div><div style="color:var(--text);font-weight:700;font-size:0.9rem;">Sophia K.</div><div style="color:var(--text-muted);font-size:0.78rem;">Beauty & Lifestyle · Twitter/X & Instagram · Berlin</div></div>
-            <div style="margin-left:auto;font-size:0.72rem;font-weight:700;color:var(--green);background:var(--green-glow);border:1px solid var(--border-green);padding:3px 10px;border-radius:100px;white-space:nowrap;">Authentisch ✓</div>
-          </div>
-        </div>
-
-        <!-- 11. Alex B. -->
-        <div class="ts-card">
-          <div style="font-size:3rem;color:var(--green);opacity:0.25;position:absolute;top:16px;right:20px;line-height:1;font-family:Georgia,serif;">"</div>
-          <p style="color:var(--text);font-size:0.97rem;line-height:1.75;font-style:italic;margin:0;">„Ich reise ständig und kann nicht immer tippen. Die App läuft auf dem iPhone, ich bestätige Antworten vom Pool aus. Meine Fans glauben, ich sitze immer am Schreibtisch. Das ist mein Geheimnis."</p>
-          <div style="border-top:1px solid var(--border);padding-top:16px;display:flex;align-items:center;gap:12px;">
-            <div style="width:40px;height:40px;border-radius:50%;background:linear-gradient(135deg,#14b8a6,#3b82f6);display:flex;align-items:center;justify-content:center;font-size:1.1rem;flex-shrink:0;">✈️</div>
-            <div><div style="color:var(--text);font-weight:700;font-size:0.9rem;">Alex B.</div><div style="color:var(--text-muted);font-size:0.78rem;">Travel & Lifestyle · TikTok & Instagram · Wien</div></div>
-            <div style="margin-left:auto;font-size:0.72rem;font-weight:700;color:var(--green);background:var(--green-glow);border:1px solid var(--border-green);padding:3px 10px;border-radius:100px;white-space:nowrap;">Mobil ✓</div>
-          </div>
-        </div>
-
+      <div class="ts-card">
+        <div class="ts-qmark" aria-hidden="true">&#8220;</div>
+        <blockquote>&#8222;Die App ist so unkompliziert &#8211; Nachricht reinkopieren, Twin antwortet in meinem Stil, und ich schick&#8217;s nur noch ab.&#8220;</blockquote>
+        <cite>Sophie M.</cite>
       </div>
-    </div>
-    <!-- Nav: Arrows + Dots -->
-    <div class="ts-nav-row">
-      <button class="ts-arrow" onclick="tsSlide(-1)">&#8592;</button>
-      <div class="ts-dots" id="ts-dots"></div>
-      <button class="ts-arrow" onclick="tsSlide(1)">&#8594;</button>
+
+      <div class="ts-card">
+        <div class="ts-qmark" aria-hidden="true">&#8220;</div>
+        <blockquote>&#8222;Das Handling ist super easy, die App l&auml;uft fl&uuml;ssig auf dem Handy und der digitale Twin klingt wirklich wie ich &#8211; nicht wie so ein generischer Bot.&#8220;</blockquote>
+        <cite>Jonas R.</cite>
+      </div>
+
+      <div class="ts-card">
+        <div class="ts-qmark" aria-hidden="true">&#8220;</div>
+        <blockquote>&#8222;Die M&ouml;glichkeiten sind richtig stark: Chat-Antworten, Content-Ideen, Redaktionsplan &#8211; alles in einer App. Und das Beste: Es f&uuml;hlt sich nicht kompliziert an.&#8220;</blockquote>
+        <cite>Lena K.</cite>
+      </div>
+
+      <div class="ts-card">
+        <div class="ts-qmark" aria-hidden="true">&#8220;</div>
+        <blockquote>&#8222;Besonders die Fan-Memory und der PPV-Indikator machen einen riesigen Unterschied. Ich hab das Gef&uuml;hl, endlich professioneller und effizienter zu arbeiten, ohne dass es k&uuml;nstlich wirkt.&#8220;</blockquote>
+        <cite>Marco T.</cite>
+      </div>
+
+      <div class="ts-card">
+        <div class="ts-qmark" aria-hidden="true">&#8220;</div>
+        <blockquote>&#8222;Die App ist einfach genial aufgebaut &#8211; &uuml;bersichtlich, schnell und man beh&auml;lt immer die Kontrolle.&#8220;</blockquote>
+        <cite>Anna S.</cite>
+      </div>
+
     </div>
   </div>
-  <script>
-  (function(){
-    const track = document.getElementById('ts-track');
-    const wrap = track.parentElement;
-    const cards = track.querySelectorAll('.ts-card');
-    const dotsWrap = document.getElementById('ts-dots');
-    const total = cards.length;
-    const gap = 24;
-    let idx = 0;
-    const isMobile = () => window.innerWidth <= 768;
-    const perView = () => isMobile() ? 1 : 3;
-    const maxIdx = () => Math.max(0, total - perView());
-
-    function sizeCards(){
-      const w = wrap.clientWidth;
-      const pv = perView();
-      const cardW = (w - gap * (pv - 1)) / pv;
-      cards.forEach(c => { c.style.width = cardW + 'px'; });
-    }
-
-    function buildDots(){
-      dotsWrap.innerHTML = '';
-      const pages = maxIdx() + 1;
-      for(let i = 0; i < pages; i++){
-        const d = document.createElement('div');
-        d.className = 'ts-dot' + (i === idx ? ' active' : '');
-        d.onclick = () => { idx = i; update(); };
-        dotsWrap.appendChild(d);
-      }
-    }
-
-    function update(){
-      if(idx > maxIdx()) idx = maxIdx();
-      if(idx < 0) idx = 0;
-      const cardW = cards[0].offsetWidth + gap;
-      track.style.transform = 'translateX(-' + (idx * cardW) + 'px)';
-      cards.forEach((c,i) => c.classList.toggle('active', i >= idx && i < idx + perView()));
-      dotsWrap.querySelectorAll('.ts-dot').forEach((d,i) => d.classList.toggle('active', i === idx));
-    }
-
-    window.tsSlide = function(dir){ idx += dir; update(); };
-    requestAnimationFrame(() => { sizeCards(); buildDots(); update(); });
-
-    // Touch/swipe support
-    let startX = 0;
-    track.addEventListener('touchstart', e => { startX = e.touches[0].clientX; }, {passive:true});
-    track.addEventListener('touchend', e => {
-      const diff = startX - e.changedTouches[0].clientX;
-      if(Math.abs(diff) > 50){ idx += diff > 0 ? 1 : -1; update(); }
-    }, {passive:true});
-
-    window.addEventListener('resize', () => { sizeCards(); buildDots(); update(); });
-  })();
-  </script>
 </section>
 <!-- ═══════════════════════════════════════════
      KOMPAKTER USP-BLOCK
